@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- META OFICIAL PAINEL YUNO 9.0 -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Painel YUNO IA • Configuração Avançada</title>
+    <meta name="description" content="Controla a personalidade, modelos, integrações e preferências da Yuno IA.">
+
+    <link rel="icon" href="ativos/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="ativos/css/style.css">
+    <link rel="stylesheet" href="ativos/css/style-yuno.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR TOP -->
+    <header class="navbar-top">
+        <div class="nav-left">
+            <a href="index.html" class="nav-logo">
+                <img src="ativos/img/logo-yuno-text.png" alt="Yuno Logo">
+            </a>
+        </div>
+
+        <nav class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="yuno-ia.html">Yuno IA</a>
+            <a href="painel-yuno-ia.html" class="active">Painel</a>
+        </nav>
+
+        <div class="nav-right">
+            <div class="nav-search-icon"></div>
+            <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE -->
+    <nav id="menu-mobile" class="mobile-menu">
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="yuno-ia.html">Yuno IA</a>
+        <a href="painel-yuno-ia.html" class="active">Painel</a>
+    </nav>
+
+    <!-- SIDE NAV -->
+    <div class="side-nav">
+        <a href="index.html">🏠</a>
+        <a href="yuno-ia.html">🤖</a>
+        <a href="planos.html">💎</a>
+        <a href="automacoes-ia.html">⚙️</a>
+        <a href="painel-yuno-ia.html" class="active">🧩</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="neon-strong">Painel de Controlo — YUNO IA</h1>
+        <p class="lead">Personaliza o comportamento da tua IA e controla todas as integrações.</p>
+    </section>
+
+    <!-- PAINEL PRINCIPAL -->
+    <section class="container painel-container">
+
+        <!-- PERSONALIDADE DA IA -->
+        <div class="painel-card">
+            <h3 class="neon-text">Personalidade da IA</h3>
+            <label>Tom de Voz</label>
+            <select class="input-select">
+                <option>Profissional</option>
+                <option>Amigável</option>
+                <option>Motivadora</option>
+                <option>Futurista</option>
+                <option>Personalizada</option>
+            </select>
+
+            <label>Temperatura (Criatividade)</label>
+            <input type="range" min="0" max="1" step="0.01">
+
+            <label>Estilo de Escrita</label>
+            <select class="input-select">
+                <option>Formal</option>
+                <option>Conversacional</option>
+                <option>Marketing</option>
+                <option>Técnico</option>
+            </select>
+        </div>
+
+        <!-- MODELOS IA -->
+        <div class="painel-card">
+            <h3 class="neon-text">Modelos da IA</h3>
+            <label>Modelo Principal</label>
+            <select class="input-select">
+                <option>YUNO-Core v1</option>
+                <option>YUNO-Advanced v2</option>
+                <option>YUNO-Extreme v3</option>
+            </select>
+
+            <label>Velocidade vs Qualidade</label>
+            <input type="range" min="1" max="10">
+        </div>
+
+        <!-- INTEGRAÇÕES -->
+        <div class="painel-card">
+            <h3 class="neon-text">Integrações</h3>
+
+            <label>Chave API (OpenAI/YUNO Engine)</label>
+            <input type="password" class="input-text" placeholder="sk-xxxxxx">
+
+            <label>Integração com Redes Sociais</label>
+            <select class="input-select">
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>TikTok</option>
+                <option>YouTube</option>
+                <option>Twitter (X)</option>
+            </select>
+        </div>
+
+        <!-- AUTOMAÇÕES ATIVAS -->
+        <div class="painel-card">
+            <h3 class="neon-text">Automações Ativas</h3>
+
+            <ul class="lista-automacoes">
+                <li>📤 Postagens automáticas — <span class="status on">Ativo</span></li>
+                <li>🧠 Aprendizagem contínua — <span class="status on">Ativo</span></li>
+                <li>💬 Respostas inteligentes — <span class="status off">Desligado</span></li>
+                <li>📊 Análises semanais — <span class="status on">Ativo</span></li>
+            </ul>
+        </div>
+
+        <!-- LOGS -->
+        <div class="painel-card painel-logs">
+            <h3 class="neon-text">Logs da IA</h3>
+            <div class="logs-box">
+                <p>[OK] IA iniciada com sucesso.</p>
+                <p>[INFO] Personalidade aplicada: Profissional.</p>
+                <p>[INFO] Automações carregadas.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="neon-title">Painel YUNO • Versão 9.0 Auditada</p>
+    </footer>
+
+    <script src="ativos/js/main.js"></script>
+    <script src="ativos/js/ui-effects.js"></script>
+</body>
+</html>

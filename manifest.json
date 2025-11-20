@@ -1,0 +1,50 @@
+{
+  "name": "YUNO IA - Automação & Assistente Inteligente",
+  "short_name": "YUNO",
+  "description": "A plataforma YUNO IA 9.0 oferece automações, criação de conteúdo, assistência inteligente, IA 3D, chatbot avançado e muito mais.",
+  "lang": "pt-PT",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0affff",
+  "background_color": "#000000",
+
+  "icons": [
+    {
+      "src": "/ativos/img/logos/logo-yuno-round.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ativos/img/logos/logo-yuno-round.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ativos/img/logos/favicon.png",
+      "sizes": "64x64 32x32 16x16",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+
+  "categories": [
+    "productivity",
+    "business",
+    "automation",
+    "ai",
+    "assistant",
+    "marketing"
+  ],
+
+  "screenshots": [
+    {
+      "src": "/ativos/img/hero-arena.png",
+      "sizes": "1080x720",
+      "type": "image/png"
+    }
+  ]
+}

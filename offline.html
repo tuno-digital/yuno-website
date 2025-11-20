@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUNO — Offline</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #030b17;
+            font-family: "Inter", sans-serif;
+            color: #dff8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .box {
+            max-width: 400px;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,243,255,0.4);
+            border-radius: 14px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 30px rgba(0,243,255,0.1);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #00eaff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .retry {
+            margin-top: 22px;
+            padding: 12px 22px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background: #00eaff;
+            color: #000814;
+            font-weight: 600;
+            box-shadow: 0 0 10px #00eaff;
+            transition: 0.25s ease;
+        }
+
+        .retry:hover {
+            box-shadow: 0 0 20px #00eaff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Estás Offline</h1>
+        <p>A YUNO não conseguiu ligar-se à Internet.<br>
+        Por favor verifica a tua ligação.</p>
+        <button class="retry" onclick="location.reload()">Tentar Novamente</button>
+    </div>
+</body>
+</html>

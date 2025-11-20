@@ -1,0 +1,46 @@
+{
+  "templates": [
+    {
+      "id": "boas_vindas",
+      "titulo": "Bem-vindo à Yuno!",
+      "descricao": "Email enviado automaticamente quando um novo utilizador cria conta.",
+      "assunto": "Bem-vindo à Yuno — A tua jornada com IA começou!",
+      "html": "<h1>Bem-vindo à Yuno 🚀</h1><p>Olá {{nome}}, obrigado por juntares-te à Yuno! A tua conta está pronta e já podes explorar todas as automações e ferramentas disponíveis.</p><p>Se precisares de ajuda, responde diretamente a este email.</p><p>Abraço,<br>Equipa Yuno</p>"
+    },
+    {
+      "id": "recuperar_senha",
+      "titulo": "Recuperação de Senha",
+      "descricao": "Enviado quando o utilizador pede redefinição de password.",
+      "assunto": "Yuno — Recuperação de Senha",
+      "html": "<h1>Redefine a tua senha 🔐</h1><p>Olá {{nome}}, recebemos um pedido de alteração da tua senha.</p><p>Clica no link abaixo para criar uma nova senha:</p><p><a href='{{link}}'>Redefinir senha</a></p><p>Se não foste tu que pediu, ignora este email.</p>"
+    },
+    {
+      "id": "novo_mensagem_lead",
+      "titulo": "Novo Lead Recebido",
+      "descricao": "Usado para notificar o cliente quando chega um novo lead no funil.",
+      "assunto": "Tens um novo lead! 🎯",
+      "html": "<h1>Novo Lead!</h1><p>Olá {{nome_empresa}}, recebeste um novo lead no teu funil.</p><p><strong>Nome:</strong> {{lead_nome}}<br><strong>Contacto:</strong> {{lead_contacto}}<br><strong>Mensagem:</strong> {{lead_mensagem}}</p><p>Consulta o painel da Yuno IA para detalhes completos.</p>"
+    },
+    {
+      "id": "pagamento_confirmado",
+      "titulo": "Pagamento Aprovado",
+      "descricao": "Usado quando o cliente compra um plano Yuno.",
+      "assunto": "Pagamento confirmado — Bem-vindo ao plano {{plano}}",
+      "html": "<h1>Pagamento aprovado 💳</h1><p>Olá {{nome}}, o teu pagamento do plano <strong>{{plano}}</strong> foi confirmado.</p><p>A tua conta premium está ativa e podes aceder a todas as funcionalidades avançadas da Yuno IA.</p><p>Obrigado pela confiança!</p>"
+    },
+    {
+      "id": "plano_expirando",
+      "titulo": "Plano a Expirar",
+      "descricao": "Notifica o cliente que o plano está a acabar.",
+      "assunto": "O teu plano Yuno expira em breve ⚠️",
+      "html": "<h1>O teu plano está a expirar</h1><p>Olá {{nome}}, o teu plano atual irá expirar em {{dias}} dias.</p><p>Renova agora para evitar interrupções nos serviços automáticos e no acesso ao painel Yuno IA.</p>"
+    },
+    {
+      "id": "alerta_erro_integracao",
+      "titulo": "Erro em Automação",
+      "descricao": "Enviado quando uma integração conectada ao cliente falha.",
+      "assunto": "Alerta: Problema numa automação ⚠️",
+      "html": "<h1>Alerta de Automação</h1><p>Olá {{nome}}, a tua automação <strong>{{automacao}}</strong> encontrou um erro.</p><p>Mensagem do sistema: {{erro}}</p><p>Recomendamos verificar o painel Yuno IA.</p>"
+    }
+  ]
+}

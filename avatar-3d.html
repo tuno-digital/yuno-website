@@ -1,28 +1,70 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avatar 3D – Yuno IA</title>
+    <title>Avatar 3D – YUNO 9.0</title>
 
-    <!-- Three.js -->
-    <script src="ativos/vendors/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160/examples/js/controls/OrbitControls.js"></script>
-
-    <style>
-        body {
-            margin: 0;
-            background: #000;
-        }
-        canvas {
-            display: block;
-        }
-    </style>
+    <!-- ESTILOS PRINCIPAIS -->
+    <link rel="stylesheet" href="ativos/css/style.css">
+    <link rel="stylesheet" href="ativos/css/style-yuno.css">
+    <link rel="stylesheet" href="ativos/css/style-3d.css">
+    <link rel="stylesheet" href="ativos/css/utilities.css">
 </head>
+
 <body>
 
-<script src="ativos/js/three-init.js"></script>
+    <!-- NAVBAR 9.0 -->
+    <header class="yuno-navbar">
+        <div class="container">
+            <a href="index.html" class="logo">YUNO</a>
+
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="yuno-ia.html">Yuno IA</a>
+                <a href="avatar-3d.html" class="active">Avatar 3D</a>
+                <a href="planos.html">Planos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+    </header>
+
+    <!-- INÍCIO DA ÁREA 3D -->
+    <section class="hero-3d">
+        <div class="container">
+            <h1>Avatar 3D Interativo</h1>
+            <p>Explora o avatar 3D do futuro da YUNO com movimentos suaves e renderização neon.</p>
+        </div>
+    </section>
+
+    <section class="viewer-3d">
+        <div id="avatarCanvas"></div>
+    </section>
+
+    <!-- FOOTER 9.0 -->
+    <footer class="yuno-footer">
+        <div class="container">
+            <p>© 2025 YUNO Digital — Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="politica.html">Política de Privacidade</a>
+                <a href="termos.html">Termos de Uso</a>
+                <a href="cookies.html">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- THREE JS + LOADERS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- JS PRINCIPAIS -->
+    <script src="ativos/js/main.js"></script>
+    <script src="ativos/js/ui-effects.js"></script>
+    <script src="ativos/js/three-init.js"></script>
 
 </body>
 </html>

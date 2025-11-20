@@ -1,0 +1,92 @@
+{
+  "evento_schema": {
+    "id": "string",
+    "tipo": "string",
+    "descricao": "string",
+    "timestamp": "ISO8601",
+    "usuario_id": "string/null",
+    "rota": "string",
+    "origem": "string",
+    "extra": {}
+  },
+
+  "eventos_basicos": [
+    {
+      "id": "page_view",
+      "tipo": "navegacao",
+      "descricao": "Utilizador visualizou uma página"
+    },
+    {
+      "id": "click",
+      "tipo": "interacao",
+      "descricao": "Utilizador clicou num elemento"
+    },
+    {
+      "id": "scroll",
+      "tipo": "interacao",
+      "descricao": "Utilizador fez scroll"
+    },
+    {
+      "id": "form_submit",
+      "tipo": "conversao",
+      "descricao": "Formulário enviado"
+    },
+    {
+      "id": "lead_capturado",
+      "tipo": "conversao",
+      "descricao": "Novo lead registado"
+    },
+    {
+      "id": "erro_js",
+      "tipo": "erro",
+      "descricao": "Erro JavaScript capturado"
+    }
+  ],
+
+  "funis": [
+    {
+      "id": "funnel_site",
+      "nome": "Funil do Site",
+      "etapas": [
+        "Visitou Página Inicial",
+        "Viu Serviços",
+        "Abriu Contacto",
+        "Enviou Mensagem"
+      ]
+    },
+    {
+      "id": "funnel_yuno_ia",
+      "nome": "Funil Jarvis/Yuno IA",
+      "etapas": [
+        "Abriu Painel YUNO IA",
+        "Digitou comando",
+        "Obteve resposta IA",
+        "Gerou automação"
+      ]
+    }
+  ],
+
+  "heatmap_captura": {
+    "ativo": true,
+    "frequencia_ms": 1200,
+    "eventos": ["click", "mousemove", "scroll"],
+    "anonimizacao": true
+  },
+
+  "alertas": [
+    {
+      "id": "erro_critico",
+      "condicao": "erro_js >= 5 por minuto",
+      "mensagem": "Muitos erros JS detectados",
+      "acao": "notificar_admin"
+    },
+    {
+      "id": "trafego_alto",
+      "condicao": "page_view >= 5000 por hora",
+      "mensagem": "Pico de tráfego detectado",
+      "acao": "ativar_auto_scale"
+    }
+  ],
+
+  "retencao_dias": 120
+}

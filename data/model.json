@@ -1,0 +1,19 @@
+{
+  "model": {
+    "nome": "Yuno IA - Modelo Base",
+    "versao": "1.0",
+    "descricao": "Modelo base de configuração para novos módulos da Yuno IA.",
+    "estruturas": {
+      "servicos": "data/services.json",
+      "planos": "data/planos.json",
+      "automacoes": "data/automacoes.json",
+      "emails": "data/email-templates.json",
+      "posts": "data/posts-model.json",
+      "analytics": "data/analytics.json",
+      "clientes": "data/clientes.json"
+    },
+    "criado_em": "2025-01-01",
+    "autor": "Yuno IA System",
+    "observacoes": "Este ficheiro serve como referência principal para novos componentes."
+  }
+}

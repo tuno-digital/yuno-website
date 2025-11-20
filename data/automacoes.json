@@ -1,0 +1,22 @@
+{
+  "automacoes": [
+    {
+      "id": 1,
+      "nome": "Follow-up Automático",
+      "descricao": "Segue o cliente automaticamente a cada X dias.",
+      "categoria": "vendas"
+    },
+    {
+      "id": 2,
+      "nome": "Qualificação de Leads",
+      "descricao": "Perguntas inteligentes via IA para filtrar clientes bons.",
+      "categoria": "chatbot"
+    },
+    {
+      "id": 3,
+      "nome": "Recuperação de Clientes Inativos",
+      "descricao": "Fluxos automáticos para recuperar clientes que sumiram.",
+      "categoria": "marketing"
+    }
+  ]
+}

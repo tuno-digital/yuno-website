@@ -1,0 +1,140 @@
+/* ================================
+   FONTES OFICIAIS - INTER 9.0 ARENA
+================================== */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/InterVariable-Italic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* Aplicar fonte global */
+html, body {
+  font-family: 'Inter', sans-serif;
+}
+
+
+/* =========================================================
+   YUNO 9.0 — Arena Ultra Neon (Base Global)
+   Ficheiro: ativos/css/style.css
+   Uso: Estilos gerais da estrutura (layout, resets, tipografia)
+   NÃO colocar estilos específicos aqui.
+   ========================================================= */
+
+/* ========== RESET GLOBAL ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #050505;
+    color: #e6e6e6;
+    overflow-x: hidden;
+}
+
+/* ========== TIPOGRAFIA BASE ========== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+p {
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+/* ========== LINKS ========== */
+a {
+    color: #00eaff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: #12f7ff;
+    text-shadow: 0 0 6px #12f7ff;
+}
+
+/* ========== CONTAINERS ========== */
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* ========== BOTÕES PADRÃO ========== */
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #00eaff, #007bff);
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 18px #00eaff;
+}
+
+/* ========== DIVISÓRIA ========== */
+.divider {
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(to right, #00eaff, #007bff);
+    margin: 20px 0;
+}
+
+/* ========== SEÇÕES ========== */
+section {
+    padding: 60px 0;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: #0a0a0a;
+    padding: 40px 0;
+    text-align: center;
+    color: #777;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+    font-size: 0.9rem;
+}

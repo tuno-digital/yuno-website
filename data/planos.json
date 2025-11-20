@@ -1,0 +1,39 @@
+{
+  "planos": [
+    {
+      "id": 1,
+      "nome": "Starter",
+      "preco": 47,
+      "descricao": "Ideal para pequenos negócios começarem no digital.",
+      "itens": [
+        "Gestão de redes sociais",
+        "2 vídeos/mês",
+        "Chatbot básico"
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Professional",
+      "preco": 97,
+      "descricao": "Plano recomendado para crescimento acelerado.",
+      "itens": [
+        "Gestão completa",
+        "4 vídeos/mês",
+        "Chatbot avançado",
+        "Funis simples"
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Ultra",
+      "preco": 197,
+      "descricao": "Para empresas que querem escala e automação total.",
+      "itens": [
+        "Produção ilimitada",
+        "Chatbot IA",
+        "Funis avançados",
+        "Automação completa"
+      ]
+    }
+  ]
+}

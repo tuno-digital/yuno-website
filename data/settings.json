@@ -1,0 +1,46 @@
+{
+  "app": {
+    "nome": "Yuno IA",
+    "versao": "9.0-auditada",
+    "ambiente": "producao",
+    "manutencao": false
+  },
+
+  "seo": {
+    "titulo_padrao": "Yuno IA — Automação e Marketing Inteligente",
+    "descricao_padrao": "A plataforma que transforma empresas com inteligência artificial, automação e design profissional.",
+    "autor": "Yuno Digital",
+    "lang": "pt-PT"
+  },
+
+  "ui": {
+    "tema_padrao": "neon",
+    "modo_escuro": true,
+    "animacoes": true
+  },
+
+  "ia": {
+    "modelo": "gpt-5.1",
+    "temperatura": 0.7,
+    "respostas_max": 2048,
+    "habilitar_autosugestoes": true,
+    "habilitar_memoria_contextual": true
+  },
+
+  "seguranca": {
+    "csrf": true,
+    "ratelimit": {
+      "ativo": true,
+      "requests": 120,
+      "por_segundo": 60
+    },
+    "bloqueio_ip_suspeito": true
+  },
+
+  "integracoes": {
+    "google_analytics_id": "",
+    "meta_pixel_id": "",
+    "email_api": "",
+    "sms_api": ""
+  }
+}

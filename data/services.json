@@ -1,0 +1,25 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "nome": "Gestão de Redes Sociais",
+      "descricao": "Criação de conteúdos, copywriting, vídeos e automação para Instagram, TikTok e Facebook.",
+      "icone": "services-ia.png",
+      "preco": "sob consulta"
+    },
+    {
+      "id": 2,
+      "nome": "Criação de Funis de Vendas",
+      "descricao": "Páginas de captura, email marketing, automações e remarketing avançado.",
+      "icone": "funis.png",
+      "preco": "sob consulta"
+    },
+    {
+      "id": 3,
+      "nome": "Automação Inteligente (IA)",
+      "descricao": "Chatbots, fluxos inteligentes, respostas automáticas e integrações com WhatsApp.",
+      "icone": "automacoes-smart.png",
+      "preco": "sob consulta"
+    }
+  ]
+}
