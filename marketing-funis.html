@@ -6,24 +6,49 @@
     <title>Marketing & Funis • Yuno 9.0</title>
 
     <link rel="stylesheet" href="ativos/css/style.css">
+    <link rel="stylesheet" href="ativos/css/utilities.css">
+    <link rel="stylesheet" href="ativos/css/pages.css">
+    <link rel="stylesheet" href="ativos/css/style-yuno.css">
+    <link rel="stylesheet" href="ativos/css/style-3d.css">
 </head>
 
 <body>
 
     <!-- NAVBAR -->
-    <header class="nav">
-        <a href="index.html" class="logo">
-            <img src="ativos/img/logo-yuno-text.png" alt="Yuno Logo">
+    <header class="yuno-navbar">
+    <div class="nav-container">
+        
+        <!-- LOGO -->
+        <a href="index.html" class="nav-logo">
+            <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
         </a>
 
+        <!-- LINKS DESKTOP -->
         <nav class="nav-links">
             <a href="index.html">Início</a>
             <a href="servicos.html">Serviços</a>
-            <a href="marketing-funis.html" class="active">Marketing & Funis</a>
             <a href="yuno-ia.html">Yuno IA</a>
+            <a href="avatar-3d.html">Avatar 3D</a>
+            <a href="automacoes-ia.html">Automações</a>
+            <a href="planos.html">Planos</a>
             <a href="contacto.html">Contacto</a>
         </nav>
-    </header>
+
+        <!-- BOTÃO MOBILE -->
+        <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="yuno-ia.html">Yuno IA</a>
+        <a href="avatar-3d.html">Avatar 3D</a>
+        <a href="automacoes-ia.html">Automações</a>
+        <a href="planos.html">Planos</a>
+        <a href="contacto.html">Contacto</a>
+    </div>
+</header>
 
     <!-- HERO -->
     <section class="hero-section">

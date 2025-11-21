@@ -1,72 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-PT">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUNO — Offline</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #030b17;
-            font-family: "Inter", sans-serif;
-            color: #dff8ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
+    <title>Offline — Yuno • Arena 9.1 Híbrida</title>
+    <meta name="description" content="A Yuno está temporariamente offline. Continua a navegar quando a ligação for restabelecida." />
+    <meta name="theme-color" content="#00eaff" />
 
-        .box {
-            max-width: 400px;
-            padding: 30px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(0,243,255,0.4);
-            border-radius: 14px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 0 30px rgba(0,243,255,0.1);
-        }
+    <meta property="og:title" content="Offline — Yuno" />
+    <meta property="og:description" content="A tua ligação foi interrompida. Vê esta versão offline da Yuno." />
+    <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
 
-        h1 {
-            font-size: 1.8rem;
-            color: #00eaff;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px #00eaff;
-        }
+    <!-- CSS OFICIAIS -->
+    <link rel="stylesheet" href="ativos/css/style.css">
+    <link rel="stylesheet" href="ativos/css/utilities.css">
+    <link rel="stylesheet" href="ativos/css/pages.css">
+    <link rel="stylesheet" href="ativos/css/style-yuno.css">
+    <link rel="stylesheet" href="ativos/css/style-3d.css">
 
-        p {
-            font-size: 1rem;
-            line-height: 1.5;
-            opacity: 0.9;
-        }
-
-        .retry {
-            margin-top: 22px;
-            padding: 12px 22px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            background: #00eaff;
-            color: #000814;
-            font-weight: 600;
-            box-shadow: 0 0 10px #00eaff;
-            transition: 0.25s ease;
-        }
-
-        .retry:hover {
-            box-shadow: 0 0 20px #00eaff;
-        }
-    </style>
+    <link rel="icon" href="ativos/img/logos/favicon.png" />
 </head>
 
 <body>
-    <div class="box">
-        <h1>Estás Offline</h1>
-        <p>A YUNO não conseguiu ligar-se à Internet.<br>
-        Por favor verifica a tua ligação.</p>
-        <button class="retry" onclick="location.reload()">Tentar Novamente</button>
-    </div>
+
+    <!-- CONTEÚDO OFFLINE -->
+    <main class="container page-content center-text">
+
+        <section class="page-header">
+            <h1 class="neon-title">Estás Offline</h1>
+            <p class="lead">A tua ligação à internet foi interrompida.<br>Mas a Yuno continua aqui contigo.</p>
+        </section>
+
+        <section class="offline-box">
+            <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno Offline" class="offline-logo" />
+
+            <h2>Sem ligação no momento</h2>
+            <p>
+                Esta é a versão offline da Yuno.<br>
+                Assim que a tua ligação voltar, terás acesso total ao site.
+            </p>
+
+            <a href="index.html" class="btn-primary">Tentar Novamente</a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER SIMPLIFICADO -->
+    <footer class="site-footer">
+        <div class="container center-text">
+            <small>© <span id="ano"></span> Yuno — Arena 9.1 Híbrida.</small>
+        </div>
+    </footer>
+
+    <script src="ativos/js/main.js"></script>
+    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
 </body>
 </html>

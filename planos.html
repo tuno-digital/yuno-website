@@ -1,118 +1,157 @@
-<!DOCTYPE html>
-<html lang="pt">
+<!doctype html>
+<html lang="pt-PT">
 <head>
-    <!-- META 9.0 AUDITADA -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Planos • YUNO IA 9.0</title>
-    <meta name="description" content="Escolhe o plano ideal da Yuno IA — Automação, IA, Marketing e Tecnologia de última geração.">
+    <title>Planos — Yuno • Arena 9.1 Híbrida</title>
+    <meta name="description" content="Escolhe o plano ideal da Yuno. Tecnologia, IA, automação, funis inteligentes e avatar 3D." />
+    <meta name="theme-color" content="#00eaff" />
 
-    <link rel="icon" href="ativos/img/favicon.png" type="image/png">
+    <meta property="og:title" content="Planos — Yuno IA" />
+    <meta property="og:description" content="Planos flexíveis e poderosos para empresas de qualquer tamanho." />
+    <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
 
-    <!-- CSS -->
+    <!-- CSS OFICIAIS -->
     <link rel="stylesheet" href="ativos/css/style.css">
     <link rel="stylesheet" href="ativos/css/utilities.css">
+    <link rel="stylesheet" href="ativos/css/pages.css">
+    <link rel="stylesheet" href="ativos/css/style-yuno.css">
+    <link rel="stylesheet" href="ativos/css/style-3d.css">
+
+    <link rel="icon" href="ativos/img/logos/favicon.png" />
 </head>
 
 <body>
+    <!-- NAVBAR -->
+    <header class="yuno-navbar">
+    <div class="nav-container">
+        
+        <!-- LOGO -->
+        <a href="index.html" class="nav-logo">
+            <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
+        </a>
 
-    <!-- NAVBAR SUPERIOR -->
-    <header class="navbar-top">
-        <div class="nav-left">
-            <a class="nav-logo" href="index.html">
-                <img src="ativos/img/logo-yuno.png" alt="Yuno Logo">
-            </a>
+        <!-- LINKS DESKTOP -->
+        <nav class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="yuno-ia.html">Yuno IA</a>
+            <a href="avatar-3d.html">Avatar 3D</a>
+            <a href="automacoes-ia.html">Automações</a>
+            <a href="planos.html">Planos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
 
-            <nav class="nav-links">
-                <a href="index.html">Início</a>
-                <a href="servicos.html">Serviços</a>
-                <a href="sobre.html">Sobre</a>
-                <a href="yuno-ia.html">Yuno IA</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-
-        <div class="nav-right">
-            <div class="nav-search-icon">🔍</div>
-        </div>
-    </header>
-
-    <!-- NAVBAR FLUTUANTE -->
-    <div class="floating-menu" onclick="toggleFloating()">
-        <img src="ativos/img/logo-yuno.png" class="float-logo" alt="Yuno">
+        <!-- BOTÃO MOBILE -->
+        <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
     </div>
 
-    <aside id="float-panel" class="float-panel">
-        <h3>Menu Rápido</h3>
-        <a href="index.html">🏠 Início</a>
-        <a href="servicos.html">⚙️ Serviços</a>
-        <a href="planos.html" class="active">💎 Planos</a>
-        <a href="contacto.html">📞 Contacto</a>
-        <a href="yuno-ia.html">🤖 Yuno IA</a>
-    </aside>
+    <!-- MENU MOBILE -->
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="yuno-ia.html">Yuno IA</a>
+        <a href="avatar-3d.html">Avatar 3D</a>
+        <a href="automacoes-ia.html">Automações</a>
+        <a href="planos.html">Planos</a>
+        <a href="contacto.html">Contacto</a>
+    </div>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1 class="neon-strong">Planos YUNO IA</h1>
-        <p class="lead">Escolhe o nível de poder que queres que a tua empresa tenha.</p>
-    </section>
+    <!-- MAIN CONTENT -->
+    <main class="container page-content">
 
-    <!-- SECÇÃO DE PLANOS -->
-    <section class="container">
+        <section class="page-header">
+            <h1 class="neon-title">Planos Yuno</h1>
+            <p class="lead">Escolhe o plano certo para o teu negócio crescer com inteligência artificial.</p>
+        </section>
 
-        <div class="cards">
+        <section class="plans-section">
+            <div class="plans-grid">
 
-            <!-- PLANO INICIANTE -->
-            <div class="card">
-                <h3>🚀 Starter</h3>
-                <p>Para começar com IA e automações simples.</p>
-                <ul class="list">
-                    <li>✓ Chatbot inteligente</li>
-                    <li>✓ Website otimizado</li>
-                    <li>✓ 5 automações</li>
-                    <li>✓ Suporte básico</li>
-                </ul>
-                <a href="#" class="btn">Escolher Plano</a>
+                <!-- Plano Iniciante -->
+                <div class="plan-card">
+                    <h2>Starter</h2>
+                    <p class="price">€19<span>/mês</span></p>
+                    <ul class="plan-features">
+                        <li>✔ Acesso à Yuno IA</li>
+                        <li>✔ Respostas Inteligentes</li>
+                        <li>✔ Criação de Conteúdo</li>
+                        <li>✔ 10 Automações Básicas</li>
+                        <li>✔ Suporte por Email</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Escolher Starter</a>
+                </div>
+
+                <!-- Plano Profissional -->
+                <div class="plan-card highlight">
+                    <h2>Pro</h2>
+                    <p class="price">€49<span>/mês</span></p>
+                    <ul class="plan-features">
+                        <li>✔ Tudo do Starter</li>
+                        <li>✔ 50 Automações Avançadas</li>
+                        <li>✔ Funis Inteligentes</li>
+                        <li>✔ Avatar 3D Básico</li>
+                        <li>✔ Monitorização em Tempo Real</li>
+                        <li>✔ Integração com Sistemas</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Escolher Pro</a>
+                </div>
+
+                <!-- Plano Empresarial -->
+                <div class="plan-card">
+                    <h2>Enterprise</h2>
+                    <p class="price">€99<span>/mês</span></p>
+                    <ul class="plan-features">
+                        <li>✔ Tudo do Pro</li>
+                        <li>✔ Automações Ilimitadas</li>
+                        <li>✔ Avatar 3D Premium</li>
+                        <li>✔ Equipa Dedicada</li>
+                        <li>✔ Painéis Personalizados</li>
+                        <li>✔ Integração Total + APIs</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Escolher Enterprise</a>
+                </div>
+
             </div>
+        </section>
 
-            <!-- PLANO INTERMEDIÁRIO -->
-            <div class="card">
-                <h3>⚡ Power</h3>
-                <p>Para quem quer presença digital forte e constante.</p>
-                <ul class="list">
-                    <li>✓ Chatbot Avançado</li>
-                    <li>✓ 15 automações IA</li>
-                    <li>✓ Criação de conteúdos</li>
-                    <li>✓ Gestão parcial de redes</li>
-                </ul>
-                <a href="#" class="btn">Escolher Plano</a>
-            </div>
+        <section class="cta-section">
+            <h2 class="section-title">Precisas de algo personalizado?</h2>
+            <p class="lead">A Yuno cria soluções especiais para empresas exigentes.</p>
+            <a href="contacto.html" class="btn-primary">Falar com a Equipa</a>
+        </section>
 
-            <!-- PLANO PROFISSIONAL -->
-            <div class="card">
-                <h3>💎 Ultra</h3>
-                <p>O pacote completo — IA, automações, funis e gestão.</p>
-                <ul class="list">
-                    <li>✓ IA completa dedicada</li>
-                    <li>✓ 40 automações inteligentes</li>
-                    <li>✓ Funis premium</li>
-                    <li>✓ Gestão total de redes sociais</li>
-                </ul>
-                <a href="#" class="btn">Escolher Plano</a>
-            </div>
-
-        </div>
-    </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2025 YUNO • Arena 9.0 Auditada</p>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="ativos/img/logos/logo-yuno-completa.png" height="40" alt="Yuno Logo">
+                <p class="footer-desc">A revolução da IA e automação para empresas modernas.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Produtos</h4>
+                <a href="yuno-ia.html">Yuno IA</a>
+                <a href="avatar-3d.html">Avatar 3D</a>
+                <a href="automacoes-ia.html">Automações</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="politica.html">Política de Privacidade</a>
+                <a href="termos.html">Termos & Condições</a>
+                <a href="cookies.html">Cookies</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">© <span id="ano"></span> Yuno — Arena 9.1 Híbrida.</div>
     </footer>
 
-    <!-- JS -->
     <script src="ativos/js/main.js"></script>
-    <script src="ativos/js/ui-effects.js"></script>
-
+    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
 </body>
 </html>

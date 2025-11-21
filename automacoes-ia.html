@@ -1,119 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-PT">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Automação inteligente para empresas — YUNO IA 9.0. Flows automáticos, integrações e processos que trabalham por ti.">
-    <meta name="author" content="YUNO IA">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Automação Inteligente | YUNO IA</title>
+    <title>Automações IA — Yuno • Arena 9.1 Híbrida</title>
+    <meta name="description" content="Automações inteligentes da Yuno — fluxos automáticos, tarefas 24/7, integração com IA e sistemas avançados." />
+    <meta name="theme-color" content="#00eaff" />
 
+    <meta property="og:title" content="Automações IA — Yuno" />
+    <meta property="og:description" content="Fluxos inteligentes, tarefas automáticas e sistemas que trabalham por ti 24/7." />
+    <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
+
+    <!-- CSS OFICIAIS -->
     <link rel="stylesheet" href="ativos/css/style.css">
-    <link rel="stylesheet" href="ativos/css/style-yuno.css">
     <link rel="stylesheet" href="ativos/css/utilities.css">
+    <link rel="stylesheet" href="ativos/css/pages.css">
+    <link rel="stylesheet" href="ativos/css/style-yuno.css">
     <link rel="stylesheet" href="ativos/css/style-3d.css">
-    <link rel="stylesheet" href="ativos/css/cookies.css">
-    <link rel="shortcut icon" href="ativos/img/logos/favicon.png" type="image/png">
 
+    <link rel="icon" href="ativos/img/logos/favicon.png" />
 </head>
 
 <body>
+    <!-- NAVBAR -->
+    <header class="yuno-navbar">
+    <div class="nav-container">
+        
+        <!-- LOGO -->
+        <a href="index.html" class="nav-logo">
+            <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
+        </a>
 
-    <!-- NAVBAR 9.0 -->
-    <header id="header">
-        <nav class="navbar">
-            <div class="logo-area">
-                <a href="index.html">
-                    <img src="ativos/img/logos/logo-yuno-round.png" alt="YUNO Logo" class="logo">
-                </a>
-                <span class="logo-text">YUNO IA</span>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="servicos.html">Serviços</a></li>
-                <li><a href="automacoes-ia.html" class="active">Automações</a></li>
-                <li><a href="yuno-ia.html">Yuno IA</a></li>
-                <li><a href="planos.html">Planos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-
-            <div class="mobile-menu-icon" id="menu-btn">
-                <span></span><span></span><span></span>
-            </div>
+        <!-- LINKS DESKTOP -->
+        <nav class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="yuno-ia.html">Yuno IA</a>
+            <a href="avatar-3d.html">Avatar 3D</a>
+            <a href="automacoes-ia.html">Automações</a>
+            <a href="planos.html">Planos</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero neon-section">
-        <div class="hero-content">
-            <h1 class="title neon-title">Automações Inteligentes</h1>
-            <p class="subtitle">Deixa a YUNO IA trabalhar 24h por ti.</p>
-        </div>
-    </section>
+        <!-- BOTÃO MOBILE -->
+        <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
+    </div>
 
-    <!-- BLOCO PRINCIPAL -->
-    <section class="container">
-        <h2 class="section-title">O que a YUNO IA automatiza?</h2>
-        <p class="section-subtitle">Integrações, sistemas, fluxos automáticos e muito mais.</p>
+    <!-- MENU MOBILE -->
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="yuno-ia.html">Yuno IA</a>
+        <a href="avatar-3d.html">Avatar 3D</a>
+        <a href="automacoes-ia.html">Automações</a>
+        <a href="planos.html">Planos</a>
+        <a href="contacto.html">Contacto</a>
+    </div>
+</header>
 
-        <div class="cards-grid">
+    <!-- MAIN CONTENT -->
+    <main class="container page-content">
 
-            <div class="card neon-card">
-                <h3>Automação de Chat</h3>
-                <p>Fluxos conversacionais inteligentes para WhatsApp, Web e redes sociais.</p>
+        <section class="page-header">
+            <h1 class="neon-title">Automações Inteligentes</h1>
+            <p class="lead">Fluxos autónomos, decisões automáticas e operações que funcionam sozinhas 24/7.</p>
+        </section>
+
+        <section class="automation-section">
+            <div class="automation-text">
+                <h2>O Poder das Automações Yuno</h2>
+                <p>
+                    As automações da Yuno foram criadas para reduzir trabalho manual,
+                    aumentar produtividade e conectar sistemas de forma inteligente.
+                    Cada fluxo funciona de forma automática, coordenada e com IA integrada.
+                </p>
+
+                <h2>Tipos de Automações</h2>
+                <ul class="features-list">
+                    <li>🤖 Respostas automáticas com IA</li>
+                    <li>⚡ Fluxos de trabalho 24/7</li>
+                    <li>🔗 Integrações com APIs externas</li>
+                    <li>📨 Envio automático de mensagens e emails</li>
+                    <li>📊 Geração automática de relatórios</li>
+                    <li>🧠 Decisões baseadas em IA e regras inteligentes</li>
+                </ul>
+
+                <h2>Automação Avançada em Tempo Real</h2>
+                <p>
+                    Liga a Yuno ao teu CRM, WhatsApp, website, avatar ou sistema interno.
+                    A IA decide, executa e responde no momento certo.
+                </p>
             </div>
 
-            <div class="card neon-card">
-                <h3>Gestão de Clientes</h3>
-                <p>Captura leads automaticamente e envia para CRM em tempo real.</p>
+            <div class="automation-image">
+                <img src="ativos/img/logos/automacoes-banner.png" alt="Automações Yuno" />
             </div>
+        </section>
 
-            <div class="card neon-card">
-                <h3>Agendamentos</h3>
-                <p>Agenda consultas, serviços e horários sem intervenção humana.</p>
+        <section class="automation-grid-section">
+            <h2 class="section-title">Exemplos de Automações</h2>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>📩 Atendimento Automático</h3>
+                    <p>Respostas inteligentes para clientes em qualquer horário.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🧾 Faturação Automática</h3>
+                    <p>Envio de recibos, avisos e notificações sem intervenção humana.</p>
+                </div>
+
+                <div class="card">
+                    <h3>📊 Relatórios em Tempo Real</h3>
+                    <p>Análises automáticas geradas a cada ciclo de execução.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🔗 Integrações Avançadas</h3>
+                    <p>Liga APIs, bancos de dados e sistemas externos à Yuno.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🤖 Bots Multicanais</h3>
+                    <p>Automação em websites, WhatsApp, redes sociais e apps.</p>
+                </div>
+
+                <div class="card">
+                    <h3>⚙️ Processos Internos</h3>
+                    <p>Fluxos complexos de empresa executados pela IA.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="card neon-card">
-                <h3>Geração Automática de Conteúdo</h3>
-                <p>Cria textos, imagens e vídeos para redes sociais todos os dias.</p>
-            </div>
+        <section class="cta-section">
+            <h2 class="section-title">Queres Automatizar Tudo?</h2>
+            <p class="lead">Liga as automações à Yuno IA e vê o teu negócio a escalar sozinho.</p>
+            <a href="planos.html" class="btn-primary">Escolher um Plano</a>
+        </section>
 
-            <div class="card neon-card">
-                <h3>Sistemas Internos</h3>
-                <p>IA integrada ao teu negócio: automatiza processos internos.</p>
-            </div>
-
-            <div class="card neon-card">
-                <h3>Integrações API</h3>
-                <p>Conecta o teu site, softwares e plataformas externas num único lugar.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <h2>Queres automatizar tudo?</h2>
-        <p>A YUNO IA faz o trabalho que uma equipa precisaria de fazer.</p>
-        <a href="contacto.html" class="cta-btn">Falar com a YUNO</a>
-    </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2025 YUNO IA — Todos os direitos reservados.</p>
-            <div class="footer-links">
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="ativos/img/logos/logo-yuno-completa.png" height="40" alt="Yuno Logo">
+                <p class="footer-desc">A revolução da IA e automação para empresas modernas.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Produtos</h4>
+                <a href="yuno-ia.html">Yuno IA</a>
+                <a href="avatar-3d.html">Avatar 3D</a>
+                <a href="automacoes-ia.html" class="active">Automações</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
                 <a href="politica.html">Política de Privacidade</a>
+                <a href="termos.html">Termos & Condições</a>
                 <a href="cookies.html">Cookies</a>
-                <a href="termos.html">Termos de Uso</a>
             </div>
         </div>
+
+        <div class="footer-bottom">© <span id="ano"></span> Yuno — Arena 9.1 Híbrida.</div>
     </footer>
 
     <script src="ativos/js/main.js"></script>
-    <script src="ativos/js/ui-effects.js"></script>
-    <script src="ativos/js/cookies.js"></script>
+    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
 </body>
 </html>

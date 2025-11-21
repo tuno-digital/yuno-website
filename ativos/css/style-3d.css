@@ -3,15 +3,14 @@
    CSS limpo, responsivo e compatível
 ------------------------------------------- */
 
-html, body {
-    margin: 0;
-    padding: 0;
+/* Aplicação apenas ao CANVAS 3D, NÃO ao site inteiro */
+.canvas-3d, #avatar-container {
     width: 100%;
     height: 100%;
-    background: #000;
     overflow: hidden;
-    font-family: 'Inter', sans-serif;
+    background: #000;
 }
+
 
 /* Container principal do 3D */
 #avatar-3d-container {
