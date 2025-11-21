@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="ativos/css/style-yuno.css">
     <link rel="stylesheet" href="ativos/css/style-3d.css">
 
-    <!-- FONTS 10.3 (se tiveres inter já configurado, mantém) -->
 </head>
 
 <body>
@@ -44,7 +43,7 @@
 
         <!-- LINKS DESKTOP -->
         <nav class="nav-links">
-            <a href="index.html">Início</a>
+            <a href="index.html" class="active">Início</a>
             <a href="servicos.html">Serviços</a>
             <a href="yuno-ia.html">Yuno IA</a>
             <a href="avatar-3d.html">Avatar 3D</a>
@@ -162,10 +161,11 @@
     </div>
 </footer>
 
-<!-- YUNO IA (inicialização) -->
-<script type="module" src="yuno-ia/core.js"></script>
-
+<!-- SCRIPTS GLOBAIS -->
 <script src="ativos/js/main.js"></script>
+
+<!-- INICIALIZAÇÃO DA IA YUNO 10.3 -->
+<script type="module" src="ativos/js/yuno-ia/core.js"></script>
 
 <script>
 document.getElementById("ano").textContent = new Date().getFullYear();
