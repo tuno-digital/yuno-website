@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Offline — Yuno • Arena 9.1 Híbrida</title>
+    <meta name="description" content="A Yuno está temporariamente offline. Continua a navegar quando a ligação for restabelecida." />
+    <meta name="theme-color" content="#00eaff" />
+
+    <meta property="og:title" content="Offline — Yuno" />
+    <meta property="og:description" content="A tua ligação foi interrompida. Vê esta versão offline da Yuno." />
+    <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
+
+    <!-- CSS OFICIAIS -->
+    <link rel="stylesheet" href="ativos/css/style.css">
+    <link rel="stylesheet" href="ativos/css/utilities.css">
+    <link rel="stylesheet" href="ativos/css/pages.css">
+    <link rel="stylesheet" href="ativos/css/style-yuno.css">
+    <link rel="stylesheet" href="ativos/css/style-3d.css">
+
+    <link rel="icon" href="ativos/img/logos/favicon.png" />
+</head>
+
+<body>
+
+    <!-- CONTEÚDO OFFLINE -->
+    <main class="container page-content center-text">
+
+        <section class="page-header">
+            <h1 class="neon-title">Estás Offline</h1>
+            <p class="lead">A tua ligação à internet foi interrompida.<br>Mas a Yuno continua aqui contigo.</p>
+        </section>
+
+        <section class="offline-box">
+            <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno Offline" class="offline-logo" />
+
+            <h2>Sem ligação no momento</h2>
+            <p>
+                Esta é a versão offline da Yuno.<br>
+                Assim que a tua ligação voltar, terás acesso total ao site.
+            </p>
+
+            <a href="index.html" class="btn-primary">Tentar Novamente</a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER SIMPLIFICADO -->
+    <footer class="site-footer">
+        <div class="container center-text">
+            <small>© <span id="ano"></span> Yuno — Arena 9.1 Híbrida.</small>
+        </div>
+    </footer>
+
+    <script src="ativos/js/main.js"></script>
+    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
+</body>
+</html>

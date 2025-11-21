@@ -1,0 +1,14 @@
+# YUNO 9.0 - Robots.txt
+# Configuração oficial e auditada para SEO
+
+User-agent: *
+Disallow: /api/
+Disallow: /server/
+Disallow: /tmp/
+Disallow: /auth/
+Disallow: /integrations/
+Disallow: /automacoes/
+Disallow: /security/
+Allow: /
+
+Sitemap: https://www.yunosite.com/sitemap.xml

@@ -1,0 +1,54 @@
+{
+  "temas_disponiveis": [
+    {
+      "id": "neon-dark",
+      "nome": "Neon Dark",
+      "descricao": "Tema principal da Arena 9.0 com visual neon, contrastes fortes e animações suaves.",
+      "cores": {
+        "primaria": "#00eaff",
+        "secundaria": "#ff00c8",
+        "fundo": "#000000",
+        "texto": "#ffffff",
+        "borda": "#222222"
+      },
+      "fonts": {
+        "familia": "Inter, sans-serif",
+        "peso": "400-700"
+      },
+      "efeitos": {
+        "glow": true,
+        "transicoes": true,
+        "animacoes": true
+      }
+    },
+
+    {
+      "id": "clean-light",
+      "nome": "Clean Light",
+      "descricao": "Tema claro minimalista para clientes que preferem um visual mais profissional e suave.",
+      "cores": {
+        "primaria": "#0056ff",
+        "secundaria": "#00b8a9",
+        "fundo": "#ffffff",
+        "texto": "#000000",
+        "borda": "#dddddd"
+      },
+      "fonts": {
+        "familia": "Inter, sans-serif",
+        "peso": "300-600"
+      },
+      "efeitos": {
+        "glow": false,
+        "transicoes": true,
+        "animacoes": false
+      }
+    }
+  ],
+
+  "tema_padrao": "neon-dark",
+
+  "definicoes_globais": {
+    "permitir_temas_customizados": true,
+    "salvar_preferencia_usuario": true
+  }
+}

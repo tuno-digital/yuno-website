@@ -1,0 +1,186 @@
+/* =========================================================
+   YUNO 9.0 — utilities.css
+   Utilidades globais reutilizáveis em TODO o sistema.
+   Classes de layout, espaçamento, tipografia, grid,
+   animações, sombras e helpers.
+   Colocar em: ativos/css/utilities.css
+   ========================================================= */
+
+/* ============================
+   RESET + BASE
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img, video, canvas {
+  max-width: 100%;
+  display: block;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+/* ============================
+   VARIÁVEIS GLOBAIS
+   (herdadas do style.css)
+   ============================ */
+:root {
+  --neon: #00eaff;
+  --neon-2: #52fff0;
+  --text: #dfeff3;
+  --muted: rgba(207,238,244,0.55);
+  --glass: rgba(255,255,255,0.04);
+  --panel: rgba(4,8,12,0.35);
+  --radius: 14px;
+  --ease: cubic-bezier(.2,.9,.3,1);
+}
+
+/* ============================
+   TIPOGRAFIA
+   ============================ */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.text-muted { color: var(--muted); }
+.text-neon { color: var(--neon); text-shadow: 0 0 12px rgba(0,234,255,0.22); }
+.text-light { color: var(--text); }
+
+/* ============================
+   ESPAÇAMENTO
+   ============================ */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mt-40 { margin-top: 40px; }
+
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+
+.pt-10 { padding-top: 10px; }
+.pt-20 { padding-top: 20px; }
+.pb-20 { padding-bottom: 20px; }
+
+.p-10 { padding: 10px; }
+.p-20 { padding: 20px; }
+.p-30 { padding: 30px; }
+
+/* ============================
+   LAYOUT / FLEX / GRID
+   ============================ */
+.flex { display: flex; }
+.flex-center { display: flex; justify-content: center; align-items: center; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.flex-col { display: flex; flex-direction: column; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; }
+
+@media(max-width: 720px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ============================
+   GLASS / PAINÉIS
+   ============================ */
+.glass-box {
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.4);
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(3,6,8,0.6), rgba(4,8,12,0.35));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: var(--radius);
+}
+
+/* ============================
+   BOTÕES
+   ============================ */
+.btn {
+  display: inline-flex;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: #001;
+  text-decoration: none;
+  background: linear-gradient(180deg, var(--neon), var(--neon-2));
+  transition: transform .12s var(--ease), box-shadow .12s var(--ease);
+  cursor: pointer;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.45);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--muted);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: all .12s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--neon);
+  color: var(--neon);
+}
+
+/* ============================
+   SOMBRAS GLOBAL
+   ============================ */
+.shadow-soft { box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+.shadow-hard { box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+.shadow-neon { box-shadow: 0 0 30px rgba(0,234,255,0.2); }
+
+/* ============================
+   BORDAS
+   ============================ */
+.rounded { border-radius: 12px; }
+.rounded-lg { border-radius: 18px; }
+.rounded-xl { border-radius: 28px; }
+
+/* ============================
+   ANIMAÇÕES
+   ============================ */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse {
+  animation: pulseAnim 2.6s infinite;
+}
+
+@keyframes pulseAnim {
+  0% { transform: scale(1); opacity: .8; }
+  50% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); opacity: .8; }
+}
+
+/* ============================
+   HELPERS
+   ============================ */
+.hidden { display: none !important; }
+.max-w { max-width: 1200px; margin: 0 auto; }
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }

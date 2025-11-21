@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "nome": "Administrador",
+      "email": "admin@yuno.com",
+      "perfil": "admin",
+      "status": "ativo",
+
+      "preferencias": {
+        "tema": "neon",
+        "modo_escuro": true,
+        "idioma": "pt-PT",
+        "notificacoes": {
+          "email": true,
+          "push": true
+        }
+      },
+
+      "seguranca": {
+        "two_factor": false,
+        "ult_login": null, 
+        "tentativas_falhas": 0
+      }
+    }
+  ],
+
+  "perfis": [
+    {
+      "perfil": "admin",
+      "permissoes": [
+        "gerenciar_site",
+        "ver_analytics",
+        "editar_conteudo",
+        "acesso_total"
+      ]
+    },
+    {
+      "perfil": "cliente",
+      "permissoes": [
+        "ver_painel",
+        "usar_yuno_ia",
+        "editar_dados",
+        "consultar_planos"
+      ]
+    }
+  ]
+}

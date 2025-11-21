@@ -1,0 +1,41 @@
+{
+  "modelo_posts": {
+    "descricao": "Modelo base para criação de posts, anúncios, artigos e conteúdos da Yuno IA.",
+    "versao": "1.0",
+    "autor": "Yuno IA System",
+    "campos_obrigatorios": [
+      "id",
+      "titulo",
+      "descricao",
+      "categoria",
+      "data_publicacao",
+      "imagem",
+      "conteudo"
+    ],
+    "categorias_permitidas": [
+      "marketing-digital",
+      "automacoes",
+      "funis",
+      "negocios",
+      "inteligencia-artificial",
+      "tecnologia",
+      "cases",
+      "atualizacoes",
+      "tutorial",
+      "outros"
+    ],
+    "estrutura_exemplo": {
+      "id": 1,
+      "titulo": "Título do Post",
+      "descricao": "Resumo rápido sobre o conteúdo do post.",
+      "categoria": "marketing-digital",
+      "data_publicacao": "2025-01-01",
+      "autor": "Admin Yuno",
+      "imagem": "ativos/img/post-exemplo.jpg",
+      "tags": ["funil", "marketing", "crescimento"],
+      "conteudo": "<p>Conteúdo HTML completo aqui...</p>",
+      "status": "publicado"
+    },
+    "observacoes": "Este ficheiro define como os posts devem ser criados e estruturados dentro da plataforma Yuno IA."
+  }
+}
