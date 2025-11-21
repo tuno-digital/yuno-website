@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <!-- META OFICIAL PAINEL YUNO 9.0 -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Painel YUNO IA • Configuração Avançada</title>
     <meta name="description" content="Controla a personalidade, modelos, integrações e preferências da Yuno IA.">
 
@@ -17,17 +15,27 @@
 
 <body>
 
-    <!-- NAVBAR TOP -->
+    <!-- NAVBAR -->
     <header class="yuno-navbar">
-    <div class="nav-container">
-        
-        <!-- LOGO -->
-        <a href="index.html" class="nav-logo">
-            <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
-        </a>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
+            </a>
 
-        <!-- LINKS DESKTOP -->
-        <nav class="nav-links">
+            <nav class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="yuno-ia.html">Yuno IA</a>
+                <a href="avatar-3d.html">Avatar 3D</a>
+                <a href="automacoes-ia.html">Automações</a>
+                <a href="planos.html">Planos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+
+            <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
+        </div>
+
+        <div class="nav-mobile" id="navMobile">
             <a href="index.html">Início</a>
             <a href="servicos.html">Serviços</a>
             <a href="yuno-ia.html">Yuno IA</a>
@@ -35,23 +43,8 @@
             <a href="automacoes-ia.html">Automações</a>
             <a href="planos.html">Planos</a>
             <a href="contacto.html">Contacto</a>
-        </nav>
-
-        <!-- BOTÃO MOBILE -->
-        <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
-    </div>
-
-    <!-- MENU MOBILE -->
-    <div class="nav-mobile" id="navMobile">
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="yuno-ia.html">Yuno IA</a>
-        <a href="avatar-3d.html">Avatar 3D</a>
-        <a href="automacoes-ia.html">Automações</a>
-        <a href="planos.html">Planos</a>
-        <a href="contacto.html">Contacto</a>
-    </div>
-</header>
+        </div>
+    </header>
 
     <!-- SIDE NAV -->
     <div class="side-nav">
@@ -68,14 +61,15 @@
         <p class="lead">Personaliza o comportamento da tua IA e controla todas as integrações.</p>
     </section>
 
-    <!-- PAINEL PRINCIPAL -->
+    <!-- PAINEL -->
     <section class="container painel-container">
 
-        <!-- PERSONALIDADE DA IA -->
+        <!-- PERSONALIDADE -->
         <div class="painel-card">
             <h3 class="neon-text">Personalidade da IA</h3>
+
             <label>Tom de Voz</label>
-            <select class="input-select">
+            <select class="input-select" id="personaTone">
                 <option>Profissional</option>
                 <option>Amigável</option>
                 <option>Motivadora</option>
@@ -84,10 +78,10 @@
             </select>
 
             <label>Temperatura (Criatividade)</label>
-            <input type="range" min="0" max="1" step="0.01">
+            <input type="range" id="personaTemperature" min="0" max="1" step="0.01">
 
             <label>Estilo de Escrita</label>
-            <select class="input-select">
+            <select class="input-select" id="personaStyle">
                 <option>Formal</option>
                 <option>Conversacional</option>
                 <option>Marketing</option>
@@ -95,18 +89,19 @@
             </select>
         </div>
 
-        <!-- MODELOS IA -->
+        <!-- MODELOS -->
         <div class="painel-card">
             <h3 class="neon-text">Modelos da IA</h3>
+
             <label>Modelo Principal</label>
-            <select class="input-select">
+            <select class="input-select" id="modelSelect">
                 <option>YUNO-Core v1</option>
                 <option>YUNO-Advanced v2</option>
                 <option>YUNO-Extreme v3</option>
             </select>
 
             <label>Velocidade vs Qualidade</label>
-            <input type="range" min="1" max="10">
+            <input type="range" id="speedQuality" min="1" max="10">
         </div>
 
         <!-- INTEGRAÇÕES -->
@@ -114,10 +109,10 @@
             <h3 class="neon-text">Integrações</h3>
 
             <label>Chave API (OpenAI/YUNO Engine)</label>
-            <input type="password" class="input-text" placeholder="sk-xxxxxx">
+            <input type="password" class="input-text" id="apiKeyInput" placeholder="sk-xxxxxx">
 
             <label>Integração com Redes Sociais</label>
-            <select class="input-select">
+            <select class="input-select" id="redeSelect">
                 <option>Instagram</option>
                 <option>Facebook</option>
                 <option>TikTok</option>
@@ -126,10 +121,9 @@
             </select>
         </div>
 
-        <!-- AUTOMAÇÕES ATIVAS -->
+        <!-- AUTOMAÇÕES -->
         <div class="painel-card">
             <h3 class="neon-text">Automações Ativas</h3>
-
             <ul class="lista-automacoes">
                 <li>📤 Postagens automáticas — <span class="status on">Ativo</span></li>
                 <li>🧠 Aprendizagem contínua — <span class="status on">Ativo</span></li>
@@ -141,7 +135,7 @@
         <!-- LOGS -->
         <div class="painel-card painel-logs">
             <h3 class="neon-text">Logs da IA</h3>
-            <div class="logs-box">
+            <div class="logs-box" id="logsBox">
                 <p>[OK] IA iniciada com sucesso.</p>
                 <p>[INFO] Personalidade aplicada: Profissional.</p>
                 <p>[INFO] Automações carregadas.</p>
@@ -152,10 +146,19 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p class="neon-title">Painel YUNO • Versão 9.0 Auditada</p>
+        <p class="neon-title">Painel YUNO • Versão 10.0 Híbrida</p>
     </footer>
 
+    <!-- YUNO IA ENGINE -->
+    <script src="ativos/js/yuno-ia/core.js"></script>
+    <script src="ativos/js/yuno-ia/actions.js"></script>
+    <script src="ativos/js/yuno-ia/commands.js"></script>
+    <script src="ativos/js/yuno-ia/analytics.js"></script>
+    <script src="ativos/js/yuno-ia/render.js"></script>
+
+    <!-- SITE -->
     <script src="ativos/js/main.js"></script>
     <script src="ativos/js/ui-effects.js"></script>
+
 </body>
 </html>
