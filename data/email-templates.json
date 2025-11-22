@@ -1,46 +1,105 @@
 {
+  "versao": "10.3",
+  "descricao": "Templates oficiais de email da Yuno IA — sistema dinâmico de envio com placeholders inteligentes.",
+
+  "schema": {
+    "id": "string",
+    "titulo": "string",
+    "descricao": "string",
+    "assunto": "string",
+    "html": "string",
+    "placeholders": ["lista opcional de chaves"]
+  },
+
   "templates": [
     {
       "id": "boas_vindas",
       "titulo": "Bem-vindo à Yuno!",
-      "descricao": "Email enviado automaticamente quando um novo utilizador cria conta.",
+      "descricao": "Email enviado automaticamente quando um utilizador cria conta.",
       "assunto": "Bem-vindo à Yuno — A tua jornada com IA começou!",
-      "html": "<h1>Bem-vindo à Yuno 🚀</h1><p>Olá {{nome}}, obrigado por juntares-te à Yuno! A tua conta está pronta e já podes explorar todas as automações e ferramentas disponíveis.</p><p>Se precisares de ajuda, responde diretamente a este email.</p><p>Abraço,<br>Equipa Yuno</p>"
+      "placeholders": ["nome"],
+      "html": "<h1>Bem-vindo à Yuno 🚀</h1><p>Olá {{nome}}, obrigado por juntares-te à Yuno! A tua conta está ativa e pronta para usar.</p><p>Explora automações, painéis IA e ferramentas de próxima geração.</p><p>Estamos contigo nesta jornada.<br>— Equipa Yuno</p>"
     },
+
     {
       "id": "recuperar_senha",
       "titulo": "Recuperação de Senha",
-      "descricao": "Enviado quando o utilizador pede redefinição de password.",
+      "descricao": "Email enviado quando o utilizador pede redefinição.",
       "assunto": "Yuno — Recuperação de Senha",
-      "html": "<h1>Redefine a tua senha 🔐</h1><p>Olá {{nome}}, recebemos um pedido de alteração da tua senha.</p><p>Clica no link abaixo para criar uma nova senha:</p><p><a href='{{link}}'>Redefinir senha</a></p><p>Se não foste tu que pediu, ignora este email.</p>"
+      "placeholders": ["nome", "link"],
+      "html": "<h1>Redefine a tua senha 🔐</h1><p>Olá {{nome}}, recebemos um pedido para redefinir a tua senha.</p><p>Clica no link abaixo:</p><p><a href='{{link}}'>Redefinir senha</a></p><p>Se não foste tu, podes ignorar este email.</p>"
     },
+
     {
-      "id": "novo_mensagem_lead",
+      "id": "novo_lead",
       "titulo": "Novo Lead Recebido",
-      "descricao": "Usado para notificar o cliente quando chega um novo lead no funil.",
+      "descricao": "Notificação quando um novo lead entra no funil.",
       "assunto": "Tens um novo lead! 🎯",
-      "html": "<h1>Novo Lead!</h1><p>Olá {{nome_empresa}}, recebeste um novo lead no teu funil.</p><p><strong>Nome:</strong> {{lead_nome}}<br><strong>Contacto:</strong> {{lead_contacto}}<br><strong>Mensagem:</strong> {{lead_mensagem}}</p><p>Consulta o painel da Yuno IA para detalhes completos.</p>"
+      "placeholders": ["nome_empresa", "lead_nome", "lead_contacto", "lead_mensagem"],
+      "html": "<h1>Novo Lead Recebido</h1><p>Olá {{nome_empresa}}, recebeste um novo lead:</p><p><strong>Nome:</strong> {{lead_nome}}<br><strong>Contacto:</strong> {{lead_contacto}}<br><strong>Mensagem:</strong> {{lead_mensagem}}</p><p>Consulta o painel Yuno IA para mais detalhes.</p>"
     },
+
     {
       "id": "pagamento_confirmado",
-      "titulo": "Pagamento Aprovado",
-      "descricao": "Usado quando o cliente compra um plano Yuno.",
-      "assunto": "Pagamento confirmado — Bem-vindo ao plano {{plano}}",
-      "html": "<h1>Pagamento aprovado 💳</h1><p>Olá {{nome}}, o teu pagamento do plano <strong>{{plano}}</strong> foi confirmado.</p><p>A tua conta premium está ativa e podes aceder a todas as funcionalidades avançadas da Yuno IA.</p><p>Obrigado pela confiança!</p>"
+      "titulo": "Pagamento Confirmado",
+      "descricao": "Enviado quando um cliente compra um plano.",
+      "assunto": "Pagamento confirmado — Plano {{plano}} ativo",
+      "placeholders": ["nome", "plano"],
+      "html": "<h1>Pagamento aprovado 💳</h1><p>Olá {{nome}}, o teu pagamento do plano <strong>{{plano}}</strong> foi confirmado.</p><p>Agora tens acesso total às funcionalidades premium da Yuno IA.</p><p>Obrigado pela confiança!</p>"
     },
+
     {
       "id": "plano_expirando",
       "titulo": "Plano a Expirar",
-      "descricao": "Notifica o cliente que o plano está a acabar.",
+      "descricao": "Aviso automático de expiração.",
       "assunto": "O teu plano Yuno expira em breve ⚠️",
-      "html": "<h1>O teu plano está a expirar</h1><p>Olá {{nome}}, o teu plano atual irá expirar em {{dias}} dias.</p><p>Renova agora para evitar interrupções nos serviços automáticos e no acesso ao painel Yuno IA.</p>"
+      "placeholders": ["nome", "dias"],
+      "html": "<h1>Plano prestes a expirar</h1><p>Olá {{nome}}, o teu plano irá expirar em {{dias}} dias.</p><p>Renova a tempo para evitar qualquer interrupção nas tuas automações.</p>"
     },
+
     {
       "id": "alerta_erro_integracao",
       "titulo": "Erro em Automação",
-      "descricao": "Enviado quando uma integração conectada ao cliente falha.",
+      "descricao": "Enviado quando uma automação falha.",
       "assunto": "Alerta: Problema numa automação ⚠️",
-      "html": "<h1>Alerta de Automação</h1><p>Olá {{nome}}, a tua automação <strong>{{automacao}}</strong> encontrou um erro.</p><p>Mensagem do sistema: {{erro}}</p><p>Recomendamos verificar o painel Yuno IA.</p>"
+      "placeholders": ["nome", "automacao", "erro"],
+      "html": "<h1>Erro numa Automação</h1><p>Olá {{nome}}, a automação <strong>{{automacao}}</strong> encontrou um erro.</p><p>Mensagem do sistema:<br>{{erro}}</p><p>Recomendamos verificar o painel Yuno IA.</p>"
+    },
+
+    {
+      "id": "ia_alerta_resposta_lenta",
+      "titulo": "IA com Resposta Lenta",
+      "descricao": "Aviso automático quando o autosystem detecta lentidão.",
+      "assunto": "Aviso: A IA está a responder devagar ⚠️",
+      "placeholders": ["nome", "ms"],
+      "html": "<h1>IA com Resposta Lenta</h1><p>Olá {{nome}}, detetámos que a IA demorou {{ms}}ms a responder.</p><p>O autosystem 10.3 está a otimizar automaticamente.</p>"
+    },
+
+    {
+      "id": "login_alerta",
+      "titulo": "Novo Login Detectado",
+      "descricao": "Aviso de segurança.",
+      "assunto": "Novo login detectado na tua conta",
+      "placeholders": ["nome", "ip", "pais", "dispositivo"],
+      "html": "<h1>Alerta de Segurança</h1><p>Olá {{nome}}, detectámos um novo login.</p><p><strong>IP:</strong> {{ip}}<br><strong>Localização:</strong> {{pais}}<br><strong>Dispositivo:</strong> {{dispositivo}}</p><p>Se não foste tu, altera a senha imediatamente.</p>"
+    },
+
+    {
+      "id": "conta_bloqueada",
+      "titulo": "Conta Temporariamente Bloqueada",
+      "descricao": "Enviado quando há múltiplas tentativas falhadas.",
+      "assunto": "A tua conta foi temporariamente bloqueada",
+      "placeholders": ["nome"],
+      "html": "<h1>Conta Bloqueada</h1><p>Olá {{nome}}, detectámos tentativas de login suspeitas.</p><p>Por segurança, a tua conta foi bloqueada temporariamente.</p><p>Podes desbloquear fazendo recuperação de senha.</p>"
+    },
+
+    {
+      "id": "erro_servidor",
+      "titulo": "Erro no Servidor",
+      "descricao": "Alerta para administradores.",
+      "assunto": "YUNO IA — Erro crítico no servidor ⚠️",
+      "placeholders": ["erro", "hora"],
+      "html": "<h1>Erro Crítico</h1><p>O servidor registou o seguinte erro:</p><p>{{erro}}</p><p>Hora: {{hora}}</p>"
     }
   ]
 }
