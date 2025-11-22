@@ -1,43 +1,57 @@
-# 🟦 YUNO IA — Versão 9.0 (Auditada)
-*Plataforma de Inteligência Artificial Futurista para Marketing, Automação e Sistemas 3D*
+# 🟦 YUNO IA — Versão 10.3 (Híbrida + Auditada)
+*Plataforma de Inteligência Artificial Autoprogramável, Futurista e Totalmente Modular.*
 
-YUNO é um sistema completo que combina:
-- IA para automação de marketing
-- Geração de conteúdos
-- Painel interativo
-- Avatares 3D em Three.js
-- PWA de última geração
-- Sistema de APIs (vídeo, imagem, automações)
-- Mecanismos de segurança auditados
+A **YUNO IA 10.3** é a evolução direta da linha 9.x — agora com arquitetura híbrida, módulos inteligentes, sistema de autoprogramação, painel avançado, avatar 3D, PWA completo e motor interno de IA preparado para expansão futura.
 
 ---
 
-## 🚀 Funcionalidades Principais
-### 🔹 IA YUNO
-- Assistente inteligente que cria posts, campanhas, estratégias e conteúdos.
-- Automação completa para negócios.
+## 🚀 Funcionalidades Principais — Versão 10.3
+
+### 🔹 IA YUNO – Núcleo Híbrido 10.3
+- YUNO_ENGINE 10.3 totalmente reestruturado.
+- Inference 10.3 para raciocínio dinâmico.
+- Comportamento adaptativo e configurável.
+
+### 🔹 Auto-Programação (Autosystem 10.3)
+- Diagnósticos internos.
+- Auto-correções do sistema.
+- Reconstrução modular com aprovação do utilizador.
+- Ciclo inteligente YUNO → Sistema → Aprendizagem → Evolução.
 
 ### 🔹 Avatar 3D Interativo
-- Modelo GLB carregado em Three.js.
-- Controlo 3D, luzes, UI futurista.
+- Modelo GLB otimizado.
+- Integrado com Three.js.
+- UI Neon híbrida.
+- Preparado para voz, expressões e animações futuras.
 
 ### 🔹 Painel Avançado
-- Gestão de projetos, automações e conteúdos.
+- Controlo total da personalidade da IA.
+- Configuração de modelos e motores.
+- Integração com redes sociais e APIs externas.
+- Logs internos da IA.
+- (Próximo passo: Painel Admin 1)
 
-### 🔹 PWA (Progressive Web App)
-- Pode ser instalado no PC e telemóvel.
-- Funciona offline.
-- Atualização automática.
+### 🔹 PWA 10.x
+- Instalação em PC e telemóvel.
+- Service Worker otimizado (offline + update automático).
+- Manifest 10.x auditado.
+- Suporte a funcionamento híbrido.
 
-### 🔹 Segurança Auditada
-- Tokens, hashing, proteções anti-bot.
-- Módulos JS dedicados: security.js, auth.js.
+### 🔹 Segurança 10.3 Auditada
+- Proteção anti-bot.
+- Sanitização e validação de input.
+- Hashing avançado.
+- Módulos dedicados: `/security`, `/auth`.
 
 ### 🔹 APIs Integradas
-- Vídeo (HeyGen, Pika Labs, RunwayML)
-- Funções generativas
-- Editor interno
+- Motor de vídeos:
+  - HeyGen  
+  - Pika Labs  
+  - RunwayML  
+- Automação avançada.
+- Funções generativas futuras.
 
 ---
 
-## 🗂 Estrutura Principal
+## 🗂 Estrutura Principal — YUNO 10.3
+
