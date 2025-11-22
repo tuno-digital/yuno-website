@@ -1,39 +1,95 @@
 {
+  "versao": "10.3",
+  "atualizado_em": "2025-11-22",
+
   "planos": [
     {
-      "id": 1,
+      "id": "starter",
       "nome": "Starter",
       "preco": 47,
-      "descricao": "Ideal para pequenos negócios começarem no digital.",
+      "moeda": "EUR",
+      "nivel": "iniciante",
+      "descricao": "Ideal para pequenos negócios que estão a começar a presença digital com suporte básico de IA.",
+      "beneficios_chave": [
+        "Começo rápido",
+        "Baixo investimento",
+        "Ferramentas essenciais de IA"
+      ],
       "itens": [
-        "Gestão de redes sociais",
-        "2 vídeos/mês",
-        "Chatbot básico"
-      ]
+        "Gestão essencial de redes sociais",
+        "2 vídeos/mês (IA)",
+        "Chatbot básico Yuno AI",
+        "Criação de posts simples",
+        "Acesso ao painel Yuno IA (limitado)",
+        "Suporte por email"
+      ],
+      "limites": {
+        "videos_mes": 2,
+        "automacoes": 5,
+        "posts_mes": 20
+      },
+      "tags": ["iniciante", "marketing", "economico", "social"]
     },
+
     {
-      "id": 2,
+      "id": "professional",
       "nome": "Professional",
       "preco": 97,
-      "descricao": "Plano recomendado para crescimento acelerado.",
+      "moeda": "EUR",
+      "nivel": "intermedio",
+      "descricao": "Plano recomendado para empresas que querem crescer com conteúdo melhorado, automações e funis simples.",
+      "beneficios_chave": [
+        "Automação real",
+        "IA estratégica",
+        "Funis inteligentes"
+      ],
       "itens": [
-        "Gestão completa",
-        "4 vídeos/mês",
-        "Chatbot avançado",
-        "Funis simples"
-      ]
+        "Gestão completa de redes sociais",
+        "4 vídeos/mês (IA HeyGen/Pika)",
+        "Chatbot avançado Yuno IA",
+        "Criação de conteúdos premium",
+        "Funis simples (captura → obrigado → oferta)",
+        "Acesso total ao painel Yuno IA",
+        "Integrações com redes sociais",
+        "Relatórios automáticos semanais"
+      ],
+      "limites": {
+        "videos_mes": 4,
+        "automacoes": 25,
+        "posts_mes": 80
+      },
+      "tags": ["profissional", "automacao", "funis", "crescimento"]
     },
+
     {
-      "id": 3,
+      "id": "ultra",
       "nome": "Ultra",
       "preco": 197,
-      "descricao": "Para empresas que querem escala e automação total.",
+      "moeda": "EUR",
+      "nivel": "avancado",
+      "descricao": "Para empresas que querem escalar com automações completas, IA de alto nível, vídeos ilimitados e funis avançados.",
+      "beneficios_chave": [
+        "Escala máxima",
+        "IA avançada",
+        "Automação total"
+      ],
       "itens": [
-        "Produção ilimitada",
-        "Chatbot IA",
-        "Funis avançados",
-        "Automação completa"
-      ]
+        "Produção ilimitada de conteúdo",
+        "Vídeos ilimitados (IA HeyGen/Pika/RunwayML)",
+        "Chatbot IA autónomo",
+        "Funis avançados completos",
+        "Automações ilimitadas",
+        "Gestão total da marca",
+        "Relatórios avançados com IA",
+        "Yuno IA Extreme Engine incluído",
+        "Prioridade máxima em suporte"
+      ],
+      "limites": {
+        "videos_mes": "ilimitado",
+        "automacoes": "ilimitado",
+        "posts_mes": "ilimitado"
+      },
+      "tags": ["premium", "ia", "automacao_total", "escala", "enterprises"]
     }
   ]
 }
