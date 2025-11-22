@@ -1,22 +1,102 @@
 {
+  "versao": "10.3",
+  "descricao": "Lista oficial de automações disponíveis na Yuno IA — fluxos inteligentes, triggers e ações automáticas.",
+
+  "schema": {
+    "id": "number",
+    "nome": "string",
+    "descricao": "string",
+    "categoria": "string",
+    "ativo": "boolean",
+    "gatilhos": ["eventos"],
+    "acoes": ["acoes"],
+    "config_padrao": {}
+  },
+
   "automacoes": [
     {
       "id": 1,
       "nome": "Follow-up Automático",
-      "descricao": "Segue o cliente automaticamente a cada X dias.",
-      "categoria": "vendas"
+      "descricao": "Segue o cliente automaticamente após X dias sem resposta.",
+      "categoria": "vendas",
+      "ativo": true,
+      "gatilhos": ["lead_capturado", "form_submit", "cliente_inativo"],
+      "acoes": ["enviar_email", "enviar_whatsapp", "registrar_evento"],
+      "config_padrao": {
+        "dias_intervalo": 3,
+        "mensagem_template": "Olá! Só para confirmar se viste a nossa mensagem anterior. Precisas de ajuda?"
+      }
     },
+
     {
       "id": 2,
-      "nome": "Qualificação de Leads",
-      "descricao": "Perguntas inteligentes via IA para filtrar clientes bons.",
-      "categoria": "chatbot"
+      "nome": "Qualificação de Leads com IA",
+      "descricao": "Sistema inteligente que usa IA para filtrar leads bons e maus.",
+      "categoria": "chatbot",
+      "ativo": true,
+      "gatilhos": ["form_submit", "lead_capturado"],
+      "acoes": ["perguntar_ia", "registrar_score", "enviar_email"],
+      "config_padrao": {
+        "perguntas": [
+          "Qual é o teu objetivo principal?",
+          "Tens orçamento definido?",
+          "Quando precisas de começar?"
+        ],
+        "metodo_score": "ponderado_ia",
+        "score_minimo": 70
+      }
     },
+
     {
       "id": 3,
       "nome": "Recuperação de Clientes Inativos",
-      "descricao": "Fluxos automáticos para recuperar clientes que sumiram.",
-      "categoria": "marketing"
+      "descricao": "A Yuno cria mensagens automáticas para recuperar clientes desaparecidos.",
+      "categoria": "marketing",
+      "ativo": true,
+      "gatilhos": ["cliente_inativo", "lead_sem_resposta"],
+      "acoes": ["enviar_email", "enviar_whatsapp", "gerar_cupom"],
+      "config_padrao": {
+        "dias_sem_interacao": 15,
+        "mensagem_promocional": "Sentimos a tua falta! Preparamos algo especial para ti...",
+        "cupom_desconto": "YUNO10"
+      }
+    },
+
+    {
+      "id": 4,
+      "nome": "Alerta de Picos de Tráfego",
+      "descricao": "Ativado quando o analytics detecta picos incomuns.",
+      "categoria": "monitorizacao",
+      "ativo": true,
+      "gatilhos": ["trafego_alto"],
+      "acoes": ["notificar_admin", "ativar_auto_scale"],
+      "config_padrao": {
+        "limite_views_hora": 5000
+      }
+    },
+
+    {
+      "id": 5,
+      "nome": "IA Resposta Lenta",
+      "descricao": "Ativado quando a IA demora a responder.",
+      "categoria": "monitorizacao",
+      "ativo": true,
+      "gatilhos": ["ia_resposta_lenta"],
+      "acoes": ["reiniciar_modulo_ia", "notificar_devops"],
+      "config_padrao": {
+        "tempo_limite_ms": 3500
+      }
+    },
+
+    {
+      "id": 6,
+      "nome": "Nova Automação — Placeholder",
+      "descricao": "Reservado para futuras automações 10.4+",
+      "categoria": "sistema",
+      "ativo": false,
+      "gatilhos": [],
+      "acoes": [],
+      "config_padrao": {}
     }
   ]
 }
