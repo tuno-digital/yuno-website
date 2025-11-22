@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="ativos/img/logos/logo-70.png"/>
+      <square150x150logo src="ativos/img/logos/logo-150.png"/>
+      <square310x310logo src="ativos/img/logos/logo-310.png"/>
+      <TileColor>#00eaff</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>
