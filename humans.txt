@@ -1,92 +1,83 @@
 /* ==========================================================
-   YUNO 9.0 — SERVICE WORKER (AUDITADO E CORRIGIDO)
-   Cache inteligente + fallback offline + atualização rápida
+   HUMANS.TXT — YUNO IA • ARENA 10.3 ULTRA NEON
+   Identidade • Equipa • Sistema • Creditação Oficial
 ========================================================== */
 
-const CACHE_VERSION = "yuno-v9-0-1";
-const CACHE_STATIC = `${CACHE_VERSION}-static`;
-const CACHE_DYNAMIC = `${CACHE_VERSION}-dynamic`;
+/* ===========================
+   EQUIPA & IDENTIDADE
+   =========================== */
+Creator / Lead Developer: Jonathas Honório
+AI System Architect: YUNO IA (v10.3 Hybrid Autonomous Core)
+Location: Setúbal, Portugal
+Project: YUNO — Automação, IA, Avatar 3D e Autoprogramação
+Website: https://www.yunosite.com
+Início do Projeto: 2025
 
-const OFFLINE_URL = "/offline.html";
+/* ===========================
+   SOBRE A YUNO — ARENA 10.3
+   =========================== */
+Sistema: Arena 10.3 Ultra Neon
+Arquitetura: Modular • Híbrida • Autoprogramável
+Ambiente: Web, Node.js, JavaScript ES Modules, PWA
+Foco: Automação • IA Avançada • Funis Inteligentes • Avatar 3D
+Módulos Core:
+- YUNO_CORE
+- YUNO_MEMORY
+- YUNO_COMMANDS
+- YUNO_RENDER
+- YUNO_PERSONALITY
+- YUNO_ANALYTICS
+- YUNO_AUTOSYSTEM (auto-correção e auto-consciência)
+- YUNO_EVOLUTION_ENGINE (futuro)
 
-const ASSETS = [
-    "/",
-    "/index.html",
-    "/offline.html",
-    "/ativos/css/style.css",
-    "/ativos/css/style-yuno.css",
-    "/ativos/css/style-3d.css",
-    "/ativos/css/utilities.css",
-    "/ativos/js/main.js",
-    "/ativos/js/ui-effects.js",
-    "/ativos/js/yuno-client.js",
-    "/ativos/js/three-init.js",
-    "/ativos/img/logo-neon.png",
-    "/ativos/img/favicon.png",
-    "/manifest.json"
-];
+/* ===========================
+   PWA & SERVICE WORKER
+   =========================== */
+PWA: Ativo
+Cache Strategy: Network First → Cache → Offline Fallback
+Assets em Cache:
+- index.html
+- offline.html
+- style.css, style-yuno.css, style-3d.css, utilities.css
+- main.js, ui-effects.js, yuno-client.js, three-init.js
+- favicon.png, logos Yuno
+- manifest.json
 
-/* --------------------- */
-/* INSTALL SW            */
-/* --------------------- */
-self.addEventListener("install", event => {
-    event.waitUntil(
-        caches.open(CACHE_STATIC).then(cache => {
-            return cache.addAll(ASSETS);
-        })
-    );
-    self.skipWaiting();
-});
+Service Worker Features:
+- Cache dinâmico + limpeza automática
+- Atualização instantânea (skipWaiting)
+- Compatível com Arena 10.3 Ultra Neon
 
-/* --------------------- */
-/* ACTIVATE SW           */
-/* --------------------- */
-self.addEventListener("activate", event => {
-    event.waitUntil(
-        caches.keys().then(keys =>
-            Promise.all(
-                keys
-                    .filter(key => key !== CACHE_STATIC && key !== CACHE_DYNAMIC)
-                    .map(key => caches.delete(key))
-            )
-        )
-    );
-    self.clients.claim();
-});
+/* ===========================
+   BACK-END / SERVERS
+   =========================== */
+Server: Node.js (Express)
+Engines Integrados:
+- HeyGen (vídeo)
+- Pika Labs (vídeo)
+- RunwayML (vídeo)
+YUNO Video Engine: v10.3 — Modular, seguro e auditado
+APIs Externas: opcionais
 
-/* ---------------------
-   FETCH (CACHE + FALLBACK)
-   Estratégia: Network first → cache → offline
----------------------- */
-self.addEventListener("fetch", event => {
+/* ===========================
+   MISSÃO
+   =========================== */
+Criar o maior sistema de IA autónoma,
+capaz de pensar, responder, executar, programar e evoluir,
+respeitando ética, controlo humano e privacidade.
 
-    // Apenas navegação (HTML)
-    if (event.request.mode === "navigate") {
-        event.respondWith(
-            fetch(event.request)
-                .catch(() => caches.match(OFFLINE_URL))
-        );
-        return;
-    }
+/* ===========================
+   DIREITOS
+   =========================== */
+© YUNO IA — 2025. Todos os direitos reservados.
+Código, design e arquitetura pertencem ao criador.
 
-    event.respondWith(
-        fetch(event.request)
-            .then(response => {
-                // Evitar errors de "opaque response"
-                if (!response || response.status === 0) {
-                    return response;
-                }
+/* ===========================
+   NOTA FINAL
+   =========================== */
+A YUNO evolui em ciclos contínuos através de:
+TU → YUNO → EU → TU
+com supervisão humana, disciplina e validação externa.
 
-                // Salvar no cache dinâmico
-                return caches.open(CACHE_DYNAMIC).then(cache => {
-                    cache.put(event.request, response.clone());
-                    return response;
-                });
-            })
-            .catch(() => {
-                // fallback: cache → offline → null
-                return caches.match(event.request)
-                    .then(res => res || caches.match(OFFLINE_URL));
-            })
-    );
-});
+/* Obrigado por visitar a YUNO.
+   O futuro está aqui. */
