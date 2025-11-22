@@ -1,8 +1,10 @@
 {
+  "versao": "10.3",
   "modelo_posts": {
-    "descricao": "Modelo base para criação de posts, anúncios, artigos e conteúdos da Yuno IA.",
-    "versao": "1.0",
+    "descricao": "Modelo completo de estrutura para criação de posts, artigos, anúncios, vídeos e conteúdos gerados pela Yuno IA.",
     "autor": "Yuno IA System",
+    "ultima_atualizacao": "2025-11-22",
+
     "campos_obrigatorios": [
       "id",
       "titulo",
@@ -10,32 +12,78 @@
       "categoria",
       "data_publicacao",
       "imagem",
-      "conteudo"
+      "conteudo",
+      "status"
     ],
+
     "categorias_permitidas": [
       "marketing-digital",
       "automacoes",
+      "inteligencia-artificial",
       "funis",
       "negocios",
-      "inteligencia-artificial",
       "tecnologia",
       "cases",
-      "atualizacoes",
       "tutorial",
+      "atualizacoes",
+      "produto",
+      "comunicado",
       "outros"
     ],
+
+    "status_permitidos": [
+      "rascunho",
+      "revisao",
+      "publicado",
+      "agendado",
+      "arquivado"
+    ],
+
     "estrutura_exemplo": {
       "id": 1,
       "titulo": "Título do Post",
       "descricao": "Resumo rápido sobre o conteúdo do post.",
       "categoria": "marketing-digital",
       "data_publicacao": "2025-01-01",
-      "autor": "Admin Yuno",
-      "imagem": "ativos/img/post-exemplo.jpg",
-      "tags": ["funil", "marketing", "crescimento"],
+      "autor": "Equipa Yuno",
+      "imagem": "ativos/img/posts/post-exemplo.jpg",
+      "tags": ["marketing", "funil", "crescimento"],
+      "prioridade": "normal",
       "conteudo": "<p>Conteúdo HTML completo aqui...</p>",
-      "status": "publicado"
+      "status": "publicado",
+
+      "seo": {
+        "titulo": "Título SEO otimizado",
+        "descricao": "Descrição SEO do artigo da Yuno IA.",
+        "palavras_chave": [
+          "marketing digital",
+          "funis",
+          "IA",
+          "automação"
+        ]
+      },
+
+      "ia": {
+        "gerado_por": "Yuno IA v10.3",
+        "modelo": "hypertext-10.3",
+        "temperatura": 0.7
+      },
+
+      "performance": {
+        "views": 0,
+        "cliques": 0,
+        "partilhas": 0,
+        "conversoes": 0,
+        "score_qualidade": 0
+      },
+
+      "revisao": {
+        "responsavel": "Admin",
+        "data": "2025-01-02",
+        "comentarios": "Post aprovado para publicação."
+      }
     },
-    "observacoes": "Este ficheiro define como os posts devem ser criados e estruturados dentro da plataforma Yuno IA."
+
+    "observacoes": "Este ficheiro define como os conteúdos da Yuno IA são criados, armazenados e interpretados pelo sistema central, pelo painel e pelo módulo de auto-escrita YUNO_AUTOSYSTEM 10.3."
   }
 }
