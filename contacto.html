@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Contacto — Yuno • Arena 9.1 Híbrida</title>
-    <meta name="description" content="Fala com a equipa Yuno. Suporte, dúvidas, propostas e contacto direto." />
+    <title>Contacto — Yuno • Arena 10.3</title>
+    <meta name="description" content="Fala com a equipa Yuno. Suporte, propostas, parceria e contacto direto com especialistas." />
     <meta name="theme-color" content="#00eaff" />
 
+    <!-- OPEN GRAPH -->
     <meta property="og:title" content="Contacto — Yuno IA" />
-    <meta property="og:description" content="Entra em contacto com a equipa Yuno para suporte e informações." />
+    <meta property="og:description" content="Entra em contacto com a equipa Yuno para suporte, negócios e automações inteligentes." />
     <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
 
     <!-- CSS OFICIAIS -->
@@ -23,16 +24,29 @@
 </head>
 
 <body>
-    <header class="yuno-navbar">
-    <div class="nav-container">
-        
-        <!-- LOGO -->
-        <a href="index.html" class="nav-logo">
-            <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
-        </a>
 
-        <!-- LINKS DESKTOP -->
-        <nav class="nav-links">
+    <!-- NAVBAR -->
+    <header class="yuno-navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="nav-logo">
+                <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="yuno-ia.html">Yuno IA</a>
+                <a href="avatar-3d.html">Avatar 3D</a>
+                <a href="automacoes-ia.html">Automações</a>
+                <a href="planos.html">Planos</a>
+                <a href="contacto.html" class="active">Contacto</a>
+            </nav>
+
+            <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
+        </div>
+
+        <div class="nav-mobile" id="navMobile">
             <a href="index.html">Início</a>
             <a href="servicos.html">Serviços</a>
             <a href="yuno-ia.html">Yuno IA</a>
@@ -40,42 +54,43 @@
             <a href="automacoes-ia.html">Automações</a>
             <a href="planos.html">Planos</a>
             <a href="contacto.html">Contacto</a>
-        </nav>
-
-        <!-- BOTÃO MOBILE -->
-        <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
-    </div>
-
-    <!-- MENU MOBILE -->
-    <div class="nav-mobile" id="navMobile">
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="yuno-ia.html">Yuno IA</a>
-        <a href="avatar-3d.html">Avatar 3D</a>
-        <a href="automacoes-ia.html">Automações</a>
-        <a href="planos.html">Planos</a>
-        <a href="contacto.html">Contacto</a>
-    </div>
-</header>
+        </div>
+    </header>
 
     <!-- MAIN -->
     <main class="container page-content">
 
         <section class="page-header">
             <h1 class="neon-title">Fala Connosco</h1>
-            <p class="lead">Estamos aqui para ajudar. Envia a tua mensagem e responderemos rapidamente.</p>
+            <p class="lead">Estamos prontos para te ajudar com IA, automações, negócios e projetos.</p>
         </section>
 
         <section class="contact-section">
+            <!-- INFO -->
             <div class="contact-info">
-                <h2>Informações de Contacto</h2>
-                <p>📧 Email: <a href="mailto:suporte@yuno.example">suporte@yuno.example</a></p>
-                <p>💼 Propostas comerciais: <a href="mailto:business@yuno.example">business@yuno.example</a></p>
-                <p>🕒 Horário: Segunda a Sexta — 10h às 18h</p>
+                <h2 class="section-title neon-soft">Informações de Contacto</h2>
+
+                <p>📧 Suporte geral:  
+                    <a href="mailto:suporte@yuno.example">suporte@yuno.example</a>
+                </p>
+
+                <p>💼 Propostas comerciais:  
+                    <a href="mailto:business@yuno.example">business@yuno.example</a>
+                </p>
+
+                <p>🤝 Parcerias & integrações:  
+                    <a href="mailto:parcerias@yuno.example">parcerias@yuno.example</a>
+                </p>
+
+                <p>🕒 Horário (Portugal):  
+                    <br>Segunda a Sexta — 10h às 18h
+                </p>
             </div>
 
+            <!-- FORM -->
             <div class="contact-form">
-                <h2>Enviar Mensagem</h2>
+                <h2 class="section-title neon">Enviar Mensagem</h2>
+
                 <form action="#" method="post" class="form-yuno">
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="nome" required>
@@ -91,9 +106,12 @@
             </div>
         </section>
 
+        <!-- CTA FINAL -->
         <section class="cta-section">
-            <h2 class="section-title">Preferes falar diretamente?</h2>
-            <p class="lead">A equipa Yuno está disponível para reuniões e apresentações profissionais.</p>
+            <h2 class="section-title">Preferes falar ao vivo?</h2>
+            <p class="lead">
+                Podemos marcar uma chamada, apresentação ou demonstração da Yuno IA.
+            </p>
             <a href="planos.html" class="btn-primary">Agendar Consulta</a>
         </section>
 
@@ -104,7 +122,9 @@
         <div class="container footer-grid">
             <div class="footer-col">
                 <img src="ativos/img/logos/logo-yuno-completa.png" height="40" alt="Yuno Logo">
-                <p class="footer-desc">A revolução da IA e automação para empresas modernas.</p>
+                <p class="footer-desc">
+                    A revolução da IA e automação para empresas modernas.
+                </p>
             </div>
 
             <div class="footer-col">
@@ -122,10 +142,13 @@
             </div>
         </div>
 
-        <div class="footer-bottom">© <span id="ano"></span> Yuno — Arena 9.1 Híbrida.</div>
+        <div class="footer-bottom">© <span id="ano"></span> Yuno — Arena 10.3 Ultra Neon.</div>
     </footer>
 
     <script src="ativos/js/main.js"></script>
-    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
+    <script src="ativos/js/ui-effects.js"></script>
+    <script>
+        document.getElementById("ano").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
