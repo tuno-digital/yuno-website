@@ -1,8 +1,9 @@
 {
   "model": {
-    "nome": "Yuno IA - Modelo Base",
-    "versao": "1.0",
-    "descricao": "Modelo base de configuração para novos módulos da Yuno IA.",
+    "nome": "Yuno IA — Modelo Base Oficial",
+    "versao": "10.3",
+    "descricao": "Modelo-base de configuração para todos os módulos da Yuno IA, incluindo IA, automações, segurança, painel e motores externos.",
+
     "estruturas": {
       "servicos": "data/services.json",
       "planos": "data/planos.json",
@@ -10,10 +11,74 @@
       "emails": "data/email-templates.json",
       "posts": "data/posts-model.json",
       "analytics": "data/analytics.json",
-      "clientes": "data/clientes.json"
+      "clientes": "data/clientes.json",
+
+      "flows": "data/automations-flows.json",
+      "ia_personalidade": "data/personality.json",
+      "event_log_schema": "data/event-schema.json"
     },
+
+    "motores": {
+      "video": {
+        "heygen": "integrations/video/heygen.js",
+        "pika": "integrations/video/pika.js",
+        "runway": "integrations/video/runwayml.js"
+      },
+      "voz": {
+        "text_to_speech": "integrations/audio/text-to-speech.js"
+      },
+      "imagem": {
+        "gerador": "integrations/image/generator.js"
+      }
+    },
+
+    "painel": {
+      "config": "painel/painel-config.json",
+      "modulos": [
+        "controlo-personalidade",
+        "modelos-ia",
+        "integracoes",
+        "automacoes",
+        "logs",
+        "estatisticas",
+        "admin"
+      ]
+    },
+
+    "ia_core": {
+      "arquitetura": "Hybrid-Neon 10.3",
+      "componentes": {
+        "memory": "yuno-ia/memory.js",
+        "engine": "yuno-ia/engine.js",
+        "autosystem": "yuno-ia/autosystem.js",
+        "analytics": "yuno-ia/analytics.js",
+        "render": "yuno-ia/render.js",
+        "commands": "yuno-ia/commands.js",
+        "actions": "yuno-ia/actions.js"
+      }
+    },
+
+    "seguranca": {
+      "hashing": "security/hashing.js",
+      "auth": "security/auth.js",
+      "rate_limit": "security/rate-limit.js",
+      "audit": "security/audit-log.js"
+    },
+
+    "estrutura_ficheiros": {
+      "static": "/",
+      "api": "/server",
+      "integrations": "/integrations",
+      "painel": "/painel",
+      "data": "/data",
+      "tmp": "/tmp",
+      "assets": "/ativos"
+    },
+
     "criado_em": "2025-01-01",
-    "autor": "Yuno IA System",
-    "observacoes": "Este ficheiro serve como referência principal para novos componentes."
+    "atualizado_em": "2025-11-22",
+    "autor": "YUNO IA • Autosystem 10.3",
+
+    "observacoes": "Este ficheiro serve como o modelo base principal para qualquer novo componente, módulo ou expansão da Yuno IA. É lido internamente pelo autosystem 10.3 para autoconfiguração e validação estrutural."
   }
 }
