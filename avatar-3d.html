@@ -4,15 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Avatar 3D — Yuno • Arena 9.1 Híbrida</title>
-    <meta name="description" content="Conhece o Avatar 3D da Yuno — Interativo, futurista e totalmente integrado com IA." />
+    <title>Avatar 3D — Yuno • Arena 10.3 Ultra Neon</title>
+    <meta name="description" content="Conhece o Avatar 3D oficial da Yuno — realista, interativo, com IA integrada e animações avançadas em tempo real." />
     <meta name="theme-color" content="#00eaff" />
 
+    <!-- Open Graph -->
     <meta property="og:title" content="Avatar 3D — Yuno IA" />
-    <meta property="og:description" content="Avatar futurista com voz realista, expressão e interação total." />
+    <meta property="og:description" content="Avatar futurista com expressões, fala realista e integração com IA." />
     <meta property="og:image" content="ativos/img/avatar/avatar-master.png" />
 
-    <!-- CSS OFICIAIS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="ativos/css/style.css">
     <link rel="stylesheet" href="ativos/css/utilities.css">
     <link rel="stylesheet" href="ativos/css/pages.css">
@@ -23,119 +24,128 @@
 </head>
 
 <body>
-    <header class="yuno-navbar">
+
+<!-- NAVBAR -->
+<header class="yuno-navbar">
     <div class="nav-container">
-        
-        <!-- LOGO -->
+
         <a href="index.html" class="nav-logo">
             <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
         </a>
 
-        <!-- LINKS DESKTOP -->
         <nav class="nav-links">
             <a href="index.html">Início</a>
             <a href="servicos.html">Serviços</a>
             <a href="yuno-ia.html">Yuno IA</a>
-            <a href="avatar-3d.html">Avatar 3D</a>
+            <a href="avatar-3d.html" class="active">Avatar 3D</a>
             <a href="automacoes-ia.html">Automações</a>
             <a href="planos.html">Planos</a>
             <a href="contacto.html">Contacto</a>
         </nav>
 
-        <!-- BOTÃO MOBILE -->
         <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
     </div>
 
-    <!-- MENU MOBILE -->
     <div class="nav-mobile" id="navMobile">
         <a href="index.html">Início</a>
         <a href="servicos.html">Serviços</a>
         <a href="yuno-ia.html">Yuno IA</a>
-        <a href="avatar-3d.html">Avatar 3D</a>
+        <a href="avatar-3d.html" class="active">Avatar 3D</a>
         <a href="automacoes-ia.html">Automações</a>
         <a href="planos.html">Planos</a>
         <a href="contacto.html">Contacto</a>
     </div>
 </header>
 
-    <!-- MAIN -->
-    <main class="container page-content">
+<!-- MAIN -->
+<main class="container page-content">
 
-        <section class="page-header">
-            <h1 class="neon-title">Avatar 3D Interativo</h1>
-            <p class="lead">O rosto da Yuno — realista, futurista e totalmente integrado à IA.</p>
-        </section>
+    <section class="page-header">
+        <h1 class="neon-title">Avatar 3D Interativo</h1>
+        <p class="lead">O rosto ultra-realista da Yuno — animado, responsivo e totalmente alimentado por IA.</p>
+    </section>
 
-        <section class="avatar-section">
-            <div class="avatar-text">
-                <h2>Um Avatar com Vida Própria</h2>
-                <p>
-                    O Avatar 3D da Yuno é uma representação digital avançada, capaz de
-                    comunicar, reagir e apresentar conteúdos como um assistente virtual
-                    futurista.
-                </p>
+    <section class="avatar-section">
 
-                <h2>O que o Avatar Consegue Fazer</h2>
-                <ul class="features-list">
-                    <li>🗣️ Fala com voz realista e natural</li>
-                    <li>🎭 Expressões faciais dinâmicas</li>
-                    <li>🖥️ Apresenta produtos e serviços</li>
-                    <li>🤖 Integrado com Yuno IA</li>
-                    <li>⚡ Animações suaves e realistas</li>
-                    <li>🌐 Pode ser usado em sites, apps e painéis</li>
-                </ul>
+        <!-- TEXT -->
+        <div class="avatar-text">
+            <h2>O Futuro da Interação</h2>
+            <p>
+                O Avatar 3D da Yuno é uma entidade digital avançada, projetada para 
+                comunicar, expressar emoções, reagir e apresentar conteúdo de forma 
+                imersiva. É o ponto onde inteligência artificial, animação e tecnologia 
+                3D se encontram.
+            </p>
 
-                <h2>Tecnologia de Próxima Geração</h2>
-                <p>
-                    Renderização moderna, animação em tempo real e suporte para motores
-                    3D como Three.js — o Avatar 3D não é apenas um modelo: é uma experiência.
-                </p>
-            </div>
+            <h2>Capacidades do Avatar</h2>
+            <ul class="features-list">
+                <li>🗣️ Fala realista com sincronização labial</li>
+                <li>🎭 Expressões faciais dinâmicas automáticas</li>
+                <li>📡 Comunicação em tempo real com a Yuno IA</li>
+                <li>🌐 Integração com motores 3D (Three.js / WebGL)</li>
+                <li>⚡ Animações suaves, otimizadas e responsivas</li>
+                <li>🤳 Pode ser usado em sites, apps, painéis ou vídeos</li>
+            </ul>
 
-            <div class="avatar-display">
-                <!-- MODELO 3D - PLACEHOLDER -->
-                <div class="avatar-3d-box">
-                    <p>Pré-visualização do Avatar 3D</p>
-                    <img src="ativos/img/avatar/avatar-master.png" alt="Avatar 3D Yuno" />
-                </div>
-            </div>
-        </section>
+            <h2>Tecnologia Avançada</h2>
+            <p>
+                Desenvolvido com pipelines de animação modernos, modelos otimizados 
+                e suporte a texturas de alta resolução. Preparado para interações 
+                inteligentes e experiências de IA totalmente imersivas.
+            </p>
+        </div>
 
-        <section class="cta-section">
-            <h2 class="section-title">Queres ver o Avatar em Ação?</h2>
-            <p class="lead">Explora a versão interativa com IA e animação real.</p>
-            <a href="painel-yuno-ia.html" class="btn-primary">Abrir Demo</a>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <img src="ativos/img/logos/logo-yuno-completa.png" height="40" alt="Yuno Logo">
-                <p class="footer-desc">A revolução da IA e automação para empresas modernas.</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>Produtos</h4>
-                <a href="yuno-ia.html">Yuno IA</a>
-                <a href="avatar-3d.html" class="active">Avatar 3D</a>
-                <a href="automacoes-ia.html">Automações</a>
-            </div>
-
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="politica.html">Política de Privacidade</a>
-                <a href="termos.html">Termos & Condições</a>
-                <a href="cookies.html">Cookies</a>
+        <!-- DISPLAY -->
+        <div class="avatar-display">
+            <div class="avatar-3d-box">
+                <p class="preview-label">Pré-visualização do Avatar 3D</p>
+                <img src="ativos/img/avatar/avatar-master.png" alt="Avatar 3D Yuno">
             </div>
         </div>
 
-        <div class="footer-bottom">© <span id="ano"></span> Yuno — Arena 9.1 Híbrida.</div>
-    </footer>
+    </section>
 
-    <script src="ativos/js/main.js"></script>
-    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
+    <section class="cta-section">
+        <h2 class="section-title">Pronto para ver o Avatar em ação?</h2>
+        <p class="lead">Explora animações reais e interações com IA.</p>
+        <a href="painel-yuno-ia.html" class="btn-primary">Abrir Demo Interativa</a>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <img src="ativos/img/logos/logo-yuno-completa.png" height="40" alt="Yuno Logo">
+            <p class="footer-desc">A revolução da IA, automação e tecnologia 3D para empresas modernas.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Produtos</h4>
+            <a href="yuno-ia.html">Yuno IA</a>
+            <a href="avatar-3d.html" class="active">Avatar 3D</a>
+            <a href="automacoes-ia.html">Automações</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="politica.html">Política de Privacidade</a>
+            <a href="termos.html">Termos & Condições</a>
+            <a href="cookies.html">Cookies</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © <span id="ano"></span> Yuno — Arena 10.3 Ultra Neon.
+    </div>
+</footer>
+
+<script src="ativos/js/main.js"></script>
+<script src="ativos/js/ui-effects.js"></script>
+<script>
+document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
