@@ -1,32 +1,37 @@
-// ================================================
-// CONFIG GLOBAL YUNO 10.3 — Auto-carregamento .env
-// ================================================
+// ========================================================
+// CONFIG GLOBAL — YUNO IA 10.3 HÍBRIDA
+// Auto-load do .env + fallback + segurança
+// ========================================================
 
 import dotenv from "dotenv";
 dotenv.config();
 
+import { validateEnv } from "./env.js";
+
+validateEnv(); // garante .env carregado antes de exportar config
+
 export const CONFIG = {
-    
-    // 🔐 API KEYS
-    heygen: process.env.HEYGEN_API_KEY,
-    pika: process.env.PIKA_API_KEY,
-    runway: process.env.RUNWAY_API_KEY,
-    aiKey: process.env.YUNO_AI_KEY,
+
+    // 🔐 CHAVES DE API
+    heygen: process.env.HEYGEN_API_KEY || null,
+    pika: process.env.PIKA_API_KEY || null,
+    runway: process.env.RUNWAY_API_KEY || null,
+    aiKey: process.env.YUNO_AI_KEY || null,
 
     // ⚙️ SERVIDOR
-    port: process.env.PORT || 3001,
+    port: Number(process.env.PORT) || 3001,
     env: process.env.NODE_ENV || "development",
 
-    // 🌐 SITE & PWA
-    siteUrl: process.env.SITE_URL,
-    serviceWorker: process.env.SERVICE_WORKER,
+    // 🌐 SITE / PWA
+    siteUrl: process.env.SITE_URL || "https://yunosite.com",
+    serviceWorker: process.env.SERVICE_WORKER || "/service-worker.js",
 
-    // 🧩 SISTEMA INTERNO YUNO
+    // 🧠 SISTEMA YUNO INTERNO
     debug: process.env.YUNO_DEBUG === "true",
-    version: process.env.YUNO_VERSION,
-    internalToken: process.env.YUNO_INTERNAL_TOKEN,
+    version: process.env.YUNO_VERSION || "10.3",
+    internalToken: process.env.YUNO_INTERNAL_TOKEN || "yuno_internal_dev",
 
-    // 📡 AUTOMAÇÕES
-    apiUrl: process.env.YUNO_API_URL,
+    // ⚡ AUTOMAÇÕES
+    apiUrl: process.env.YUNO_API_URL || "https://api.yunosite.com",
     automationsEnabled: process.env.YUNO_AUTOMATIONS_ENABLED === "true"
 };
