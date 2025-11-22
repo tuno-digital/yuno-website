@@ -1,82 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-    <!-- Páginas principais -->
+    <!-- ================================
+         PÁGINAS PRINCIPAIS
+    ================================= -->
     <url>
         <loc>https://www.yunosite.com/</loc>
-        <priority>1.0</priority>
+        <priority>1.00</priority>
+        <changefreq>daily</changefreq>
+    </url>
+
+    <url>
+        <loc>https://www.yunosite.com/index.html</loc>
+        <priority>1.00</priority>
+        <changefreq>daily</changefreq>
     </url>
 
     <url>
         <loc>https://www.yunosite.com/servicos.html</loc>
         <priority>0.90</priority>
+        <changefreq>weekly</changefreq>
     </url>
 
     <url>
         <loc>https://www.yunosite.com/sobre.html</loc>
         <priority>0.90</priority>
+        <changefreq>monthly</changefreq>
     </url>
 
     <url>
         <loc>https://www.yunosite.com/contacto.html</loc>
         <priority>0.85</priority>
+        <changefreq>monthly</changefreq>
     </url>
 
-    <!-- IA principal -->
+    <!-- ================================
+         IA • CORE DA YUNO 10.3
+    ================================= -->
     <url>
         <loc>https://www.yunosite.com/yuno-ia.html</loc>
-        <priority>1.0</priority>
+        <priority>1.00</priority>
+        <changefreq>daily</changefreq>
     </url>
 
     <url>
         <loc>https://www.yunosite.com/painel-yuno-ia.html</loc>
-        <priority>1.0</priority>
+        <priority>0.95</priority>
+        <changefreq>daily</changefreq>
     </url>
 
-    <!-- 3D -->
+    <!-- ================================
+         AVATAR 3D / 3D SYSTEM
+    ================================= -->
     <url>
         <loc>https://www.yunosite.com/avatar-3d.html</loc>
         <priority>0.80</priority>
+        <changefreq>weekly</changefreq>
     </url>
 
-    <!-- Planos -->
+    <!-- ================================
+         PLANOS
+    ================================= -->
     <url>
         <loc>https://www.yunosite.com/planos.html</loc>
         <priority>0.85</priority>
+        <changefreq>weekly</changefreq>
     </url>
 
-    <!-- Marketing / funis -->
+    <!-- ================================
+         FUNIS / MARKETING
+    ================================= -->
     <url>
         <loc>https://www.yunosite.com/marketing-funis.html</loc>
         <priority>0.80</priority>
+        <changefreq>weekly</changefreq>
     </url>
 
-    <!-- Automações -->
+    <!-- ================================
+         AUTOMAÇÕES IA
+    ================================= -->
     <url>
         <loc>https://www.yunosite.com/automacoes-ia.html</loc>
         <priority>0.75</priority>
+        <changefreq>weekly</changefreq>
     </url>
 
-    <!-- Páginas legais -->
+    <!-- ================================
+         PÁGINAS LEGAIS
+    ================================= -->
     <url>
         <loc>https://www.yunosite.com/politica.html</loc>
         <priority>0.50</priority>
+        <changefreq>yearly</changefreq>
     </url>
 
     <url>
         <loc>https://www.yunosite.com/termos.html</loc>
         <priority>0.50</priority>
+        <changefreq>yearly</changefreq>
     </url>
 
     <url>
         <loc>https://www.yunosite.com/cookies.html</loc>
         <priority>0.50</priority>
+        <changefreq>yearly</changefreq>
     </url>
 
-    <!-- Erros -->
+    <!-- ================================
+         ERROS
+    ================================= -->
     <url>
         <loc>https://www.yunosite.com/404.html</loc>
         <priority>0.0</priority>
+        <changefreq>never</changefreq>
     </url>
 
 </urlset>
