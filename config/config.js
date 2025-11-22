@@ -1,6 +1,6 @@
 // ========================================================
 // CONFIG GLOBAL — YUNO IA 10.3 HÍBRIDA
-// Auto-load do .env + fallback + segurança
+// Auto-load do .env + validação + fallback
 // ========================================================
 
 import dotenv from "dotenv";
@@ -8,7 +8,7 @@ dotenv.config();
 
 import { validateEnv } from "./env.js";
 
-validateEnv(); // garante .env carregado antes de exportar config
+validateEnv();
 
 export const CONFIG = {
 
@@ -22,16 +22,16 @@ export const CONFIG = {
     port: Number(process.env.PORT) || 3001,
     env: process.env.NODE_ENV || "development",
 
-    // 🌐 SITE / PWA
-    siteUrl: process.env.SITE_URL || "https://yunosite.com",
+    // 🌐 SITE & PWA
+    siteUrl: process.env.SITE_URL || "https://yuno.example",
     serviceWorker: process.env.SERVICE_WORKER || "/service-worker.js",
 
-    // 🧠 SISTEMA YUNO INTERNO
+    // 🧠 SISTEMA INTERNO
     debug: process.env.YUNO_DEBUG === "true",
     version: process.env.YUNO_VERSION || "10.3",
-    internalToken: process.env.YUNO_INTERNAL_TOKEN || "yuno_internal_dev",
+    internalToken: process.env.YUNO_INTERNAL_TOKEN || "yuno_dev_internal",
 
     // ⚡ AUTOMAÇÕES
-    apiUrl: process.env.YUNO_API_URL || "https://api.yunosite.com",
+    apiUrl: process.env.YUNO_API_URL || "https://api.yuno.example",
     automationsEnabled: process.env.YUNO_AUTOMATIONS_ENABLED === "true"
 };
