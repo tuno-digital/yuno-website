@@ -1,21 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel YUNO IA • Configuração Avançada</title>
-    <meta name="description" content="Controla a personalidade, modelos, integrações e preferências da Yuno IA.">
+<!doctype html>
+<html lang="pt-PT">
 
+<head>
+    <!-- META PRINCIPAIS 10.3 -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Painel YUNO IA • Configuração Avançada • Arena 10.3</title>
+    <meta name="description" content="Configura o núcleo da Yuno IA — personalidade, modelos, integrações, automações e motor interno 10.3.">
+
+    <!-- SEO 10.3 -->
+    <meta property="og:title" content="Painel YUNO IA — Arena 10.3" />
+    <meta property="og:description" content="Acede ao painel interno onde controlas o comportamento e o cérebro da Yuno IA." />
+    <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
+
+    <!-- CSS GLOBAL -->
     <link rel="stylesheet" href="ativos/css/style.css">
     <link rel="stylesheet" href="ativos/css/utilities.css">
     <link rel="stylesheet" href="ativos/css/pages.css">
     <link rel="stylesheet" href="ativos/css/style-yuno.css">
     <link rel="stylesheet" href="ativos/css/style-3d.css">
+
+    <link rel="icon" href="ativos/img/logos/favicon.png" />
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR 10.3 -->
     <header class="yuno-navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
@@ -32,7 +43,7 @@
                 <a href="contacto.html">Contacto</a>
             </nav>
 
-            <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
+            <button class="nav-toggle" id="navToggle">☰</button>
         </div>
 
         <div class="nav-mobile" id="navMobile">
@@ -46,7 +57,7 @@
         </div>
     </header>
 
-    <!-- SIDE NAV -->
+    <!-- SIDE NAV 10.3 (Lateral Pro) -->
     <div class="side-nav">
         <a href="index.html">🏠</a>
         <a href="yuno-ia.html">🤖</a>
@@ -58,10 +69,10 @@
     <!-- HERO -->
     <section class="hero">
         <h1 class="neon-strong">Painel de Controlo — YUNO IA</h1>
-        <p class="lead">Personaliza o comportamento da tua IA e controla todas as integrações.</p>
+        <p class="lead">Controla toda a mente, personalidade, automações e integrações da tua IA.</p>
     </section>
 
-    <!-- PAINEL -->
+    <!-- PAINEL PRINCIPAL -->
     <section class="container painel-container">
 
         <!-- PERSONALIDADE -->
@@ -108,10 +119,10 @@
         <div class="painel-card">
             <h3 class="neon-text">Integrações</h3>
 
-            <label>Chave API (OpenAI/YUNO Engine)</label>
+            <label>Chave API do Motor (OpenAI / YUNO Engine)</label>
             <input type="password" class="input-text" id="apiKeyInput" placeholder="sk-xxxxxx">
 
-            <label>Integração com Redes Sociais</label>
+            <label>Redes Sociais Ligadas</label>
             <select class="input-select" id="redeSelect">
                 <option>Instagram</option>
                 <option>Facebook</option>
@@ -128,28 +139,28 @@
                 <li>📤 Postagens automáticas — <span class="status on">Ativo</span></li>
                 <li>🧠 Aprendizagem contínua — <span class="status on">Ativo</span></li>
                 <li>💬 Respostas inteligentes — <span class="status off">Desligado</span></li>
-                <li>📊 Análises semanais — <span class="status on">Ativo</span></li>
+                <li>📊 Analytics diário — <span class="status on">Ativo</span></li>
             </ul>
         </div>
 
         <!-- LOGS -->
         <div class="painel-card painel-logs">
-            <h3 class="neon-text">Logs da IA</h3>
+            <h3 class="neon-text">Logs Internos da IA</h3>
             <div class="logs-box" id="logsBox">
-                <p>[OK] IA iniciada com sucesso.</p>
-                <p>[INFO] Personalidade aplicada: Profissional.</p>
+                <p>[OK] Núcleo Yuno IA inicializado.</p>
+                <p>[INFO] Personalidade ativa: Profissional.</p>
                 <p>[INFO] Automações carregadas.</p>
             </div>
         </div>
 
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER 10.3 -->
     <footer class="footer">
-        <p class="neon-title">Painel YUNO • Versão 10.0 Híbrida</p>
+        <p class="neon-title">Painel YUNO • Arena 10.3</p>
     </footer>
 
-    <!-- YUNO IA ENGINE -->
+    <!-- MOTORES DA IA -->
     <script src="ativos/js/yuno-ia/core.js"></script>
     <script src="ativos/js/yuno-ia/actions.js"></script>
     <script src="ativos/js/yuno-ia/commands.js"></script>
