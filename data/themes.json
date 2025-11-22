@@ -1,9 +1,58 @@
 {
+  "versao": "10.3",
+  
+  "tema_padrao": "neon-hybrid",
+
+  "definicoes_globais": {
+    "permitir_temas_customizados": true,
+    "salvar_preferencia_usuario": true,
+    "permitir_tema_automatico_por_horario": true,
+    "modo_mistura_avancado": true
+  },
+
   "temas_disponiveis": [
     {
+      "id": "neon-hybrid",
+      "nome": "Neon Hybrid 10.3",
+      "descricao": "Tema oficial da Arena 10.3 — mistura estética neon escura com elementos híbridos futuristas.",
+      "cores": {
+        "primaria": "#00eaff",
+        "secundaria": "#ff00c8",
+        "terciaria": "#7000ff",
+        "fundo": "#050505",
+        "fundo_alt": "#0a0a0a",
+        "texto": "#ffffff",
+        "texto_secundario": "#b8b8b8",
+        "borda": "#1b1b1b",
+        "sucesso": "#00ff9d",
+        "erro": "#ff0040",
+        "aviso": "#ffd000"
+      },
+      "fonts": {
+        "familia": "Inter, sans-serif",
+        "peso": "300-900",
+        "espacamento": "0.5px"
+      },
+      "efeitos": {
+        "glow": true,
+        "neon_bordas": true,
+        "transicoes": true,
+        "animacoes": true,
+        "blur_glass": true,
+        "motion_3d": true
+      },
+      "painel": {
+        "sidebar": "glass-neon",
+        "cards": "neon-soft",
+        "inputs": "neon-line",
+        "botoes": "neon-solid"
+      }
+    },
+
+    {
       "id": "neon-dark",
-      "nome": "Neon Dark",
-      "descricao": "Tema principal da Arena 9.0 com visual neon, contrastes fortes e animações suaves.",
+      "nome": "Neon Dark Legacy 9.x",
+      "descricao": "Tema clássico da Arena 9.x — visual neon escuro com animações suaves.",
       "cores": {
         "primaria": "#00eaff",
         "secundaria": "#ff00c8",
@@ -18,20 +67,26 @@
       "efeitos": {
         "glow": true,
         "transicoes": true,
-        "animacoes": true
+        "animacoes": true,
+        "blur_glass": false
       }
     },
 
     {
       "id": "clean-light",
-      "nome": "Clean Light",
-      "descricao": "Tema claro minimalista para clientes que preferem um visual mais profissional e suave.",
+      "nome": "Clean Light Pro",
+      "descricao": "Tema claro minimalista com foco em legibilidade e design profissional.",
       "cores": {
         "primaria": "#0056ff",
         "secundaria": "#00b8a9",
         "fundo": "#ffffff",
+        "fundo_alt": "#f5f5f5",
         "texto": "#000000",
-        "borda": "#dddddd"
+        "texto_secundario": "#555555",
+        "borda": "#dddddd",
+        "sucesso": "#00aa55",
+        "erro": "#ff3355",
+        "aviso": "#ffbb00"
       },
       "fonts": {
         "familia": "Inter, sans-serif",
@@ -40,15 +95,33 @@
       "efeitos": {
         "glow": false,
         "transicoes": true,
-        "animacoes": false
+        "animacoes": false,
+        "blur_glass": false
+      }
+    },
+
+    {
+      "id": "matrix-green",
+      "nome": "Matrix Green",
+      "descricao": "Tema verde digital inspirado no universo cibernético — excelente para programadores.",
+      "cores": {
+        "primaria": "#00ff6a",
+        "secundaria": "#00cc50",
+        "fundo": "#020402",
+        "texto": "#aaffcc",
+        "borda": "#003f1f"
+      },
+      "fonts": {
+        "familia": "Inter, monospace",
+        "peso": "300-700"
+      },
+      "efeitos": {
+        "glow": true,
+        "transicoes": false,
+        "animacoes": false,
+        "blur_glass": false,
+        "codigo_animado": true
       }
     }
-  ],
-
-  "tema_padrao": "neon-dark",
-
-  "definicoes_globais": {
-    "permitir_temas_customizados": true,
-    "salvar_preferencia_usuario": true
-  }
+  ]
 }
