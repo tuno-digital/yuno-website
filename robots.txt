@@ -1,7 +1,10 @@
-# YUNO 9.0 - Robots.txt
-# Configuração oficial e auditada para SEO
+# ================================================
+#  YUNO IA — Robots.txt • Arena 10.3 (Auditado)
+#  Configuração oficial para SEO + Segurança
+# ================================================
 
 User-agent: *
+# 🔒 Diretórios privados / internos (não indexar)
 Disallow: /api/
 Disallow: /server/
 Disallow: /tmp/
@@ -9,6 +12,47 @@ Disallow: /auth/
 Disallow: /integrations/
 Disallow: /automacoes/
 Disallow: /security/
+Disallow: /lib/
+Disallow: /i18n/
+Disallow: /analytics/
+Disallow: /data/
+Disallow: /models/
+Disallow: /internal/
+Disallow: /yuno-engine/
+Disallow: /yuno-ia-core/
+Disallow: /admin/
+
+# 🔧 Diretórios estáticos públicos (permitidos)
+Allow: /ativos/
+Allow: /assets/
+Allow: /public/
+Allow: /media/
+
+# 🌐 Páginas públicas (todo o site pode ser indexado)
 Allow: /
 
+# ================================================
+#  Sitemap oficial
+# ================================================
 Sitemap: https://www.yunosite.com/sitemap.xml
+
+# ================================================
+#  Regras extra (Google/Bing)
+# ================================================
+
+# Evita indexação de parâmetros (tracking & debug)
+Disallow: /*?*
+Disallow: /*&*
+
+# Impede que motores indexem ficheiros temporários
+Disallow: /*.tmp$
+
+# Impede que indexem ficheiros de build
+Disallow: /*.map$
+
+# Evita duplicação de páginas com hash (#)
+Disallow: /*#
+
+# ================================================
+#  Fim do Robots — YUNO 10.3
+# ================================================
