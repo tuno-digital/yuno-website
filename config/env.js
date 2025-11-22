@@ -1,5 +1,5 @@
 // ========================================================
-// ENV VALIDATOR — YUNO IA 10.3
+// ENV VALIDATOR — YUNO 10.3
 // Garante que o .env está completo e seguro
 // ========================================================
 
@@ -19,11 +19,10 @@ export function validateEnv() {
     }
 
     if (missing.length > 0) {
-        console.error("❌ Variáveis .env em falta:");
+        console.error("❌ Variáveis faltando no .env:");
         missing.forEach(k => console.error(" → " + k));
         process.exit(1);
     }
 
-    console.log("✅ ENV validado com sucesso (10.3).");
+    console.log("✅ ENV carregado e validado (YUNO 10.3)");
 }
-
