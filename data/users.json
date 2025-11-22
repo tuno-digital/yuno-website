@@ -1,4 +1,6 @@
 {
+  "versao": "10.3",
+
   "users": [
     {
       "id": "1",
@@ -8,19 +10,41 @@
       "status": "ativo",
 
       "preferencias": {
-        "tema": "neon",
+        "tema": "neon-hybrid",
         "modo_escuro": true,
         "idioma": "pt-PT",
         "notificacoes": {
           "email": true,
-          "push": true
+          "push": true,
+          "sistema": true
+        },
+        "painel": {
+          "sidebar_expandida": true,
+          "layout": "pro",
+          "widgets_ativos": ["yuno-ia", "analytics", "automacoes"]
         }
       },
 
       "seguranca": {
-        "two_factor": false,
-        "ult_login": null, 
-        "tentativas_falhas": 0
+        "two_factor": true,
+        "ult_login": null,
+        "tentativas_falhas": 0,
+        "fingerprint": null,
+        "ip_registro": null,
+        "hash_sessao": null
+      },
+
+      "ia_settings": {
+        "temperatura": 0.7,
+        "estilo_resposta": "hibrido",
+        "permissao_automacoes": true,
+        "limite_tokens": 4096
+      },
+
+      "auditoria": {
+        "criado_em": "2025-01-01T00:00:00",
+        "atualizado_em": null,
+        "criado_por": "system"
       }
     }
   ],
@@ -28,21 +52,68 @@
   "perfis": [
     {
       "perfil": "admin",
+      "descricao": "Acesso total ao sistema YUNO 10.3",
       "permissoes": [
+        "acesso_total",
+        "gerenciar_usuarios",
         "gerenciar_site",
         "ver_analytics",
         "editar_conteudo",
-        "acesso_total"
+        "editar_ia",
+        "ver_logs",
+        "apikeys",
+        "acessar_painel_3d",
+        "config_sistema"
       ]
     },
+
     {
       "perfil": "cliente",
+      "descricao": "Acesso padrão ao painel Yuno IA",
       "permissoes": [
         "ver_painel",
         "usar_yuno_ia",
         "editar_dados",
+        "consultar_planos",
+        "gerar_conteudo",
+        "usar_automações"
+      ]
+    },
+
+    {
+      "perfil": "empresa",
+      "descricao": "Empresas com múltiplos utilizadores internos",
+      "permissoes": [
+        "ver_painel",
+        "usar_yuno_ia",
+        "criar_subcontas",
+        "ver_analytics",
+        "gerir_equipa",
         "consultar_planos"
       ]
+    },
+
+    {
+      "perfil": "editor",
+      "descricao": "Profissionais que editam conteúdos dentro da plataforma",
+      "permissoes": [
+        "editar_conteudo",
+        "gerar_conteudo",
+        "publicar_posts",
+        "gestao_midias"
+      ]
     }
-  ]
+  ],
+
+  "configuracao_global": {
+    "permitir_registo": false,
+    "limite_tentativas_login": 5,
+    "bloqueio_temporario_min": 15,
+    "senha_requisitos": {
+      "min": 8,
+      "letras": true,
+      "numeros": true,
+      "caracteres_especiais": true
+    }
+  }
 }
