@@ -1,0 +1,123 @@
+{
+  "clientes": [
+    {
+      "id": "cli_0001",
+      "nome": "Empresa Exemplo Lda",
+      "responsavel": "João Santos",
+      "email": "contacto@empresaexemplo.pt",
+      "telefone": "+351912345678",
+
+      "endereco": {
+        "pais": "Portugal",
+        "cidade": "Lisboa",
+        "morada": "Av. da República 125",
+        "codigo_postal": "1050-100"
+      },
+
+      "plano": {
+        "id_plano": "pro",
+        "nome": "Professional",
+        "ativo": true,
+        "renova_em": "2025-12-31",
+        "metodo_pagamento": "cartao"
+      },
+
+      "acesso": {
+        "perfil": "cliente",
+        "permissoes": [
+          "usar_yuno_ia",
+          "ver_painel",
+          "criar_automacoes"
+        ],
+        "estado": "ativo",
+        "criado_em": "2025-01-10",
+        "ultimo_login": "2025-02-18T12:40:00"
+      },
+
+      "estatisticas": {
+        "videos_gerados": 14,
+        "automacoes_ativas": 3,
+        "tokens_usados": 98000,
+        "ultimo_relatorio": "2025-02-18"
+      },
+
+      "integracoes": {
+        "google": false,
+        "facebook": true,
+        "instagram": true,
+        "whatsapp": true,
+        "tiktok": false
+      },
+
+      "ia_personalizacao": {
+        "tom": "profissional",
+        "temperatura": 0.7,
+        "estilo": "marketing",
+        "modelo": "yuno-core-10.3"
+      }
+    },
+
+    {
+      "id": "cli_0002",
+      "nome": "Restaurante Sabor da Vila",
+      "responsavel": "Carla Rodrigues",
+      "email": "geral@sabordavila.pt",
+      "telefone": "+351932221100",
+
+      "endereco": {
+        "pais": "Portugal",
+        "cidade": "Setúbal",
+        "morada": "Rua das Laranjeiras 22",
+        "codigo_postal": "2900-200"
+      },
+
+      "plano": {
+        "id_plano": "starter",
+        "nome": "Starter",
+        "ativo": true,
+        "renova_em": "2025-09-10",
+        "metodo_pagamento": "mbway"
+      },
+
+      "acesso": {
+        "perfil": "cliente",
+        "permissoes": [
+          "usar_yuno_ia",
+          "editar_dados"
+        ],
+        "estado": "ativo",
+        "criado_em": "2025-02-01",
+        "ultimo_login": "2025-02-17T19:20:00"
+      },
+
+      "estatisticas": {
+        "videos_gerados": 3,
+        "automacoes_ativas": 1,
+        "tokens_usados": 12000,
+        "ultimo_relatorio": "2025-02-16"
+      },
+
+      "integracoes": {
+        "google": true,
+        "facebook": true,
+        "instagram": true,
+        "whatsapp": false,
+        "tiktok": true
+      },
+
+      "ia_personalizacao": {
+        "tom": "amigavel",
+        "temperatura": 0.6,
+        "estilo": "conversacional",
+        "modelo": "yuno-core-10.3"
+      }
+    }
+  ],
+
+  "config": {
+    "retencao_dados_dias": 365,
+    "limite_clientes_teste": 20,
+    "notificar_planos_expirando": true,
+    "backup_diario": true
+  }
+}
