@@ -1,20 +1,45 @@
 {
   "name": "yuno-video-engine",
-  "version": "1.0.0",
-  "description": "Motor de geração de vídeo da YUNO 9.0 — integra Pika, RunwayML e HeyGen.",
+  "version": "10.3.0",
+  "description": "Motor oficial de geração de vídeo da YUNO • Arena 10.3 — Integração modular com HeyGen, Pika e RunwayML.",
   "main": "server/video-engine.js",
+
+  "type": "module",
+
   "scripts": {
     "dev": "nodemon server/video-engine.js",
-    "start": "node server/video-engine.js"
+    "start": "node server/video-engine.js",
+    "debug": "NODE_ENV=development node --inspect server/video-engine.js"
   },
+
   "dependencies": {
-    "axios": "^1.6.8",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "form-data": "^4.0.0"
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "form-data": "^4.0.0",
+    "fs-extra": "^11.2.0"
   },
+
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.4"
   },
+
+  "engines": {
+    "node": ">=18.0.0"
+  },
+
+  "keywords": [
+    "yuno",
+    "ia",
+    "video engine",
+    "heygen",
+    "pika labs",
+    "runwayml",
+    "automation",
+    "ai video generator"
+  ],
+
+  "author": "YUNO IA — Motor Oficial",
   "license": "MIT"
 }
