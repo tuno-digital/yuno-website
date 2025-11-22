@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Erro 404 — Página Não Encontrada • Yuno 9.1 Híbrida</title>
-    <meta name="description" content="A página que procuras não existe. Navega novamente pela Yuno e encontra o que precisas." />
+    <title>Erro 404 — Página Não Encontrada • Yuno 10.3</title>
+    <meta name="description" content="A página que procuras não foi encontrada. Volta ao início e continua a explorar a Yuno IA 10.3." />
     <meta name="theme-color" content="#00eaff" />
 
-    <meta property="og:title" content="Página 404 — Yuno" />
-    <meta property="og:description" content="A página não foi encontrada. Volta ao início da Yuno." />
+    <!-- SEO -->
+    <meta property="og:title" content="Página 404 — Yuno IA" />
+    <meta property="og:description" content="A página não existe ou foi movida. Volta ao início da Yuno IA 10.3." />
     <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
 
     <!-- CSS OFICIAIS -->
@@ -26,15 +27,30 @@
 
     <!-- NAVBAR -->
     <header class="yuno-navbar">
-    <div class="nav-container">
-        
-        <!-- LOGO -->
-        <a href="index.html" class="nav-logo">
-            <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
-        </a>
+        <div class="nav-container">
+            
+            <!-- LOGO -->
+            <a href="index.html" class="nav-logo">
+                <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno" height="42">
+            </a>
 
-        <!-- LINKS DESKTOP -->
-        <nav class="nav-links">
+            <!-- LINKS DESKTOP -->
+            <nav class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="yuno-ia.html">Yuno IA</a>
+                <a href="avatar-3d.html">Avatar 3D</a>
+                <a href="automacoes-ia.html">Automações</a>
+                <a href="planos.html">Planos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+
+            <!-- BOTÃO MOBILE -->
+            <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
+        </div>
+
+        <!-- MENU MOBILE -->
+        <div class="nav-mobile" id="navMobile">
             <a href="index.html">Início</a>
             <a href="servicos.html">Serviços</a>
             <a href="yuno-ia.html">Yuno IA</a>
@@ -42,39 +58,25 @@
             <a href="automacoes-ia.html">Automações</a>
             <a href="planos.html">Planos</a>
             <a href="contacto.html">Contacto</a>
-        </nav>
-
-        <!-- BOTÃO MOBILE -->
-        <button class="nav-toggle" aria-expanded="false" id="navToggle">☰</button>
-    </div>
-
-    <!-- MENU MOBILE -->
-    <div class="nav-mobile" id="navMobile">
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="yuno-ia.html">Yuno IA</a>
-        <a href="avatar-3d.html">Avatar 3D</a>
-        <a href="automacoes-ia.html">Automações</a>
-        <a href="planos.html">Planos</a>
-        <a href="contacto.html">Contacto</a>
-    </div>
-</header>
+        </div>
+    </header>
 
     <!-- CONTEÚDO 404 -->
-    <main class="container page-content">
+    <main class="container page-content center-text">
 
-        <section class="page-header center-text">
+        <section class="page-header">
             <h1 class="neon-title">Erro 404</h1>
-            <p class="lead">Oops... A página que procuras não existe.</p>
+            <p class="lead">Oops... A página que procuras não existe ou foi movida.</p>
         </section>
 
         <section class="error-404-section">
             <div class="error-box">
                 <img src="ativos/img/logos/logo-yuno-completa.png" alt="Erro Yuno" class="error-logo" />
+                
                 <h2>Página não encontrada</h2>
                 <p>
-                    Pode ter sido movida, apagada ou talvez nunca tenha existido.<br>
-                    Mas não te preocupes — podes voltar ao início.
+                    Pode ter sido apagada, movida ou talvez nunca tenha existido.<br>
+                    Não te preocupes — podes continuar a navegar pela Yuno.
                 </p>
 
                 <a href="index.html" class="btn-primary">Voltar ao Início</a>
@@ -89,7 +91,7 @@
         <div class="container footer-grid">
             <div class="footer-col">
                 <img src="ativos/img/logos/logo-yuno-completa.png" height="40" alt="Yuno Logo">
-                <p class="footer-desc">A revolução da IA e automação para empresas modernas.</p>
+                <p class="footer-desc">A revolução da IA e automação — agora na versão 10.3.</p>
             </div>
 
             <div class="footer-col">
@@ -107,10 +109,12 @@
             </div>
         </div>
 
-        <div class="footer-bottom">© <span id="ano"></span> Yuno — Arena 9.1 Híbrida.</div>
+        <div class="footer-bottom">© <span id="ano"></span> Yuno — Arena 10.3 Híbrida.</div>
     </footer>
 
     <script src="ativos/js/main.js"></script>
-    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
+    <script>
+        document.getElementById("ano").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
