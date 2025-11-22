@@ -1,0 +1,10 @@
+# ============================
+# security.txt — YUNO IA 10.3
+# ============================
+
+Contact: mailto:seguranca@yuno.com
+Contact: mailto:suporte@yuno.com
+Preferred-Languages: pt, en
+Policy: https://www.yunosite.com/politica
+Canonical: https://www.yunosite.com/.well-known/security.txt
+Expires: 2026-01-01T00:00:00Z
