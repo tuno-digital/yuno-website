@@ -1,0 +1,60 @@
+# ============================================
+# YUNO IA — .gitignore oficial (v10.3 Híbrida)
+# Evita enviar ficheiros sensíveis ou inúteis
+# ============================================
+
+# 🔐 Environment
+.env
+.env.*.local
+.env.local
+
+# 🛠 Build / Logs / Cache
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vscode/
+.idea/
+dist/
+build/
+.cache/
+.tmp/
+temp/
+tmp/
+logs/
+*.log
+
+# 🔧 Sistema YUNO — Pastas Dinâmicas
+tmp/videos/
+tmp/cache/
+server/temp/
+server/logs/
+
+# 🌐 PWA
+service-worker.js.map
+workbox-*
+
+# 🔒 Segurança
+*.pem
+*.key
+*.crt
+
+# ⚙️ Backups e exportações
+*.tar.gz
+*.zip
+*.rar
+
+# 📦 Sistema interno do Vercel / Deploy
+.vercel/
+.vercel_build_output/
+.vercelignore
+
+# 📁 OS files
+.DS_Store
+Thumbs.db
+
+# 🚫 Artifacts gerados
+*.bak
+*.swp
+*.old
