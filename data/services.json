@@ -1,25 +1,120 @@
 {
+  "versao": "10.3",
   "services": [
     {
       "id": 1,
       "nome": "Gestão de Redes Sociais",
-      "descricao": "Criação de conteúdos, copywriting, vídeos e automação para Instagram, TikTok e Facebook.",
-      "icone": "services-ia.png",
-      "preco": "sob consulta"
+      "categoria": "marketing",
+      "descricao": "Gestão completa das redes sociais com conteúdos criados pela Yuno IA, copywriting otimizado, vídeos, carrosséis, design e respostas automáticas.",
+      "icone": "services/social-manager.png",
+      "preco": "sob consulta",
+      "nivel": "profissional",
+      "entrega": [
+        "Posts semanais",
+        "Stories automáticos",
+        "Vídeos criados pela IA",
+        "Agendamento e monitorização",
+        "Análise mensal do desempenho"
+      ],
+      "tags": ["social media", "marketing", "conteúdo", "ia"],
+      "ativo": true,
+      "autosystem": {
+        "geracao_automatica": true,
+        "monitorizacao": true,
+        "analise_desempenho": true
+      }
     },
     {
       "id": 2,
       "nome": "Criação de Funis de Vendas",
-      "descricao": "Páginas de captura, email marketing, automações e remarketing avançado.",
-      "icone": "funis.png",
-      "preco": "sob consulta"
+      "categoria": "funis",
+      "descricao": "Construção completa de funis com páginas de captura, email marketing, automações, remarketing e otimização contínua através da Yuno IA.",
+      "icone": "services/funnel-builder.png",
+      "preco": "sob consulta",
+      "nivel": "avancado",
+      "entrega": [
+        "Landing pages",
+        "Páginas de obrigado",
+        "Sequências de emails",
+        "Automação inteligente",
+        "Otimização contínua com IA"
+      ],
+      "tags": ["funis", "vendas", "automação", "email"],
+      "ativo": true,
+      "autosystem": {
+        "geracao_automatica": true,
+        "teste_ab": true,
+        "analise_conversao": true
+      }
     },
     {
       "id": 3,
       "nome": "Automação Inteligente (IA)",
-      "descricao": "Chatbots, fluxos inteligentes, respostas automáticas e integrações com WhatsApp.",
-      "icone": "automacoes-smart.png",
-      "preco": "sob consulta"
+      "categoria": "automacoes",
+      "descricao": "Criação de fluxos automáticos, bots inteligentes, integrações com WhatsApp, atendimento 24/7 e tarefas autônomas executadas pela Yuno IA.",
+      "icone": "services/ai-automation.png",
+      "preco": "sob consulta",
+      "nivel": "premium",
+      "entrega": [
+        "Chatbots avançados",
+        "Atendimento automático",
+        "Integração WhatsApp",
+        "Fluxos inteligentes",
+        "Ações 24/7 totalmente automáticas"
+      ],
+      "tags": ["automação", "whatsapp", "bots", "ia"],
+      "ativo": true,
+      "autosystem": {
+        "executa_sozinha": true,
+        "aprendizagem_continua": true,
+        "monitorizacao_erros": true
+      }
+    },
+    {
+      "id": 4,
+      "nome": "Vídeos IA Profissionais",
+      "categoria": "video",
+      "descricao": "Criação de vídeos com IA (HeyGen, Pika, RunwayML) totalmente integrados no sistema da Yuno — avatares, apresentadores e geração automática.",
+      "icone": "services/video-ia.png",
+      "preco": "sob consulta",
+      "nivel": "premium",
+      "entrega": [
+        "Vídeos com IA",
+        "Avatares 3D",
+        "Apresentadores virtuais",
+        "Roteiros automáticos IA",
+        "Edição otimizada"
+      ],
+      "tags": ["vídeo", "ia", "avatar", "conteúdo"],
+      "ativo": true,
+      "autosystem": {
+        "render_automatico": true,
+        "analise_rosto": false,
+        "suporte_multimodel": true
+      }
+    },
+    {
+      "id": 5,
+      "nome": "Painel Yuno IA Personalizado",
+      "categoria": "sistemas",
+      "descricao": "Criação, personalização e montagem de um painel Yuno exclusivo para empresas, com módulos automáticos e IA integrada.",
+      "icone": "services/dashboard.png",
+      "preco": "sob consulta",
+      "nivel": "enterprise",
+      "entrega": [
+        "Painel completo",
+        "Módulos IA integrados",
+        "Automações internas",
+        "Analytics avançado",
+        "Assistente empresarial personalizado"
+      ],
+      "tags": ["painel", "sistema", "empresa", "ia"],
+      "ativo": true,
+      "autosystem": {
+        "auto_config": true,
+        "auto_update": true,
+        "backup_inteligente": true
+      }
     }
   ]
 }
