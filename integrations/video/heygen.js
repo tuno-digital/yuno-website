@@ -1,66 +1,113 @@
-// integração HEYGEN 9.0 — auditada e corrigida
+// ========================================================================
+// YUNO IA — Integração HEYGEN (v10.3 Oficial)
+// Geração de vídeo otimizada • Logs avançados • Tratamento seguro
+// ========================================================================
 
 const fetch = require("node-fetch");
+const logger = require("../../utils/logger");
+const validator = require("../../utils/validator");
+const security = require("../../utils/security");
 
 const HEYGEN_API_KEY = process.env.HEYGEN_API_KEY;
 
+// Timeout de segurança (em ms)
+const FETCH_TIMEOUT = 25000;
+
 async function generateVideo(prompt) {
-    // 1) validação da API key
+
+    // ---------------------------------------------------
+    // 1) Validar API Key
+    // ---------------------------------------------------
     if (!HEYGEN_API_KEY) {
-        console.warn("⚠️ HEYGEN_API_KEY não encontrada no .env");
-        return null;
+        logger.error("HEYGEN_API_KEY não configurada no .env");
+        return { erro: true, message: "API key ausente" };
     }
 
-    // 2) validação básica do prompt
-    if (!prompt || typeof prompt !== "string") {
-        console.warn("⚠️ Prompt inválido para generateVideo");
-        return null;
+    // ---------------------------------------------------
+    // 2) Validar prompt
+    // ---------------------------------------------------
+    if (!validator.isValidPrompt(prompt)) {
+        logger.warn("Prompt inválido recebido na integração HEYGEN.");
+        return { erro: true, message: "Prompt inválido" };
     }
+
+    // Limpeza e segurança
+    const cleanPrompt = security.sanitizeText(prompt);
+
+    logger.info("Enviando prompt para HEYGEN → " + cleanPrompt.substring(0, 60));
 
     try {
+        // ---------------------------------------------------
+        // 3) Requisição com timeout
+        // ---------------------------------------------------
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
+
         const response = await fetch("https://api.heygen.com/v1/video/generate", {
             method: "POST",
+            signal: controller.signal,
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                // 3) Authorization corrigido (string + template literal)
                 "Authorization": `Bearer ${HEYGEN_API_KEY}`
             },
             body: JSON.stringify({
-                prompt: prompt,
+                prompt: cleanPrompt,
                 duration: 5,
                 resolution: "720p"
             })
         });
 
-        // 4) verifica se a resposta da API foi OK
+        clearTimeout(timeout);
+
+        // ---------------------------------------------------
+        // 4) Validar resposta
+        // ---------------------------------------------------
         if (!response.ok) {
-            const errorText = await response.text().catch(() => "");
-            console.error("HEYGEN API ERROR:", response.status, errorText);
-            return null;
+            const txt = await response.text().catch(() => "");
+            logger.error(`HEYGEN API ERROR ${response.status}: ${txt}`);
+            return { erro: true, status: response.status, message: "Erro ao gerar vídeo" };
         }
 
         const data = await response.json();
 
-        // 5) compatibilidade com vários formatos de resposta
+        // ---------------------------------------------------
+        // 5) Extrair URL correta (compatível com diferentes formatos)
+        // ---------------------------------------------------
         const videoUrl =
             data.video_url ||
-            (data.result && data.result.video_url) ||
+            data?.result?.video_url ||
+            data?.data?.video ||
             null;
 
-        // 6) garante que veio URL válido
         if (!videoUrl) {
-            console.error("HEYGEN: resposta sem video_url válida:", data);
-            return null;
+            logger.error("HEYGEN → Resposta recebida sem video_url válido:");
+            logger.error(JSON.stringify(data, null, 2));
+            return { erro: true, message: "Resposta inválida da API" };
         }
 
-        // 7) tudo certo → devolve URL do vídeo
-        return videoUrl;
+        // ---------------------------------------------------
+        // 6) Retorno padronizado 10.3
+        // ---------------------------------------------------
+        logger.success("Vídeo HEYGEN gerado com sucesso!");
+        return {
+            erro: false,
+            engine: "heygen",
+            url: videoUrl,
+            raw: data
+        };
 
-    } catch (err) {
-        // 8) tratamento de erro mais explícito
-        console.error("HEYGEN ERROR (fetch falhou):", err);
-        return null;
+    } catch (erro) {
+
+        if (erro.name === "AbortError") {
+            logger.error("HEYGEN TIMEOUT — API demorou demasiado.");
+            return { erro: true, message: "Timeout na API HeyGen" };
+        }
+
+        logger.error("HEYGEN ERROR — Falha de conexão / fetch:");
+        logger.error(erro);
+
+        return { erro: true, message: "Erro interno ao comunicar com HEYGEN" };
     }
 }
 
