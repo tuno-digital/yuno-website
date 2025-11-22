@@ -1,46 +1,123 @@
 {
   "app": {
     "nome": "Yuno IA",
-    "versao": "9.0-auditada",
-    "ambiente": "producao",
-    "manutencao": false
+    "versao": "10.3-hibrida",
+    "ambiente": "production",
+    "manutencao": false,
+    "build": {
+      "arena_core": "10.3",
+      "engine": "10.3",
+      "autosystem": "10.3",
+      "painel_admin": "10.3"
+    }
   },
 
   "seo": {
-    "titulo_padrao": "Yuno IA — Automação e Marketing Inteligente",
-    "descricao_padrao": "A plataforma que transforma empresas com inteligência artificial, automação e design profissional.",
-    "autor": "Yuno Digital",
-    "lang": "pt-PT"
+    "titulo_padrao": "Yuno IA — Automação, IA e Sistemas de Nova Geração",
+    "descricao_padrao": "A plataforma Yuno 10.3 oferece IA avançada, automações inteligentes, avatares 3D, geração de conteúdo e um painel completo para empresas modernas.",
+    "autor": "Yuno Digital Systems",
+    "lang": "pt-PT",
+    "open_graph": {
+      "image": "ativos/img/logos/og-yuno.png",
+      "color": "#00eaff"
+    },
+    "pwa": {
+      "ativado": true,
+      "service_worker": "/sw.js",
+      "offline_page": "/offline.html"
+    }
   },
 
   "ui": {
-    "tema_padrao": "neon",
+    "tema_padrao": "neon-hibrido",
     "modo_escuro": true,
-    "animacoes": true
+    "animacoes": true,
+    "efeitos": {
+      "glass": true,
+      "neon": true,
+      "transicoes_suaves": true
+    },
+    "painel": {
+      "layout": "fluid",
+      "sidebar": "collapsed-auto",
+      "avatar_3d": true
+    }
   },
 
   "ia": {
-    "modelo": "gpt-5.1",
-    "temperatura": 0.7,
-    "respostas_max": 2048,
+    "modelo": "gpt-5.1-omni-hybrid",
+    "temperatura_padrao": 0.72,
+    "max_tokens": 4096,
     "habilitar_autosugestoes": true,
-    "habilitar_memoria_contextual": true
+    "habilitar_memoria_contextual": true,
+    "habilitar_auto_programacao": true,
+    "modulos": {
+      "yuno_engine": true,
+      "yuno_memory": true,
+      "yuno_personality": true,
+      "yuno_autosystem": true,
+      "yuno_social_listener": false,
+      "yuno_evolution_pipeline": true
+    }
   },
 
   "seguranca": {
     "csrf": true,
+    "cors_origens": ["*"],
     "ratelimit": {
       "ativo": true,
-      "requests": 120,
-      "por_segundo": 60
+      "max": 250,
+      "janela_segundos": 60
     },
-    "bloqueio_ip_suspeito": true
+    "bloqueio_ip_suspeito": true,
+    "anti_bot": true,
+    "hash_usuario": "sha256",
+    "integridade_arquivos": true,
+    "monitorizacao": {
+      "ataques": true,
+      "erros_criticos": true,
+      "eventos_sistema": true
+    }
   },
 
   "integracoes": {
-    "google_analytics_id": "",
-    "meta_pixel_id": "",
-    "email_api": "",
-    "sms_api": ""
+    "video": {
+      "heygen": true,
+      "pika": true,
+      "runwayml": true
+    },
+    "analise": {
+      "google_analytics_id": "",
+      "meta_pixel_id": ""
+    },
+    "email": {
+      "email_api": "",
+      "provedor": "smtp",
+      "remetente_padrao": "no-reply@yuno.app"
+    },
+    "sms": {
+      "sms_api": "",
+      "provedor": ""
+    },
+    "pagamentos": {
+      "stripe_key": "",
+      "paypal_key": "",
+      "yuno_pay": false
+    }
+  },
+
+  "logs": {
+    "salvar_em_arquivo": true,
+    "arquivo": "logs/yuno.log",
+    "nivel": "info",
+    "rotacao_dias": 30
+  },
+
+  "sistema": {
+    "auto_limpeza_cache": true,
+    "limite_cache_mb": 200,
+    "cron_jobs": true,
+    "sincronizar_3d_assets": true,
+    "backup_automatico": true
   }
 }
