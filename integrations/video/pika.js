@@ -1,85 +1,126 @@
-// integração HEYGEN 9.0 — auditada e corrigida
+// ========================================================================
+// YUNO IA — Integração PIKA Labs (v10.3 Oficial)
+// Geração de vídeo avançada • Tratamento seguro • Logs integrados
+// ========================================================================
 
 const fetch = require("node-fetch");
+const logger = require("../../utils/logger");
+const validator = require("../../utils/validator");
+const security = require("../../utils/security");
 
-const HEYGEN_API_KEY = process.env.HEYGEN_API_KEY;
-const HEYGEN_ENDPOINT = "https://api.heygen.com/v1/video/generate";
+const PIKA_API_KEY = process.env.PIKA_API_KEY;
+const PIKA_ENDPOINT = "https://api.pika.art/v1/video/generate";
+
+// Timeout de segurança (25 segundos)
+const FETCH_TIMEOUT = 25000;
+
 
 async function generateVideo(prompt) {
-    // 1) validação da API key
-    if (!HEYGEN_API_KEY) {
-        console.warn("HEYGEN_API_KEY não encontrada no .env");
-        return null;
+
+    // ---------------------------------------------------
+    // 1) Validar API Key
+    // ---------------------------------------------------
+    if (!PIKA_API_KEY) {
+        logger.error("PIKA_API_KEY não encontrada no .env");
+        return { erro: true, message: "API key ausente" };
     }
 
-    // 2) validação básica do prompt
-    if (!prompt || typeof prompt !== "string") {
-        console.warn("Prompt inválido para generateVideo");
-        return null;
+    // ---------------------------------------------------
+    // 2) Validar prompt
+    // ---------------------------------------------------
+    if (!validator.isValidPrompt(prompt)) {
+        logger.warn("Prompt inválido recebido no PIKA.");
+        return { erro: true, message: "Prompt inválido" };
     }
 
-    const cleanPrompt = prompt.trim();
-    if (!cleanPrompt) {
-        console.warn("Prompt vazio após trim");
-        return null;
-    }
+    // Sanitização preventiva
+    const cleanPrompt = security.sanitizeText(prompt);
+
+    logger.info("Enviando prompt para PIKA → " + cleanPrompt.substring(0, 60));
 
     try {
-        const response = await fetch(HEYGEN_ENDPOINT, {
+        // ---------------------------------------------------
+        // 3) Timeout de proteção
+        // ---------------------------------------------------
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
+
+        // ---------------------------------------------------
+        // 4) Requisição principal
+        // ---------------------------------------------------
+        const response = await fetch(PIKA_ENDPOINT, {
             method: "POST",
+            signal: controller.signal,
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Authorization": `Bearer ${HEYGEN_API_KEY}`
+                "Authorization": `Bearer ${PIKA_API_KEY}`
             },
             body: JSON.stringify({
                 prompt: cleanPrompt,
-                duration: 5,
-                resolution: "720p"
-                // aqui depois adicionas os campos obrigatórios da Heygen:
-                // avatar_id, voice_id, etc.
+                aspect_ratio: "16:9",
+                motion: "smooth",
+                duration: 4
             })
         });
 
-        // 3) verifica se a resposta da API foi OK
+        clearTimeout(timeout);
+
+        // ---------------------------------------------------
+        // 5) Validar resposta
+        // ---------------------------------------------------
         if (!response.ok) {
-            let errorText = "";
-            try {
-                errorText = await response.text();
-            } catch (e) {
-                errorText = "Falha ao ler corpo do erro";
-            }
-            console.error("HEYGEN API ERROR:", response.status, errorText);
-            return null;
+            const txt = await response.text().catch(() => "");
+            logger.error(`PIKA API ERROR ${response.status}: ${txt}`);
+
+            return {
+                erro: true,
+                status: response.status,
+                message: "Erro ao gerar vídeo no PIKA"
+            };
         }
 
-        let data;
-        try {
-            data = await response.json();
-        } catch (e) {
-            console.error("HEYGEN JSON PARSE ERROR:", e);
-            return null;
-        }
+        const data = await response.json();
 
-        // 4) compatibilidade com vários formatos de resposta
+        // ---------------------------------------------------
+        // 6) Extrair URL correta
+        // ---------------------------------------------------
         const videoUrl =
             data.video_url ||
-            (data.result && data.result.video_url) ||
+            data?.result?.video_url ||
+            data?.output?.video ||
             null;
 
-        // 5) garante que veio URL válido
-        if (!videoUrl || typeof videoUrl !== "string") {
-            console.error("HEYGEN: resposta sem video_url válida:", data);
-            return null;
+        if (!videoUrl) {
+            logger.error("PIKA: Resposta sem video_url válida:");
+            logger.error(JSON.stringify(data));
+
+            return { erro: true, message: "Resposta inválida da API PIKA" };
         }
 
-        // 6) tudo certo -> devolve URL do vídeo
-        return videoUrl;
+        // ---------------------------------------------------
+        // 7) Retorno padronizado 10.3
+        // ---------------------------------------------------
+        logger.success("Vídeo PIKA gerado com sucesso!");
 
-    } catch (err) {
-        // 7) tratamento de erro mais explícito
-        console.error("HEYGEN ERROR (fetch falhou):", err);
-        return null;
+        return {
+            erro: false,
+            engine: "pika",
+            url: videoUrl,
+            raw: data
+        };
+
+    } catch (erro) {
+
+        if (erro.name === "AbortError") {
+            logger.error("PIKA TIMEOUT — API demorou demasiado.");
+            return { erro: true, message: "Timeout na API PIKA" };
+        }
+
+        logger.error("PIKA ERROR — Falha de conexão:");
+        logger.error(erro);
+
+        return { erro: true, message: "Erro interno ao comunicar com PIKA" };
     }
 }
 
