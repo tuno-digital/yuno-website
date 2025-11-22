@@ -1,7 +1,6 @@
-
 // ========================================================
-// PATHS — YUNO IA 10.3
-// Caminhos oficiais usados no servidor e integrações
+// PATHS — YUNO 10.3
+// Estrutura oficial de diretórios
 // ========================================================
 
 import path from "path";
@@ -12,6 +11,7 @@ const __dirname = path.dirname(__filename);
 
 export const PATHS = {
     root: path.join(__dirname, ".."),
+    server: path.join(__dirname, "..", "server"),
     data: path.join(__dirname, "..", "data"),
     tmp: path.join(__dirname, "..", "tmp"),
     tmpVideos: path.join(__dirname, "..", "tmp", "videos"),
