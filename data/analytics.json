@@ -1,13 +1,16 @@
 {
+  "versao": "10.3",
+  "descricao": "Configurações de análise e monitorização da YUNO IA — eventos, funis, heatmap, alertas e regras de retenção.",
+
   "evento_schema": {
     "id": "string",
     "tipo": "string",
     "descricao": "string",
     "timestamp": "ISO8601",
-    "usuario_id": "string/null",
+    "usuario_id": "string|null",
     "rota": "string",
     "origem": "string",
-    "extra": {}
+    "extras": {}
   },
 
   "eventos_basicos": [
@@ -17,9 +20,19 @@
       "descricao": "Utilizador visualizou uma página"
     },
     {
+      "id": "page_leave",
+      "tipo": "navegacao",
+      "descricao": "Utilizador saiu da página"
+    },
+    {
       "id": "click",
       "tipo": "interacao",
       "descricao": "Utilizador clicou num elemento"
+    },
+    {
+      "id": "mousemove",
+      "tipo": "interacao",
+      "descricao": "Movimento do rato capturado"
     },
     {
       "id": "scroll",
@@ -40,53 +53,110 @@
       "id": "erro_js",
       "tipo": "erro",
       "descricao": "Erro JavaScript capturado"
+    },
+    {
+      "id": "api_fail",
+      "tipo": "erro",
+      "descricao": "Falha numa chamada de API"
+    },
+    {
+      "id": "video_gerado",
+      "tipo": "ia_output",
+      "descricao": "Vídeo gerado por Yuno Video Engine"
+    },
+    {
+      "id": "comando_ia",
+      "tipo": "ia_interacao",
+      "descricao": "Comando enviado para Yuno IA"
+    },
+    {
+      "id": "resposta_ia",
+      "tipo": "ia_interacao",
+      "descricao": "Resposta gerada pela Yuno IA"
     }
   ],
 
   "funis": [
     {
       "id": "funnel_site",
-      "nome": "Funil do Site",
+      "nome": "Funil Geral do Site",
       "etapas": [
         "Visitou Página Inicial",
         "Viu Serviços",
+        "Abriu Automacoes",
         "Abriu Contacto",
-        "Enviou Mensagem"
+        "Enviou Mensagem",
+        "Tornou-se Lead"
       ]
     },
     {
       "id": "funnel_yuno_ia",
-      "nome": "Funil Jarvis/Yuno IA",
+      "nome": "Funil do Painel YUNO IA",
       "etapas": [
         "Abriu Painel YUNO IA",
-        "Digitou comando",
-        "Obteve resposta IA",
-        "Gerou automação"
+        "Alterou Configurações",
+        "Digitou Comando IA",
+        "Obteve Resposta",
+        "Gerou Ação",
+        "Criou Automação"
+      ]
+    },
+    {
+      "id": "funnel_avatar_3d",
+      "nome": "Funil do Avatar 3D",
+      "etapas": [
+        "Abriu página Avatar 3D",
+        "Interagiu com animação",
+        "Ativou voz",
+        "Executou comando 3D",
+        "Ligou ao motor IA"
       ]
     }
   ],
 
   "heatmap_captura": {
     "ativo": true,
-    "frequencia_ms": 1200,
+    "frequencia_ms": 1000,
     "eventos": ["click", "mousemove", "scroll"],
-    "anonimizacao": true
+    "anonimizacao": true,
+    "modo": "otimizado",
+    "densidade_max": 3000
   },
 
   "alertas": [
     {
       "id": "erro_critico",
+      "nome": "Erros JavaScript em Excesso",
       "condicao": "erro_js >= 5 por minuto",
       "mensagem": "Muitos erros JS detectados",
       "acao": "notificar_admin"
     },
     {
       "id": "trafego_alto",
+      "nome": "Pico de Tráfego",
       "condicao": "page_view >= 5000 por hora",
       "mensagem": "Pico de tráfego detectado",
       "acao": "ativar_auto_scale"
+    },
+    {
+      "id": "api_falhando",
+      "nome": "API em instabilidade",
+      "condicao": "api_fail >= 10 por minuto",
+      "mensagem": "Falhas frequentes na API",
+      "acao": "alertar_devops"
+    },
+    {
+      "id": "ia_resposta_lenta",
+      "nome": "IA lenta",
+      "condicao": "resposta_ia > 4s em 10+ chamadas",
+      "mensagem": "A IA está a responder lentamente",
+      "acao": "reiniciar_modulo_ia"
     }
   ],
 
-  "retencao_dias": 120
+  "retencao": {
+    "dias": 180,
+    "compressao": true,
+    "auto_limpeza": true
+  }
 }
