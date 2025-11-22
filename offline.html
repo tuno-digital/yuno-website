@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="pt-PT">
 <head>
+    <!-- META BASE -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Offline — Yuno • Arena 9.1 Híbrida</title>
-    <meta name="description" content="A Yuno está temporariamente offline. Continua a navegar quando a ligação for restabelecida." />
+    <!-- SEO -->
+    <title>Offline — Yuno • Arena 10.3 Híbrida</title>
+    <meta name="description" content="A tua ligação caiu. A Yuno continua disponível numa versão offline simplificada até a internet voltar." />
     <meta name="theme-color" content="#00eaff" />
 
-    <meta property="og:title" content="Offline — Yuno" />
-    <meta property="og:description" content="A tua ligação foi interrompida. Vê esta versão offline da Yuno." />
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Yuno Offline" />
+    <meta property="og:description" content="A ligação está indisponível. Consulta a versão offline da Yuno." />
     <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
 
     <!-- CSS OFICIAIS -->
@@ -19,41 +22,51 @@
     <link rel="stylesheet" href="ativos/css/style-yuno.css">
     <link rel="stylesheet" href="ativos/css/style-3d.css">
 
+    <!-- FAVICON -->
     <link rel="icon" href="ativos/img/logos/favicon.png" />
 </head>
 
-<body>
+<body class="offline-body">
 
-    <!-- CONTEÚDO OFFLINE -->
+    <!-- CONTEÚDO -->
     <main class="container page-content center-text">
 
+        <!-- TÍTULO -->
         <section class="page-header">
             <h1 class="neon-title">Estás Offline</h1>
-            <p class="lead">A tua ligação à internet foi interrompida.<br>Mas a Yuno continua aqui contigo.</p>
+            <p class="lead">
+                A tua ligação à internet foi interrompida.<br>
+                Não te preocupes — a Yuno continua contigo.
+            </p>
         </section>
 
+        <!-- CAIXA OFFLINE -->
         <section class="offline-box">
             <img src="ativos/img/logos/logo-yuno-completa.png" alt="Yuno Offline" class="offline-logo" />
 
             <h2>Sem ligação no momento</h2>
             <p>
                 Esta é a versão offline da Yuno.<br>
-                Assim que a tua ligação voltar, terás acesso total ao site.
+                Quando a tua ligação for restabelecida, terás acesso total ao site.
             </p>
 
-            <a href="index.html" class="btn-primary">Tentar Novamente</a>
+            <a href="/" class="btn-primary">Tentar novamente</a>
         </section>
 
     </main>
 
-    <!-- FOOTER SIMPLIFICADO -->
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container center-text">
-            <small>© <span id="ano"></span> Yuno — Arena 9.1 Híbrida.</small>
+            <small>© <span id="ano"></span> Yuno — Arena 10.3 Híbrida.</small>
         </div>
     </footer>
 
+    <!-- JS -->
     <script src="ativos/js/main.js"></script>
-    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
+    <script>
+        document.getElementById("ano").textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
