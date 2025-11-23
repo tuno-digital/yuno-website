@@ -1,78 +1,119 @@
 // ============================================================
 // 🔥 YUNO IA — Rota Oficial de Comunicação (v10.3 Híbrida)
-// Unifica /process + /message + suporte total YUNO_CORE
+// Unifica /process + /message + suporte ao YUNO_CORE completo
 // ============================================================
 
-// Compatibilidade híbrida
-const isNode = typeof module !== "undefined" && module.exports;
-
-// ==========================
-// IMPORTS (ESM ou CJS)
-// ==========================
-let express;
-let YUNO_CORE;
-
-if (isNode) {
-    express = require("express");
-    YUNO_CORE = require("../ia/yuno-core");
-} else {
-    // Browser (raro, mas mantido para Next/SSR)
-    express = window.express;
-    YUNO_CORE = window.YUNO_CORE;
-}
-
+// IMPORTS
+const express = require("express");
 const router = express.Router();
 
-// ==================================================================
+const logger = require("../utils/logger");
+const sanitize = require("../utils/validate-text"); // sanitização opcional (10.3)
+const YUNO_CORE = require("../ia/yuno-core");
+const memory = require("../ia/memory-system");
+const commands = require("../ia/command-engine");
+
+// ============================================================
+// 🧪 HEALTH CHECK LOCAL DA IA
+// ============================================================
+router.get("/", (req, res) => {
+    return res.json({
+        ok: true,
+        message: "YUNO IA 10.3 — IA Router online",
+        version: "10.3"
+    });
+});
+
+// ============================================================
 // POST /api/ia/process
-// Aceita prompt OU message, em formato flexível
-// ==================================================================
+// Entrada principal da Inteligência Artificial
+// ============================================================
 router.post("/process", async (req, res) => {
     try {
-        const { prompt, message, userId } = req.body;
+        const { prompt, message, userId = "anon" } = req.body;
 
-        const text = prompt || message;
+        const text = sanitize(prompt || message);
 
-        if (!text)
-            return res.status(400).json({ erro: "Mensagem ou prompt obrigatório." });
+        if (!text) {
+            return res.status(400).json({
+                ok: false,
+                erro: "Mensagem inválida ou vazia."
+            });
+        }
 
-        // Pipeline central do motor 10.3
+        logger.info(`📥 Entrada IA › ${text}`);
+
+        // 🔥 Guardar memória curta
+        memory.shortTermPush({
+            user: userId,
+            message: text,
+            timestamp: Date.now()
+        });
+
+        // 🔐 Verificar se é comando de criador
+        if (commands.isCreatorCommand(text)) {
+            logger.system("🔐 Comando do criador detectado.");
+            const resp = await commands.execute(text);
+            return res.json({ ok: true, resposta: resp });
+        }
+
+        // 🧠 PROCESSAMENTO IA
         const resposta = await YUNO_CORE.process(text, userId);
 
-        res.json({ ok: true, resposta });
+        logger.success("🤖 Resposta gerada com sucesso.");
+
+        return res.json({
+            ok: true,
+            resposta
+        });
 
     } catch (e) {
-        console.error("ERRO /api/ia/process:", e);
-        res.status(500).json({ erro: "Falha interna na Yuno IA 10.3" });
+        logger.error("ERRO INTERNO IA /process: " + e);
+        return res.status(500).json({
+            ok: false,
+            erro: "Falha interna na YUNO 10.3."
+        });
     }
 });
 
-// ==================================================================
-// POST /api/ia/message
-// Mantido por compatibilidade com versões anteriores
-// ==================================================================
+// ============================================================
+// POST /api/ia/message (compatibilidade legacy)
+// ============================================================
 router.post("/message", async (req, res) => {
     try {
-        const { message, userId } = req.body;
+        const { message, userId = "anon" } = req.body;
 
-        if (!message)
-            return res.status(400).json({ erro: "Mensagem é obrigatória." });
+        const text = sanitize(message);
 
-        const resposta = await YUNO_CORE.process(message, userId);
+        if (!text) {
+            return res.status(400).json({
+                ok: false,
+                erro: "Mensagem inválida."
+            });
+        }
 
-        res.json({ ok: true, resposta });
+        logger.info(`📥 Entrada IA (legacy) › ${text}`);
+
+        // 🔐 criador?
+        if (commands.isCreatorCommand(text)) {
+            const resp = await commands.execute(text);
+            return res.json({ ok: true, resposta: resp });
+        }
+
+        const resposta = await YUNO_CORE.process(text, userId);
+
+        return res.json({ ok: true, resposta });
 
     } catch (e) {
-        console.error("ERRO /api/ia/message:", e);
-        res.status(500).json({ erro: "Falha interna na Yuno IA 10.3" });
+        logger.error("ERRO INTERNO IA /message: " + e);
+        return res.status(500).json({
+            ok: false,
+            erro: "Erro interno na rota IA legacy."
+        });
     }
 });
 
-// ==========================
-// EXPORTAÇÃO HÍBRIDA
-// ==========================
-if (isNode) {
-    module.exports = router;
-} else {
-    window.YUNO_IA_ROUTER = router;
-}
+// ============================================================
+// EXPORTAÇÃO
+// ============================================================
+module.exports = router;
