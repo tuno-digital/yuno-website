@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações da YUNO IA • Painel Secreto 10.3</title>
+
+    <link rel="stylesheet" href="../ativos/css/admin-secret.css">
+    <script type="module" src="settings-panel.js"></script>
+
+</head>
+<body>
+
+<!-- SIDEBAR SECRETA -->
+<div class="sidebar">
+    <h2 class="logo">⚡ YUNO MASTER</h2>
+
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="logs.html">📜 Logs</a>
+    <a href="#" class="active">🧬 Configurações</a>
+    <a href="admin-login.html">⛔ Sair</a>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="content">
+
+    <h1 class="title">⚙️ Configurações Avançadas — YUNO IA 10.3</h1>
+    <p class="subtitle">Controla o comportamento, personalidade e segurança da IA.</p>
+
+    <div class="card">
+        <h3>🧠 Personalidade da IA</h3>
+
+        <label>Tom de Voz</label>
+        <select id="iaTone">
+            <option>Profissional</option>
+            <option>Amigável</option>
+            <option>Motivadora</option>
+            <option>Futurista</option>
+        </select>
+
+        <label>Estilo de Escrita</label>
+        <select id="iaWriting">
+            <option>Formal</option>
+            <option>Conversacional</option>
+            <option>Marketing</option>
+            <option>Técnico</option>
+        </select>
+
+        <label>Temperatura (Criatividade)</label>
+        <input type="range" id="iaTemp" min="0" max="1" step="0.01">
+    </div>
+
+    <div class="card">
+        <h3>🤖 Modelo da IA</h3>
+
+        <label>Modelo Ativo</label>
+        <select id="iaModel">
+            <option>YUNO-Core v1</option>
+            <option>YUNO-Advanced v2</option>
+            <option>YUNO-Extreme v3</option>
+        </select>
+
+        <label>Velocidade vs Qualidade</label>
+        <input type="range" min="1" max="10" id="speedQuality">
+    </div>
+
+    <div class="card">
+        <h3>🔐 Integrações API</h3>
+
+        <label>Chave do Motor IA</label>
+        <input id="apiKey" type="password" placeholder="sk-xxxx">
+
+        <label>Chave Interna Yuno</label>
+        <input id="yunoKey" type="password" placeholder="internal-xxxx">
+    </div>
+
+    <div class="card">
+        <h3>⚠️ Segurança e Auto-Programação</h3>
+
+        <label>
+            <input type="checkbox" id="autoFix"> Permitir Auto-Reparação 10.3
+        </label>
+
+        <label>
+            <input type="checkbox" id="autoUpgrade"> Permitir Auto-Upgrade Controlado
+        </label>
+
+        <label>
+            <input type="checkbox" id="memoryMonitor"> Monitorizar memória IA
+        </label>
+    </div>
+
+    <div class="card">
+        <h3>🛰 Estado do Sistema</h3>
+
+        <button id="btnEstado">Ver Estado do Servidor</button>
+
+        <pre id="estadoBox"> - sem dados - </pre>
+    </div>
+
+    <button id="salvarBtn" class="save-btn">💾 Guardar Configurações</button>
+
+</div>
+
+</body>
+</html>
