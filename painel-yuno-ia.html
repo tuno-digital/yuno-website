@@ -6,12 +6,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Painel YUNO IA • Configuração Avançada • Arena 10.3</title>
-    <meta name="description" content="Configura o núcleo da Yuno IA — personalidade, modelos, integrações, automações e motor interno 10.3.">
+    <title>Painel YUNO IA • Arena 10.3</title>
+    <meta name="description" content="Painel oficial da Yuno IA — controlo do núcleo, personalidade, automações e chat direto com a IA 10.3.">
 
     <!-- SEO 10.3 -->
     <meta property="og:title" content="Painel YUNO IA — Arena 10.3" />
-    <meta property="og:description" content="Acede ao painel interno onde controlas o comportamento e o cérebro da Yuno IA." />
+    <meta property="og:description" content="Controla e testa a Yuno IA em tempo real." />
     <meta property="og:image" content="ativos/img/logos/logo-yuno-completa.png" />
 
     <!-- CSS GLOBAL -->
@@ -26,7 +26,7 @@
 
 <body>
 
-    <!-- NAVBAR 10.3 -->
+    <!-- NAVBAR -->
     <header class="yuno-navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
@@ -57,7 +57,7 @@
         </div>
     </header>
 
-    <!-- SIDE NAV 10.3 (Lateral Pro) -->
+    <!-- SIDE NAV 10.3 -->
     <div class="side-nav">
         <a href="index.html">🏠</a>
         <a href="yuno-ia.html">🤖</a>
@@ -68,8 +68,8 @@
 
     <!-- HERO -->
     <section class="hero">
-        <h1 class="neon-strong">Painel de Controlo — YUNO IA</h1>
-        <p class="lead">Controla toda a mente, personalidade, automações e integrações da tua IA.</p>
+        <h1 class="neon-strong">Painel YUNO IA 10.3</h1>
+        <p class="lead">Controla o cérebro, personalidade, integrações e automações da tua IA.</p>
     </section>
 
     <!-- PAINEL PRINCIPAL -->
@@ -102,7 +102,7 @@
 
         <!-- MODELOS -->
         <div class="painel-card">
-            <h3 class="neon-text">Modelos da IA</h3>
+            <h3 class="neon-text">Modelos</h3>
 
             <label>Modelo Principal</label>
             <select class="input-select" id="modelSelect">
@@ -119,7 +119,7 @@
         <div class="painel-card">
             <h3 class="neon-text">Integrações</h3>
 
-            <label>Chave API do Motor (OpenAI / YUNO Engine)</label>
+            <label>Chave API do Motor</label>
             <input type="password" class="input-text" id="apiKeyInput" placeholder="sk-xxxxxx">
 
             <label>Redes Sociais Ligadas</label>
@@ -143,31 +143,58 @@
             </ul>
         </div>
 
-        <!-- LOGS -->
+        <!-- LOGS DA IA -->
         <div class="painel-card painel-logs">
-            <h3 class="neon-text">Logs Internos da IA</h3>
+            <h3 class="neon-text">Logs da IA</h3>
             <div class="logs-box" id="logsBox">
-                <p>[OK] Núcleo Yuno IA inicializado.</p>
-                <p>[INFO] Personalidade ativa: Profissional.</p>
-                <p>[INFO] Automações carregadas.</p>
+                <p>[OK] Núcleo 10.3 inicializado.</p>
+                <p>[INFO] Automações ativas carregadas.</p>
+            </div>
+        </div>
+
+        <!-- CHAT IA -->
+        <div class="painel-card painel-chat">
+            <h3 class="neon-text">Chat com a Yuno IA (10.3)</h3>
+
+            <div id="chat" class="chat-box"></div>
+
+            <div class="chat-input-box">
+                <input id="msg" type="text" placeholder="Escreve aqui..." class="chat-input" />
+                <button onclick="sendMessage()" class="chat-btn">Enviar</button>
             </div>
         </div>
 
     </section>
 
-    <!-- FOOTER 10.3 -->
+    <!-- FOOTER -->
     <footer class="footer">
-        <p class="neon-title">Painel YUNO • Arena 10.3</p>
+        <p>YUNO IA • Arena 10.3</p>
     </footer>
 
-    <!-- MOTORES DA IA -->
-    <script src="ativos/js/yuno-ia/core.js"></script>
-    <script src="ativos/js/yuno-ia/actions.js"></script>
-    <script src="ativos/js/yuno-ia/commands.js"></script>
-    <script src="ativos/js/yuno-ia/analytics.js"></script>
-    <script src="ativos/js/yuno-ia/render.js"></script>
+    <!-- JS: CLIENTE IA -->
+    <script type="module">
+        import { yunoSend } from "./ativos/js/yuno-client.js";
 
-    <!-- SITE -->
+        async function sendMessage() {
+            const input = document.getElementById("msg");
+            const chat = document.getElementById("chat");
+
+            const userText = input.value.trim();
+            if (!userText) return;
+
+            chat.innerHTML += `<div class="msg-user"><b>Tu:</b> ${userText}</div>`;
+            input.value = "";
+
+            const resposta = await yunoSend(userText);
+
+            chat.innerHTML += `<div class="msg-yuno"><b>Yuno:</b> ${resposta}</div>`;
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        window.sendMessage = sendMessage;
+    </script>
+
+    <!-- JS DO SITE -->
     <script src="ativos/js/main.js"></script>
     <script src="ativos/js/ui-effects.js"></script>
 
