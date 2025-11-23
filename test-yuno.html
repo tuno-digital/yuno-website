@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="utf-8" />
+    <title>Teste Yuno IA 10.3</title>
+
+    <style>
+        body { background:#111; color:#fff; font-family:Arial; padding:20px; }
+        #chat { 
+            width:100%;
+            height:350px;
+            overflow-y:auto;
+            border:1px solid #444; 
+            padding:10px;
+            background:#000;
+            font-size:15px;
+        }
+        .user { color:#00eaff; margin:8px 0; }
+        .yuno { color:#ff00c8; margin:8px 0; }
+        input { width:70%; padding:10px; margin-top:10px; }
+        button { padding:10px 20px; background:#00eaff; border:0; cursor:pointer; }
+    </style>
+</head>
+
+<body>
+    <h1>🧠 Teste Yuno IA 10.3</h1>
+    <p>Se a Yuno responder aqui, o cérebro dela está vivo.</p>
+
+    <div id="chat"></div>
+
+    <input id="msg" type="text" placeholder="Escreve um comando..." />
+    <button onclick="sendMessage()">Enviar</button>
+
+<script>
+async function sendMessage() {
+    const input = document.getElementById("msg");
+    const chat = document.getElementById("chat");
+
+    const texto = input.value.trim();
+    if (!texto) return;
+
+    chat.innerHTML += `<div class='user'><b>Tu:</b> ${texto}</div>`;
+    input.value = "";
+
+    const resposta = await fetch("http://localhost:3001/api/ia/process", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: texto })
+    });
+
+    const data = await resposta.json();
+
+    chat.innerHTML += `<div class='yuno'><b>Yuno:</b> ${data.resposta || "⚠️ Sem resposta"}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+}
+</script>
+</body>
+</html>
