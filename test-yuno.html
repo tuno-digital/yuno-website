@@ -2,57 +2,119 @@
 <html lang="pt-PT">
 <head>
     <meta charset="utf-8" />
-    <title>Teste Yuno IA 10.3</title>
+    <title>YUNO IA — Teste 10.3 (Arena Debug)</title>
 
     <style>
-        body { background:#111; color:#fff; font-family:Arial; padding:20px; }
+        body { 
+            background:#0a0a0a; 
+            color:#0ff; 
+            font-family:Arial; 
+            padding:20px; 
+        }
+
+        h1 { text-align:center; color:#0ff; }
+
         #chat { 
             width:100%;
             height:350px;
             overflow-y:auto;
-            border:1px solid #444; 
-            padding:10px;
+            border:1px solid #044; 
+            padding:12px;
             background:#000;
             font-size:15px;
+            border-radius:6px;
         }
+
         .user { color:#00eaff; margin:8px 0; }
-        .yuno { color:#ff00c8; margin:8px 0; }
-        input { width:70%; padding:10px; margin-top:10px; }
-        button { padding:10px 20px; background:#00eaff; border:0; cursor:pointer; }
+        .yuno { color:#ff00d4; margin:8px 0; }
+        .sys { color:#888; font-size:12px; }
+
+        #msg { 
+            width:75%; 
+            padding:12px; 
+            margin-top:15px;
+            background:#111;
+            border:1px solid #044;
+            color:#0ff;
+            border-radius:5px;
+        }
+
+        button { 
+            padding:12px 20px; 
+            background:#00eaff; 
+            border:0; 
+            cursor:pointer;
+            font-weight:bold;
+            border-radius:5px;
+            margin-left:5px;
+        }
+
+        button:hover { background:#00c6d4; }
+
+        #logs {
+            margin-top:20px;
+            background:#050505;
+            border:1px dashed #00bcd4;
+            padding:10px;
+            height:150px;
+            overflow-y:auto;
+            font-size:12px;
+            color:#aaa;
+            border-radius:6px;
+        }
     </style>
 </head>
 
 <body>
-    <h1>🧠 Teste Yuno IA 10.3</h1>
-    <p>Se a Yuno responder aqui, o cérebro dela está vivo.</p>
+    <h1>🧠 Teste YUNO IA — v10.3 Arena Debug</h1>
+    <p>Se a Yuno responder aqui, o cérebro está vivo.</p>
 
     <div id="chat"></div>
 
     <input id="msg" type="text" placeholder="Escreve um comando..." />
     <button onclick="sendMessage()">Enviar</button>
 
+    <div id="logs">📄 Logs internos...</div>
+
 <script>
+
+document.getElementById("msg").addEventListener("keydown", function(e){
+    if(e.key === "Enter") sendMessage();
+});
+
 async function sendMessage() {
     const input = document.getElementById("msg");
     const chat = document.getElementById("chat");
+    const logs = document.getElementById("logs");
 
     const texto = input.value.trim();
     if (!texto) return;
 
     chat.innerHTML += `<div class='user'><b>Tu:</b> ${texto}</div>`;
+    logs.innerHTML += `<div class='sys'>[INPUT] ${texto}</div>`;
     input.value = "";
 
-    const resposta = await fetch("http://localhost:3001/api/ia/process", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: texto })
-    });
+    try {
+        const resposta = await fetch("http://localhost:3001/api/ia/process", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt: texto })
+        });
 
-    const data = await resposta.json();
+        const data = await resposta.json();
 
-    chat.innerHTML += `<div class='yuno'><b>Yuno:</b> ${data.resposta || "⚠️ Sem resposta"}</div>`;
+        chat.innerHTML += `<div class='yuno'><b>Yuno:</b> ${data.resposta || "⚠️ Sem resposta"}</div>`;
+        logs.innerHTML += `<div class='sys'>[OUTPUT RAW] ${JSON.stringify(data)}</div>`;
+
+    } catch (err) {
+        chat.innerHTML += `<div class='yuno'><b>Yuno:</b> ❌ Erro de ligação</div>`;
+        logs.innerHTML += `<div class='sys' style='color:red;'>[ERRO] ${err}</div>`;
+    }
+
     chat.scrollTop = chat.scrollHeight;
+    logs.scrollTop = logs.scrollHeight;
 }
 </script>
+
 </body>
 </html>
