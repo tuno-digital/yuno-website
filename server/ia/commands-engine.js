@@ -1,34 +1,32 @@
 // ============================================================
 // YUNO IA — COMMAND ENGINE 10.3
-// Sistema de comandos: interpreta ordens antes de enviar ao THINK
+// Interpreta e executa comandos antes do THINK
 // ============================================================
 
-const logger = require("../utils/logger");
 const { think } = require("./yuno-think");
+const memory = require("./memory-system");
 
 module.exports = {
     async execute(input) {
         if (!input) return "Nenhum comando recebido.";
 
-        const text = input.toLowerCase().trim();
+        const msg = input.toLowerCase().trim();
 
-        // 🔹 Comando: limpar memória
-        if (text === "limpar memoria" || text === "reset memória") {
-            return "🎉 Memória limpa (temporária).";
+        // Comandos internos
+        if (msg === "limpar memoria") {
+            memory.short = [];
+            return "🧹 Memória temporária limpa!";
         }
 
-        // 🔹 Comando: pedir versão
-        if (text === "versao" || text === "versão") {
-            return "YUNO IA — versão 10.3 híbrida.";
+        if (msg === "versao" || msg === "versão") {
+            return "Yuno IA — versão 10.3 híbrida.";
         }
 
-        // 🔹 Comando: estado
-        if (text === "estado") {
-            return "Tudo operacional, sistema 10.3 ativo 🚀";
+        if (msg === "estado") {
+            return "Tudo operacional — Yuno 10.3 online 🚀";
         }
 
-        // 🔹 Se não for comando → THINK processa
-        const reply = await think(input);
-        return reply;
+        // Se não for comando → THINK
+        return await think(input);
     }
 };
