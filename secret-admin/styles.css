@@ -1,1 +1,65 @@
+:root {
+    --bg: #000;
+    --panel: #0a0a0f;
+    --accent: #00eaff;
+    --danger: #ff0066;
+    --txt: #fff;
+    --radius: 12px;
+}
+
+body.secret-body {
+    background: var(--bg);
+    color: var(--txt);
+    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.secret-container {
+    background: var(--panel);
+    padding: 40px;
+    border-radius: var(--radius);
+    text-align: center;
+    width: 330px;
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.secret-title {
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.secret-sub {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 25px;
+}
+
+.secret-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: var(--radius);
+    border: 1px solid var(--accent);
+    background: #000;
+    color: var(--txt);
+}
+
+.secret-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius);
+    background: var(--accent);
+    border: none;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.secret-msg {
+    margin-top: 10px;
+    font-size: 14px;
+}
 
