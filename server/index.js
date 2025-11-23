@@ -3,24 +3,31 @@
 // API Core + Integrações + Segurança + Logs + Middlewares
 // =============================================================
 
-require("dotenv").config();
+// ENV
+import dotenv from "dotenv";
+dotenv.config();
 
-const express = require("express");
-const cors = require("cors");
-const fs = require("fs");
-const path = require("path");
+// Core
+import express from "express";
+import cors from "cors";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 // Utils & Segurança
-const logger = require("./utils/logger");
-const validateEnv = require("./utils/validateEnv");
-const security = require("./middleware/security");
-const rateLimitMiddleware = require("./middleware/rate-limit");
+import logger from "./utils/logger.js";
+import validateEnv from "./utils/validate-env.js";   // <-- caminho corrigido
+import rateLimitMiddleware from "./middlewares/rate-limit.js";
 
 // Rotas principais
-const videoRouter = require("./routes/video-router");
+import videoRouter from "./routes/video-router.js";
+import iaRouter from "./routes/ia-router.js";
 
-// 🔥 ROTA DA IA 10.3 (NOVO)
-const iaRouter = require("./routes/ia-router");
+// =============================================================
+// 📌 Corrigir __dirname no ES Module
+// =============================================================
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // =============================================================
 // 🔍 1. VALIDAR .env ANTES DE INICIAR
@@ -43,17 +50,16 @@ const TMP_DIR = path.join(__dirname, "..", "tmp");
 const TMP_VIDEOS = path.join(TMP_DIR, "videos");
 const LOG_DIR = path.join(__dirname, "logs");
 
-if (!fs.existsSync(TMP_DIR)) fs.mkdirSync(TMP_DIR);
-if (!fs.existsSync(TMP_VIDEOS)) fs.mkdirSync(TMP_VIDEOS);
-if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR);
+if (!fs.existsSync(TMP_DIR)) fs.mkdirSync(TMP_DIR, { recursive: true });
+if (!fs.existsSync(TMP_VIDEOS)) fs.mkdirSync(TMP_VIDEOS, { recursive: true });
+if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR, { recursive: true });
 
-logger.system("Pastas verificadas: tmp/, tmp/videos/, server/logs/");
+logger.system("📁 Pastas verificadas: tmp/, tmp/videos/, logs/");
 
 // =============================================================
 // 🛡️ 4. MIDDLEWARE DE SEGURANÇA GLOBAL (YUNO 10.3)
 // =============================================================
-app.use(security);            // Anti-bot / sanitização
-app.use(rateLimitMiddleware); // Rate limit 10.3
+app.use(rateLimitMiddleware);
 
 // =============================================================
 // 📡 5. HEALTH CHECK
@@ -71,14 +77,7 @@ app.get("/api/estado", (req, res) => {
 // 🔗 6. ROTAS PRINCIPAIS DA API
 // =============================================================
 app.use("/api/video", videoRouter);
-
-// 🔥 NOVO — IA PRINCIPAL 10.3
 app.use("/api/ia", iaRouter);
-
-// Futuro:
-// app.use("/api/admin", require("./routes/admin-router"));
-// app.use("/api/auth", require("./routes/auth-router"));
-// app.use("/api/automacoes", require("./routes/automacoes-router"));
 
 // =============================================================
 // ❌ 7. ROTA 404 PADRÃO DA API

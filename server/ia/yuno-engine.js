@@ -1,10 +1,5 @@
 // ======================================================
 // YUNO ENGINE — Núcleo Principal de IA (v10.3)
-// Motor interno responsável por:
-// - processamento de linguagem
-// - síntese de respostas
-// - routing para comandos
-// - comunicação com memória
 // ======================================================
 
 import { YunoMemory } from "./yuno-memory.js";
@@ -17,26 +12,26 @@ export const YunoEngine = {
 
     async process(prompt, meta = {}) {
 
-        // Salvar no histórico
+        // Guardar memória curta (entrada)
         YunoMemory.short.push({
             role: "user",
             content: prompt,
             time: Date.now()
         });
 
-        // 1 — Verificar se é comando
+        // 1 — Verificar comandos internos
         const cmdResponse = await YunoCommands.tryExecute(prompt);
         if (cmdResponse) {
             return cmdResponse;
         }
 
-        // 2 — Processamento cognitivo 10.3
-        const thinking = await YunoThink.generate(prompt);
+        // 2 — THINK 10.3 (motor cognitivo)
+        const thinking = await YunoThink(prompt);
 
-        // 3 — Criar resposta final
-        const response = `✨ **Yuno 10.3:** ${thinking}`;
+        // 3 — Criar resposta final formatada
+        const response = `✨ Yuno 10.3: ${thinking}`;
 
-        // 4 — Guardar resposta na memória
+        // 4 — Guardar memória curta (resposta)
         YunoMemory.short.push({
             role: "assistant",
             content: response,

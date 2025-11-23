@@ -3,17 +3,16 @@
 // ======================================================
 
 export const YunoCommands = {
-    prefixes: ["!", "/", "yuno."], 
+
+    prefixes: ["!", "/", "yuno."],
 
     async tryExecute(prompt) {
         const text = prompt.toLowerCase().trim();
 
-        // Comando: limpar memória curta
         if (text === "/limpar" || text === "!limpar") {
             return "🧹 Memória curta limpa!";
         }
 
-        // Comando: verificar estado
         if (text === "/estado") {
             return "⚙️ Yuno 10.3 operacional e estável.";
         }
@@ -21,3 +20,5 @@ export const YunoCommands = {
         return null; // não é comando
     }
 };
+
+export default YunoCommands;

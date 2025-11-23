@@ -1,15 +1,19 @@
 // ============================================================
-// YUNO IA — CONFIG LOADER 10.3
-// Carrega configs internas da Yuno + validações
+// YUNO IA — CONFIG LOADER 10.3 (ESM)
 // ============================================================
 
-const fs = require("fs");
-const path = require("path");
-const logger = require("../utils/logger");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import logger from "../utils/logger.js";
 
-const CONFIG_PATH = path.join(__dirname, "../config/yuno-config.json");
+// Corrigir __dirname (ESM)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-function loadConfig() {
+const CONFIG_PATH = path.join(__dirname, "config", "yuno-config.json");
+
+export function loadConfig() {
     try {
         const file = fs.readFileSync(CONFIG_PATH, "utf8");
         const json = JSON.parse(file);
@@ -24,4 +28,4 @@ function loadConfig() {
     }
 }
 
-module.exports = loadConfig();
+export default loadConfig();

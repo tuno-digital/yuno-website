@@ -1,5 +1,5 @@
 // ======================================================
-// YUNO AUTO-PROGRAM — Evolução automática 10.3
+// YUNO AUTO-PROGRAM — Evolução automática 10.3 (ESM)
 // ======================================================
 
 import fs from "fs";
@@ -27,3 +27,5 @@ export const YunoAutoProgram = {
         }
     }
 };
+
+export default YunoAutoProgram;
