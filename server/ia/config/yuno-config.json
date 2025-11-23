@@ -1,0 +1,78 @@
+{
+  "version": "10.3",
+  "descricao": "Configuração interna oficial da YUNO IA — núcleo comportamental e limites.",
+
+  "core": {
+    "model": "gpt-5.1",
+    "temperature": 0.65,
+    "top_p": 0.92,
+    "presence_penalty": 0.2,
+    "frequency_penalty": 0.15,
+    "max_output_tokens": 2048
+  },
+
+  "limits": {
+    "maxTokens": 4096,
+    "maxMemoryItems": 800,
+    "maxContextLayers": 12,
+    "maxRequestSizeMB": 50,
+    "maxCommandsPerMinute": 120,
+    "cooldown_ms": 500
+  },
+
+  "processing": {
+    "auto_compress_memory": true,
+    "auto_sanitize_prompt": true,
+    "adaptive_context": true,
+    "safe_mode": true,
+    "dynamic_chain_of_thought": false,
+    "log_internal_processing": false
+  },
+
+  "memory": {
+    "enabled": true,
+    "short_term_limit": 12,
+    "long_term_limit": 500,
+    "persist_limit": 1200,
+    "store_user_style": true,
+    "store_commands_history": true,
+    "compression_strategy": "semantic",
+    "forget_strategy": "relevance_decay"
+  },
+
+  "security": {
+    "sanitize_inputs": true,
+    "block_code_injection": true,
+    "block_system_prompts": true,
+    "strict_validation": true,
+    "allow_file_generation": true,
+    "allow_network_calls": false,
+    "admin_token_required": true
+  },
+
+  "behaviour": {
+    "tone": "informal-profissional",
+    "persona": "assistente inteligente híbrida, precisa e futurista",
+    "follow_user_style": true,
+    "auto_explicar": false,
+    "objective_mode": true,
+    "limit_emojis": true
+  },
+
+  "evolution": {
+    "enabled": true,
+    "allow_self_optimization": true,
+    "auto_improve_memory": true,
+    "auto_refactor_commands": true,
+    "approval_required": true,
+    "log_evolution_steps": true
+  },
+
+  "internal": {
+    "owner": "MASTER",
+    "developer_mode": false,
+    "debug_mode": false,
+    "sync_config_on_boot": true,
+    "allow_hot_reload": true
+  }
+}
