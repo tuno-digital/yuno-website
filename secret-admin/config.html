@@ -1,1 +1,134 @@
 
+// ===========================================================
+// YUNO MASTER CONTROL — Arena 10.3
+// Centro de comando secreto para controlar toda a IA
+// ===========================================================
+
+console.log("🔮 YUNO MASTER 10.3 LOADED");
+
+// ===============================
+// 🔧 CONFIG GLOBAL
+// ===============================
+const API = "/api/admin"; // Prefixo das rotas internas secretas
+
+// Função geral de requests
+async function masterRequest(route, method = "GET", body = null) {
+    try {
+        const res = await fetch(API + route, {
+            method,
+            headers: { "Content-Type": "application/json" },
+            body: body ? JSON.stringify(body) : null
+        });
+
+        return await res.json();
+
+    } catch (err) {
+        console.error("Erro na request MASTER:", err);
+        return { erro: true, msg: "Falha de comunicação com o Painel Mestre." };
+    }
+}
+
+// ===========================================================
+// 🧠 PERSONALIDADE
+// ===========================================================
+async function savePersona() {
+    const tone = document.getElementById("tone").value;
+    const temperature = document.getElementById("temperature").value;
+    const style = document.getElementById("personaStyle")?.value || "normal";
+
+    const resp = await masterRequest("/persona", "POST", {
+        tone, temperature, style
+    });
+
+    document.getElementById("personaMsg").innerText =
+        resp.msg || "Personalidade atualizada!";
+}
+
+// ===========================================================
+// ⚙️ MODELO
+// ===========================================================
+async function saveModel() {
+    const model = document.getElementById("model").value;
+    const speed = document.getElementById("speedQuality").value;
+
+    const resp = await masterRequest("/model", "POST", {
+        model, speed
+    });
+
+    document.getElementById("modelMsg").innerText =
+        resp.msg || "Modelo atualizado!";
+}
+
+// ===========================================================
+// 🔁 AUTOMAÇÕES
+// ===========================================================
+async function saveAutomations() {
+    const state = document.getElementById("automations").value;
+
+    const resp = await masterRequest("/automacoes", "POST", {
+        state
+    });
+
+    document.getElementById("autoMsg").innerText =
+        resp.msg || "Automações atualizadas!";
+}
+
+// ===========================================================
+// 🧬 EVOLUÇÃO & SISTEMA
+// ===========================================================
+async function triggerEvolution() {
+    const resp = await masterRequest("/evolution", "POST");
+
+    document.getElementById("evoMsg").innerText =
+        resp.msg || "Evolução forçada com sucesso!";
+}
+
+async function resetMemory() {
+    const resp = await masterRequest("/reset-memory", "POST");
+
+    document.getElementById("evoMsg").innerText =
+        resp.msg || "Memória limpa com sucesso!";
+}
+
+async function reloadCore() {
+    const resp = await masterRequest("/reload-core", "POST");
+
+    document.getElementById("evoMsg").innerText =
+        resp.msg || "Núcleo reiniciado!";
+}
+
+// ===========================================================
+// 🛡 ADMIN KEY
+// ===========================================================
+async function regenAdminKey() {
+    const resp = await masterRequest("/new-admin-key", "POST");
+
+    document.getElementById("systemMsg").innerText =
+        resp.msg || ("Nova chave admin: " + resp.key);
+}
+
+// ===========================================================
+// 🚨 STATUS DO SISTEMA
+// ===========================================================
+async function systemStatus() {
+    const resp = await masterRequest("/status", "GET");
+
+    document.getElementById("systemMsg").innerHTML =
+        `<pre>${JSON.stringify(resp, null, 2)}</pre>`;
+}
+
+// ===========================================================
+// 📜 LOGS
+// ===========================================================
+async function loadLogs() {
+    const resp = await masterRequest("/logs", "GET");
+
+    const box = document.getElementById("logsBox");
+
+    if (!resp || !resp.logs) {
+        box.innerHTML = "-- Falha ao buscar logs --";
+        return;
+    }
+
+    box.innerHTML = resp.logs.map(l => `<div>${l}</div>`).join("");
+}
