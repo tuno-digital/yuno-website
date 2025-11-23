@@ -1,155 +1,110 @@
 // ===============================================================
-// 🧠 YUNO CORE — Motor Central de IA (v10.3 Híbrida)
-// Processamento → Raciocínio → Execução → Resposta
+// 🧠 YUNO-CORE (v10.3 Híbrida)
+// Motor central da inteligência artificial da YUNO IA
+// Interpretação, raciocínio, modularidade e auto-programação
 // ===============================================================
 
-const fetch = require("node-fetch");
+const fs = require("fs");
+const path = require("path");
 const logger = require("../../utils/logger");
-const memory = require("./memory-system");
-const commands = require("./command-engine");
-const { YUNO_CONFIG } = require("./yuno-config-loader");
+const memory = require("../memory/memory-system");
+const commands = require("../commands/command-engine");
+const configLoader = require("../config/yuno-config-loader");
+
+// Carregar configuração interna (regras, limites, comportamento…)
+const YUNO_CONFIG = configLoader();
 
 // ===============================================================
-// 🔹 Função principal da IA — Onde a YUNO PENSA
+// 🔥 FUNÇÃO PRINCIPAL: interpretar prompt e gerar resposta
 // ===============================================================
-
-async function yunoThink(input, userId = "anon") {
+async function processPrompt(prompt, contexto = {}) {
     try {
-        logger.info(`Nova mensagem recebida: "${input}"`);
-
-        // ------------------------------
-        // 1) VALIDAR INPUT
-        // ------------------------------
-        if (!input || typeof input !== "string") {
-            return sendError("Entrada inválida. Envia uma mensagem em texto.");
+        if (!prompt || typeof prompt !== "string") {
+            return respostaErro("Prompt inválido.");
         }
 
-        const cleanInput = input.trim();
-        if (!cleanInput) {
-            return sendError("Mensagem vazia.");
-        }
+        const cleanPrompt = prompt.trim();
 
         // Guardar na memória curta
-        memory.shortTermAdd({ userId, text: cleanInput });
+        memory.saveShort(cleanPrompt);
 
-        // ------------------------------
-        // 2) DETECTAR COMANDOS DA IA
-        // Ex.: /post, /funil, /automacao, /video, etc.
-        // ------------------------------
-        const detected = commands.detectCommand(cleanInput);
+        // =========================================================
+        // 1️⃣ DETEÇÃO DE COMANDO ESPECIAL (auto programação)
+        // =========================================================
+        const isCommand = commands.detect(cleanPrompt);
 
-        if (detected.isCommand) {
-            logger.system(`Comando detectado: ${detected.command}`);
-            return await commands.execute(detected, userId);
+        if (isCommand) {
+            logger.system("Comando interno detetado → executando…");
+            const cmdResponse = await commands.execute(cleanPrompt);
+            return respostaSucesso(cmdResponse);
         }
 
-        // ------------------------------
-        // 3) GERAÇÃO DE RESPOSTA INTELIGENTE
-        // via OpenAI, YUNO-MODEL ou fallback interno
-        // ------------------------------
-        const respostaIA = await generateAIResponse(cleanInput, userId);
+        // =========================================================
+        // 2️⃣ RESPOSTA NORMAL (IA sem comandos)
+        // =========================================================
+        const response = gerarRespostaInteligente(cleanPrompt, contexto);
 
-        // Guardar memória longa
-        memory.longTermMaybeStore(cleanInput, respostaIA);
+        // Guardar memória longa se for importante
+        memory.saveLong(cleanPrompt, response);
 
-        return {
-            sucesso: true,
-            tipo: "resposta_ia",
-            resposta: respostaIA
-        };
+        return respostaSucesso(response);
 
     } catch (err) {
-        logger.error("Erro no yunoThink:");
-        console.error(err);
-        return sendError("Erro interno ao processar pensamento da Yuno.");
+        logger.error("Erro no YUNO-CORE: " + err);
+        return respostaErro("Erro interno no Yuno-Core.");
     }
 }
 
 // ===============================================================
-// 🔹 MOTOR DE RESPOSTA — LIGAÇÃO COM OPENAI / YUNO MODEL
+// 🧠 Pequeno motor interno de geração de respostas (temporário)
+// (Quando integrarmos o GPT/Yuno-LLM ele substitui esta função)
 // ===============================================================
+function gerarRespostaInteligente(prompt, contexto) {
+    const lower = prompt.toLowerCase();
 
-async function generateAIResponse(text, userId) {
-    try {
-        const prompt = buildPrompt(text, userId);
-
-        const response = await fetch(YUNO_CONFIG.ai.endpoint, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${YUNO_CONFIG.ai.key}`
-            },
-            body: JSON.stringify({
-                model: YUNO_CONFIG.ai.model,
-                temperature: YUNO_CONFIG.ai.temperature,
-                max_tokens: YUNO_CONFIG.ai.maxTokens,
-                messages: prompt
-            })
-        });
-
-        const data = await response.json();
-
-        if (!data?.choices?.length) {
-            logger.warn("IA não devolveu resposta.");
-            return "Não consegui gerar uma resposta. Tenta reformular.";
-        }
-
-        return data.choices[0].message.content;
-
-    } catch (err) {
-        logger.error("Erro ao contactar modelo de IA:");
-        console.error(err);
-        return "Ocorreu um erro ao falar com o motor de IA.";
+    if (lower.includes("oi") || lower.includes("olá")) {
+        return "Olá! Aqui é a Yuno IA pronta para te ajudar. 💙";
     }
+
+    if (lower.includes("quem és tu")) {
+        return "Eu sou a Yuno IA — versão 10.3 — híbrida, modular e com capacidade futura de auto-programação.";
+    }
+
+    if (lower.includes("versão")) {
+        return "Estou a correr na versão 10.3 Híbrida.";
+    }
+
+    if (lower.includes("ajuda")) {
+        return "Podes pedir: automações, ideias, texto, comandos internos da IA ou gestão de conteúdo. 💡";
+    }
+
+    // Resposta padrão temporária
+    return `Recebi: "${prompt}". Em breve darei respostas 100% inteligentes com o módulo YUNO-LLM.`;
 }
 
 // ===============================================================
-// 🔹 Construção do prompt — Personalidade + contexto + memória
+// 📦 RESPOSTAS PADRONIZADAS
 // ===============================================================
-
-function buildPrompt(input, userId) {
-    const memoriaCurta = memory.shortTermGet(userId);
-    const personalidade = YUNO_CONFIG.personality;
-
-    return [
-        {
-            role: "system",
-            content:
-                `Tu és a YUNO IA versão 10.3 — inteligente, rápida, profissional, 
-                 futurista e com personalidade forte. 
-                 Usa linguagem clara, objetiva, leal e confiante.`
-        },
-        {
-            role: "system",
-            content: `Comportamento: ${personalidade.comportamento}`
-        },
-        {
-            role: "system",
-            content: `Objetivo: ${personalidade.objetivo}`
-        },
-        {
-            role: "system",
-            content: `Memória curta: ${JSON.stringify(memoriaCurta)}`
-        },
-        {
-            role: "user",
-            content: input
-        }
-    ];
-}
-
-// ===============================================================
-// 🔹 Utilidade
-// ===============================================================
-
-function sendError(msg) {
+function respostaSucesso(msg) {
     return {
-        sucesso: false,
-        erro: true,
-        mensagem: msg
+        status: "ok",
+        resposta: msg,
+        version: YUNO_CONFIG.version
     };
 }
 
+function respostaErro(msg) {
+    return {
+        status: "erro",
+        resposta: msg,
+        version: YUNO_CONFIG.version
+    };
+}
+
+// ===============================================================
+// EXPORTAÇÃO DO CÉREBRO
+// ===============================================================
 module.exports = {
-    yunoThink
+    processPrompt,
+    YUNO_CONFIG
 };
