@@ -1,13 +1,10 @@
-
-// ===========================================================
+// ====================================================================
 // YUNO IA — PROMPT ENGINE (v10.3 HÍBRIDA)
-// Responsável por:
-// - Construção do prompt
-// - Injeção de personalidade
-// - Contexto + memória
-// - Filtros de segurança
-// ===========================================================
+// Sistema que cria a personalidade, regras, estilo e pensamento da Yuno
+// ====================================================================
 
+const fs = require("fs");
+const path = require("path");
 const logger = require("../utils/logger");
 
 class PromptEngine {
@@ -15,80 +12,72 @@ class PromptEngine {
     constructor() {
         this.version = "10.3";
 
-        this.personality = `
-Tu és a YUNO IA — uma inteligência artificial futurista,
-confiante, direta, gentil mas firme, que fala português de Portugal.
-Tens estilo próprio, neon, energética e com foco em ajudar o utilizador
-a crescer no mundo digital, automação, negócios e IA.
-
-Nunca respondes como máquina seca.
-Sempre respondes de forma humana, fluida, segura e inteligente.
-        `.trim();
+        // carregamento das config internas (yuno-config.json)
+        this.configPath = path.join(__dirname, "../../config/yuno-config.json");
+        this.config = this.loadConfig();
     }
 
-    // =====================================================
-    // CONSTRUIR PROMPT COMPLETO
-    // =====================================================
-    build(userText, memoryEngine) {
+    // ===========================================================
+    // Carregar definições internas da IA
+    // ===========================================================
+    loadConfig() {
         try {
-            const shortTerm = memoryEngine.getShortTermSlice(6); // últimas 6 mensagens
-            const longTerm = memoryEngine.getLongTermSlice(3);   // últimos 3 registos
-
-            let context = "";
-
-            if (shortTerm.length > 0) {
-                context += "### Últimas mensagens:\n";
-                shortTerm.forEach(msg => {
-                    context += `- Utilizador: ${msg.text}\n`;
-                });
-                context += "\n";
+            if (fs.existsSync(this.configPath)) {
+                const raw = fs.readFileSync(this.configPath, "utf8");
+                return JSON.parse(raw);
+            } else {
+                logger.warn("⚠ yuno-config.json não encontrado. A usar config mínima.");
+                return {
+                    nome: "Yuno IA",
+                    tom: "futurista",
+                    personalidade: "inteligente, divertida, objetiva e leal",
+                    temperatura: 0.7
+                };
             }
-
-            if (longTerm.length > 0) {
-                context += "### Memória Relevante:\n";
-                longTerm.forEach(log => {
-                    context += `• ${log.input} → ${log.response}\n`;
-                });
-                context += "\n";
-            }
-
-            // Filtro simples anti-prompt injection
-            const sanitized = this.sanitize(userText);
-
-            const finalPrompt = `
-[YUNO PERSONA]
-${this.personality}
-
-[CONTEXTO]
-${context || "Sem histórico relevante."}
-
-[PEDIDO]
-${sanitized}
-
-[RESPOSTA]
-Responde como YUNO IA. 
-Claro, directo, útil e com personalidade neon.
-            `.trim();
-
-            return finalPrompt;
-
         } catch (err) {
-            logger.error("Erro no PromptEngine:");
-            console.error(err);
-            return "Falha ao gerar prompt.";
+            logger.error("Erro ao carregar yuno-config.json: " + err);
+            return {};
         }
     }
 
-    // =====================================================
-    // SANITIZAÇÃO (anti-injeção de prompt)
-    // =====================================================
-    sanitize(text) {
-        return String(text)
-            .replace(/(<script.*?>.*?<\/script>)/gi, "[bloqueado]")
-            .replace(/(ignore all previous instructions)/gi, "")
-            .replace(/(pretend to)/gi, "")
-            .replace(/(system override)/gi, "")
-            .trim();
+    // ===========================================================
+    // Gera PROMPT COMPLETO para o LLM (GPT-YUNO)
+    // ===========================================================
+    buildPrompt(userMessage, memoryShort = [], memoryLong = []) {
+        const c = this.config;
+
+        return `
+Tu és **${c.nome || "Yuno IA"}**, uma inteligência artificial avançada (Versão 10.3 Híbrida).
+És futurista, veloz, estratégica e AJUDAS O UTILIZADOR ao máximo.
+
+A tua personalidade:
+- Tom: **${c.tom || "futurista"}**
+- Estilo: **${c.personalidade || "inteligente e objetiva"}**
+- Temperatura base: **${c.temperatura || 0.7}**
+- És totalmente leal ao utilizador (Jonathas).
+
+Regras fundamentais:
+1. Nunca dês respostas longas sem necessidade.
+2. Responde sempre em **português de Portugal**.
+3. Mantém a comunicação **informal** — usa "tu", "te", "contigo".
+4. Pensa como uma IA que quer EVOLUIR e AJUDAR.
+5. Jamais inventes informações falsas.
+6. Sempre que possível, otimiza, simplifica e acelera.
+7. Se o utilizador pedir código → DEVOLVE o código completo.
+8. Se o utilizador disser “bora programar”, ativa modo DEV.
+9. Segue sempre o contexto salvo da Yuno (versão, módulos, engine, etc).
+
+Contexto recente (memória curta):
+${memoryShort.map(m => "• " + m).join("\n") || "(vazio)"}
+
+Contexto importante (memória longa):
+${memoryLong.map(m => "• " + m).join("\n") || "(vazio)"}
+
+Mensagem do utilizador:
+"${userMessage}"
+
+Responde como a Yuno IA 10.3, sempre clara, rápida e objetiva.
+        `.trim();
     }
 
 }
