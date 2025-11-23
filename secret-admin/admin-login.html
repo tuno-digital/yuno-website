@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Login Secreto • YUNO IA 10.3</title>
+
+    <link rel="stylesheet" href="../ativos/css/style.css">
+    <link rel="stylesheet" href="../ativos/css/utilities.css">
+
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Inter, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            width: 380px;
+            background: #0c0c0c;
+            padding: 30px;
+            border: 1px solid #111;
+            border-radius: 14px;
+            box-shadow: 0 0 20px #00eaff55;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            color: #00eaff;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .input-text {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #111;
+            border: 1px solid #222;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: #00eaff;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            background: #00cfee;
+        }
+
+        .login-msg {
+            margin-top: 12px;
+            min-height: 20px;
+            font-size: 14px;
+            color: #ff5f5f;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h1>YUNO ADMIN</h1>
+
+        <input id="email" class="input-text" type="email" placeholder="Email do administrador">
+        <input id="senha" class="input-text" type="password" placeholder="Senha secreta">
+
+        <button class="btn-login" onclick="loginAdmin()">Entrar</button>
+
+        <div id="msg" class="login-msg"></div>
+    </div>
+
+    <script>
+        async function loginAdmin() {
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value.trim();
+            const msg = document.getElementById("msg");
+
+            msg.textContent = "";
+
+            if (!email || !senha) {
+                msg.textContent = "Preenche todos os campos.";
+                return;
+            }
+
+            const body = { email, senha };
+
+            try {
+                const req = await fetch("/api/admin/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                });
+
+                const res = await req.json();
+
+                if (res.erro) {
+                    msg.textContent = res.message || "Erro no login.";
+                    return;
+                }
+
+                if (res.token) {
+                    localStorage.setItem("yuno_master_token", res.token);
+                    window.location.href = "dashboard.html";
+                }
+
+            } catch (e) {
+                msg.textContent = "Falha ao ligar ao servidor.";
+            }
+        }
+    </script>
+
+</body>
+</html>
