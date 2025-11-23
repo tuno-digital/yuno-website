@@ -1,1 +1,161 @@
+<!doctype html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="utf-8">
+    <title>YUNO • Painel Mestre 10.3</title>
+
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .panel-wrapper {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .panel-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px var(--accent);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card-master {
+            background: #0b0b12;
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: 0 0 25px #00eaff50;
+        }
+
+        .card-master h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .btn-master {
+            padding: 10px 18px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        #logsBox {
+            background: #000;
+            color: #0f0;
+            padding: 15px;
+            border-radius: var(--radius);
+            height: 220px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body class="secret-body">
+
+    <div class="panel-wrapper">
+
+        <h1 class="panel-title">Painel Mestre — YUNO IA 10.3</h1>
+
+        <div class="grid-3">
+
+            <!-- PERSONALIDADE -->
+            <div class="card-master">
+                <h3>🧠 Personalidade da IA</h3>
+
+                <label>Tom:</label>
+                <select id="tone" class="secret-input">
+                    <option>Profissional</option>
+                    <option>Amigável</option>
+                    <option>Motivadora</option>
+                    <option>Futurista</option>
+                </select>
+
+                <label>Temperatura:</label>
+                <input id="temperature" type="range" min="0" max="1" step="0.01">
+
+                <button class="btn-master" onclick="savePersona()">Guardar</button>
+                <p id="personaMsg"></p>
+            </div>
+
+            <!-- MODELO -->
+            <div class="card-master">
+                <h3>⚙️ Core Model</h3>
+
+                <label>Modelo ativo:</label>
+                <select id="model" class="secret-input">
+                    <option>YUNO-Core v1</option>
+                    <option>YUNO-Pro v2</option>
+                    <option>YUNO-Extreme v3</option>
+                </select>
+
+                <label>Velocidade vs Qualidade</label>
+                <input id="speedQuality" type="range" min="1" max="10">
+
+                <button class="btn-master" onclick="saveModel()">Guardar</button>
+                <p id="modelMsg"></p>
+            </div>
+
+            <!-- AUTOMAÇÕES -->
+            <div class="card-master">
+                <h3>🔁 Automações</h3>
+
+                <label>Estado:</label>
+                <select id="automations" class="secret-input">
+                    <option value="on">Ativo</option>
+                    <option value="off">Desligado</option>
+                </select>
+
+                <button class="btn-master" onclick="saveAutomations()">Guardar</button>
+                <p id="autoMsg"></p>
+            </div>
+
+            <!-- IDENTITY / EVOLUTION -->
+            <div class="card-master">
+                <h3>🧬 Evolução e Identidade</h3>
+
+                <button class="btn-master" onclick="triggerEvolution()">🚀 Forçar Evolução 10.3</button>
+                <button class="btn-master" onclick="resetMemory()">🧹 Reset Memória</button>
+                <button class="btn-master" onclick="reloadCore()">🔄 Reiniciar Núcleo</button>
+
+                <p id="evoMsg"></p>
+            </div>
+
+            <!-- LOGS -->
+            <div class="card-master">
+                <h3>📜 Logs Internos</h3>
+                <div id="logsBox">A carregar logs...</div>
+                <button class="btn-master" onclick="loadLogs()">Atualizar Logs</button>
+            </div>
+
+            <!-- SISTEMA -->
+            <div class="card-master">
+                <h3>🛡 Segurança & Sistema</h3>
+
+                <button class="btn-master" onclick="regenAdminKey()">🔐 Gerar Nova Chave Admin</button>
+                <button class="btn-master" onclick="systemStatus()">📡 Estado do Sistema</button>
+
+                <p id="systemMsg"></p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="yuno-master.js"></script>
+</body>
+
+</html>
 
