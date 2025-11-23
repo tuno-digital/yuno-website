@@ -4,7 +4,7 @@
 
 import { YunoMemory } from "./yuno-memory.js";
 import { YunoCommands } from "./yuno-commands.js";
-import { YunoThink } from "./yuno-think.js";
+import { think } from "./yuno-think.js";
 
 export const YunoEngine = {
     version: "10.3",
@@ -12,32 +12,27 @@ export const YunoEngine = {
 
     async process(prompt, meta = {}) {
 
-        // Guardar memória curta (entrada)
+        // Salvar mensagem do utilizador
         YunoMemory.short.push({
             role: "user",
             content: prompt,
             time: Date.now()
         });
 
-        // 1 — Verificar comandos internos
+        // 1 — Verificar se é comando
         const cmdResponse = await YunoCommands.tryExecute(prompt);
-        if (cmdResponse) {
-            return cmdResponse;
-        }
+        if (cmdResponse) return cmdResponse;
 
-        // 2 — THINK 10.3 (motor cognitivo)
-        const thinking = await YunoThink(prompt);
+        // 2 — THINK ENGINE (motor cognitivo)
+        const result = await think(prompt);
 
-        // 3 — Criar resposta final formatada
-        const response = `✨ Yuno 10.3: ${thinking}`;
-
-        // 4 — Guardar memória curta (resposta)
+        // 3 — Guardar resposta na memória
         YunoMemory.short.push({
             role: "assistant",
-            content: response,
+            content: result,
             time: Date.now()
         });
 
-        return response;
+        return result;
     }
 };

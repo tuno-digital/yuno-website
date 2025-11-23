@@ -1,17 +1,17 @@
 // =============================================================
-// 🟦 YUNO IA — Validação de variáveis .env — v10.3
+// SAFE ENV CHECK — NÃO CRASHA (YUNO 10.3)
 // =============================================================
 
 export default function validateEnv() {
-    const required = ["YUNO_AI_KEY"]; // <-- chave certa da Yuno
-
+    const required = ["OPENAI_API_KEY"];
     const missing = required.filter(v => !process.env[v]);
 
     if (missing.length > 0) {
         console.warn("⚠️ Variáveis .env em falta:", missing.join(", "));
-        console.warn("A iniciar Yuno em MODO OFFLINE (sem API externa)...");
-        return; // <-- NÃO CRASHA MAIS
+        console.warn("⚠️ Yuno vai arrancar em modo offline.");
+        return false;
     }
 
-    console.log("✔️ Ambiente .env validado com sucesso");
+    console.log("✔️ .env validado");
+    return true;
 }

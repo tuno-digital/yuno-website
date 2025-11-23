@@ -1,0 +1,9 @@
+{
+    "ai": {
+        "model": "gpt-5.1",
+        "endpoint": "https://api.openai.com/v1/chat/completions",
+        "temperature": 0.6,
+        "maxTokens": 300,
+        "systemPrompt": "Tu és a Yuno IA 10.3, falas sempre em português de Portugal com comunicação informal."
+    }
+}

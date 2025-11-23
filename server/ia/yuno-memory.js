@@ -1,12 +1,11 @@
 // ======================================================
-// YUNO MEMORY — Memória Curta, Longa e Formatação 10.3
+// YUNO MEMORY — Sistema de Memória 10.3
 // ======================================================
 
 export const YunoMemory = {
-
-    short: [],        // histórico de mensagens recentes
-    long: [],         // aprendizagens importantes
-    persistent: [],   // futura memória em disco
+    short: [],     // Memória da conversa (volátil)
+    long: [],      // Memória importante
+    persistent: [], // Guardada em disco futuramente
 
     saveLong(text) {
         this.long.push({
@@ -17,19 +16,5 @@ export const YunoMemory = {
 
     clearShort() {
         this.short = [];
-    },
-
-    // Formato compatível com GPT (system + assistant)
-    formatForAI() {
-        return [
-            ...this.long.map(m => ({
-                role: "system",
-                content: m.text
-            })),
-            ...this.short.map(m => ({
-                role: "assistant",
-                content: m.content || m.text
-            }))
-        ];
     }
 };
