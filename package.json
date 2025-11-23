@@ -1,23 +1,31 @@
 {
-  "name": "yuno-video-engine",
+  "name": "yuno-website",
   "version": "10.3.0",
-  "description": "Motor oficial de geração de vídeo da YUNO • Arena 10.3 — Integração modular com HeyGen, Pika e RunwayML.",
-  "main": "server/video-engine.js",
+  "description": "YUNO IA — Sistema Híbrido 10.3 com IA, Automações, Vídeo Engine, Painel Admin e Auto-Programação.",
+  "author": "Yuno IA System",
+  "license": "MIT",
 
   "type": "module",
 
   "scripts": {
-    "dev": "nodemon server/video-engine.js",
-    "start": "node server/video-engine.js",
-    "debug": "NODE_ENV=development node --inspect server/video-engine.js"
+    "dev": "nodemon server/index.js",
+    "video-dev": "nodemon server/video-engine/video-engine.js",
+    "start": "node server/index.js",
+    "video-start": "node server/video-engine/video-engine.js",
+    "debug": "NODE_ENV=development node --inspect server/index.js",
+    "build": "echo 'Yuno 10.3 não requer build — HTML/CSS/JS direto.'"
   },
 
   "dependencies": {
-    "axios": "^1.7.2",
+    "express": "^4.19.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "axios": "^1.7.2",
     "form-data": "^4.0.0",
+    "uuid": "^9.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
     "fs-extra": "^11.2.0"
   },
 
@@ -32,14 +40,13 @@
   "keywords": [
     "yuno",
     "ia",
-    "video engine",
-    "heygen",
-    "pika labs",
-    "runwayml",
+    "ai",
+    "video-engine",
     "automation",
-    "ai video generator"
-  ],
-
-  "author": "YUNO IA — Motor Oficial",
-  "license": "MIT"
+    "heygen",
+    "pika",
+    "runwayml",
+    "yuno ia",
+    "auto-programação"
+  ]
 }
