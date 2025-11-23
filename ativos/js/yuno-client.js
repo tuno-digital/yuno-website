@@ -1,24 +1,40 @@
 // ============================================================
-// YUNO IA — CLIENT 10.3
-// Envia mensagens do site para o servidor IA
+// 🔥 YUNO IA — CLIENT 10.3
+// Cliente oficial para comunicação com a IA (frontend)
+// Compatível com /api/ia/process unificado
 // ============================================================
 
-export async function yunoSend(message) {
+export async function yunoSend(input, userId = "website-user") {
+
     try {
-        const res = await fetch("/api/ia/message", {
+        // Aceita tanto "prompt" como "message"
+        const payload = {
+            prompt: input,
+            message: input,
+            userId
+        };
+
+        const res = await fetch("/api/ia/process", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                message,
-                userId: "website-user"
-            })
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
         });
 
-        const data = await res.json();
-        return data.resposta || "Erro ao receber resposta.";
+        // Falha de comunicação com o servidor
+        if (!res.ok) {
+            return "⚠️ Erro ao comunicar com o servidor da YUNO.";
+        }
 
-    } catch (err) {
-        console.error("YUNO CLIENT ERROR:", err);
-        return "Falha ao comunicar com a IA.";
+        const data = await res.json();
+
+        // Resposta padrão caso backend retorne vazio
+        return data?.resposta || "⚠️ A Yuno não conseguiu gerar resposta.";
+    }
+
+    catch (err) {
+        console.error("[YUNO_CLIENT_10.3] ERRO:", err);
+        return "❌ Falha de comunicação com a IA.";
     }
 }
