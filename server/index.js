@@ -1,4 +1,3 @@
-
 // =============================================================
 // 🟦 YUNO IA — Servidor Principal (v10.3 Híbrida Oficial)
 // API Core + Integrações + Segurança + Logs + Middlewares
@@ -19,6 +18,9 @@ const rateLimitMiddleware = require("./middleware/rate-limit");
 
 // Rotas principais
 const videoRouter = require("./routes/video-router");
+
+// 🔥 ROTA DA IA 10.3 (NOVO)
+const iaRouter = require("./routes/ia-router");
 
 // =============================================================
 // 🔍 1. VALIDAR .env ANTES DE INICIAR
@@ -50,11 +52,8 @@ logger.system("Pastas verificadas: tmp/, tmp/videos/, server/logs/");
 // =============================================================
 // 🛡️ 4. MIDDLEWARE DE SEGURANÇA GLOBAL (YUNO 10.3)
 // =============================================================
-// Anti-bot / Sanitização / Proteção básica
-app.use(security);
-
-// Rate Limit  — versão 10.3
-app.use(rateLimitMiddleware);
+app.use(security);            // Anti-bot / sanitização
+app.use(rateLimitMiddleware); // Rate limit 10.3
 
 // =============================================================
 // 📡 5. HEALTH CHECK
@@ -73,8 +72,10 @@ app.get("/api/estado", (req, res) => {
 // =============================================================
 app.use("/api/video", videoRouter);
 
-// FUTURO (já preparado 10.3):
-// app.use("/api/ia", require("./routes/ia-router"));
+// 🔥 NOVO — IA PRINCIPAL 10.3
+app.use("/api/ia", iaRouter);
+
+// Futuro:
 // app.use("/api/admin", require("./routes/admin-router"));
 // app.use("/api/auth", require("./routes/auth-router"));
 // app.use("/api/automacoes", require("./routes/automacoes-router"));
