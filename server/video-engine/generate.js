@@ -62,4 +62,3 @@ async function generateVideo(prompt, engine) {
 }
 
 module.exports = { generateVideo };
-
