@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>YUNO — Painel Secreto 10.3</title>
+    <meta name="description" content="Painel secreto do administrador da Yuno IA. Acesso restrito.">
+
+    <link rel="icon" href="../ativos/img/logos/favicon.png">
+
+    <!-- ESTILOS BÁSICOS -->
+    <style>
+        body {
+            background: #020202;
+            font-family: "Inter", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e7e7e7;
+        }
+        header {
+            background: #0affff11;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #0affff55;
+            padding: 18px 30px;
+            font-size: 20px;
+            color: #0affff;
+            display: flex;
+            justify-content: space-between;
+        }
+        .logout-btn {
+            color: #ff3b3b;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .container {
+            padding: 30px;
+        }
+        h1 {
+            color: #0affff;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #ff00c8;
+            margin-top: 40px;
+        }
+        .card {
+            background: #0d0d0d;
+            border: 1px solid #0affff44;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .status-ok {
+            color: #00ff88;
+            font-weight: bold;
+        }
+        .status-off {
+            color: #ff3b3b;
+            font-weight: bold;
+        }
+        .btn {
+            background: #0affff;
+            padding: 10px 20px;
+            border: none;
+            color: #000;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+        #logs {
+            background: #000000;
+            border: 1px solid #0affff33;
+            padding: 15px;
+            height: 200px;
+            overflow-y: scroll;
+            font-family: monospace;
+            color: #b5b5b5;
+        }
+    </style>
+
+    <script type="module">
+        import { adminAPI } from "./yuno-master.js";
+
+        // Verificar token ao abrir
+        if (!localStorage.getItem("yuno_master_token")) {
+            window.location.href = "admin-login.html";
+        }
+
+        async function carregarDados() {
+            const estado = await adminAPI.status();
+            const logs = await adminAPI.logs();
+
+            document.getElementById("serverState").innerHTML =
+                estado.server.online ? "<span class='status-ok'>ONLINE</span>" : "<span class='status-off'>OFFLINE</span>";
+
+            document.getElementById("iaState").innerHTML =
+                estado.ia.online ? "<span class='status-ok'>ATIVA</span>" : "<span class='status-off'>DESLIGADA</span>";
+
+            document.getElementById("iaVersion").innerText = estado.ia.version;
+            document.getElementById("autoState").innerHTML =
+                estado.automations ? "<span class='status-ok'>ATIVAS</span>" : "<span class='status-off'>DESLIGADAS</span>";
+
+            document.getElementById("logBox").innerText = logs.join("\n");
+        }
+
+        window.reloadIA = async () => {
+            await adminAPI.reloadIA();
+            alert("IA recarregada!");
+            carregarDados();
+        }
+
+        window.rebuildCore = async () => {
+            await adminAPI.rebuildCore();
+            alert("Core reconstruído!");
+        }
+
+        window.logout = () => {
+            localStorage.removeItem("yuno_master_token");
+            window.location.href = "admin-login.html";
+        }
+
+        window.onload = carregarDados;
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div>🔒 Painel Secreto — YUNO 10.3</div>
+    <div class="logout-btn" onclick="logout()">Sair</div>
+</header>
+
+<div class="container">
+    <h1>Painel Mestre YUNO</h1>
+    <p>Controlo absoluto da IA, sistema, fluxos, logs e automações.</p>
+
+    <!-- STATUS SISTEMA -->
+    <h2>Estado do Sistema</h2>
+    <div class="card">
+        <p><b>Servidor:</b> <span id="serverState">...</span></p>
+        <p><b>Yuno IA:</b> <span id="iaState">...</span></p>
+        <p><b>Versão da IA:</b> <span id="iaVersion">...</span></p>
+        <p><b>Automações:</b> <span id="autoState">...</span></p>
+    </div>
+
+    <!-- AÇÕES -->
+    <h2>Ações Rápidas</h2>
+    <div class="card">
+        <button class="btn" onclick="reloadIA()">Reiniciar IA</button>
+        <button class="btn" onclick="rebuildCore()">Reconstruir Core</button>
+    </div>
+
+    <!-- LOGS -->
+    <h2>Logs Internos</h2>
+    <div id="logBox"></div>
+
+</div>
+
+</body>
+</html>
