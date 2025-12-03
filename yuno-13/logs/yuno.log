@@ -1,0 +1,248 @@
+=== YUNO 13.0 LOG ===
+Logs do servidor iniciados...
+{"timestamp":"2025-12-01T04:24:50.177Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:29:47.961Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:32:55.021Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:37:06.412Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:38:46.175Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:43:14.358Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:43:14.378Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T04:43:23.348Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:43:23.376Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T04:43:42.836Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:43:42.857Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T04:45:06.892Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T04:55:03.872Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/","ip":"::1"}}
+{"timestamp":"2025-12-01T04:55:23.906Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/cockpit.html","ip":"::1"}}
+{"timestamp":"2025-12-01T04:55:40.557Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T04:57:59.862Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T04:57:59.889Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T04:58:06.644Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T04:58:06.668Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T04:58:06.750Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T04:58:06.751Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T04:58:06.763Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/favicon.ico","ip":"::1"}}
+{"timestamp":"2025-12-01T04:58:06.766Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T04:58:06.767Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T04:58:14.322Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T04:58:14.323Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T04:59:31.181Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T04:59:31.209Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T04:59:31.216Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T04:59:31.216Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T04:59:31.225Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T04:59:31.225Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T04:59:33.955Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T04:59:33.957Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:05:21.725Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:05:21.751Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:05:21.759Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:05:21.760Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:05:21.764Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:05:21.765Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:05:24.371Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:05:24.372Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:07:03.994Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/api/ping?apikey=84621-XMKJ-997211-YUNO-MASTER","ip":"::1"}}
+{"timestamp":"2025-12-01T05:07:04.000Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:08:08.436Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/cockpit.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:08:08.455Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/style.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:08:08.456Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/js/cockpit.js","ip":"::1"}}
+{"timestamp":"2025-12-01T05:08:08.531Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:08:08.532Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:08:08.544Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:08:08.544Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:12:21.039Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:12:21.066Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:12:21.097Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:12:21.097Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:12:21.108Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:12:21.109Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:12:24.384Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:12:24.385Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:14:34.569Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:14:34.597Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:14:34.607Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:14:34.608Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:14:34.620Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:14:34.622Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:14:37.973Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:14:37.974Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:20:19.149Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:20:19.173Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:20:24.268Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:20:24.295Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:20:24.334Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:20:24.336Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:20:24.353Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:20:24.354Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:20:27.534Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:20:27.534Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:30.463Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:25:30.486Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:25:36.914Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/cockpit.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:36.932Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/style.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:36.936Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/js/cockpit.js","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:37.002Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:37.003Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:37.010Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:37.011Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:40.554Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:40.557Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:45.263Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:45.283Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:45.301Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:45.373Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:45.373Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:45.381Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:45.382Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:49.175Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:25:49.177Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:26:40.040Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/api/security/status","ip":"::1"}}
+{"timestamp":"2025-12-01T05:26:40.046Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:02.703Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:32:02.727Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:32:21.086Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:32:21.113Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:32:44.060Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/api/security/status","ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:44.066Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:45.290Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/api/security/status","ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:45.292Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:46.289Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/api/security/status","ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:46.291Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:51.353Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:51.370Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:51.419Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:51.419Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:51.424Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:51.425Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:54.644Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:32:54.645Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:33:06.308Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:33:06.309Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:02.474Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:35:02.506Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:35:31.261Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/cockpit.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:31.282Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/style.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:31.283Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/js/cockpit.js","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:31.331Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:31.332Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:31.337Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:31.338Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:36.076Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:36.077Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:42.291Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:42.295Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:44.305Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:44.332Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:44.356Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:44.357Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:44.369Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:44.369Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:47.280Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:35:47.282Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:14.652Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:14.671Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:14.686Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:14.687Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:14.691Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:14.692Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:16.082Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:16.099Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:16.108Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:16.108Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:16.112Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:16.113Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:24.272Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:37:24.273Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:41:18.086Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:41:18.110Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:41:19.853Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:41:19.874Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:41:53.734Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/cockpit.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:41:53.754Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/style.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:41:53.755Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/js/cockpit.js","ip":"::1"}}
+{"timestamp":"2025-12-01T05:41:53.796Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:41:53.796Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:41:53.803Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:41:53.803Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:00.000Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:00.002Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:28.117Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/test-yuno.html","ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:28.144Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/mancha.css","ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:28.160Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:28.161Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:28.170Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:28.171Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:33.718Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T05:42:33.720Z","level":"warning","message":"API-KEY inválida detectada","meta":{"key":null,"ip":"::1"}}
+{"timestamp":"2025-12-01T05:47:08.200Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:47:08.225Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:56:19.678Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:56:19.705Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:57:52.782Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:57:52.805Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T05:58:42.320Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T05:58:42.347Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:01:05.852Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:01:05.873Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:04:34.247Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:04:34.274Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:08:09.165Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:08:09.186Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:08:22.040Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:08:22.059Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:08:31.353Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:08:31.379Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:13:00.268Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:13:00.299Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:13:11.300Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:13:11.321Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:18:13.342Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:18:13.365Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:18:31.774Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:18:31.801Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:18:33.317Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:18:33.337Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:22:26.638Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:22:26.666Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:23:09.959Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:23:09.980Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:26:55.420Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:26:55.442Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:30:10.103Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:30:10.126Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:33:49.971Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:33:49.991Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:35:15.748Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:35:15.770Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:42:21.639Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:42:21.656Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:44:13.851Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:44:13.869Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:47:49.216Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:47:49.235Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T06:48:51.889Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T06:48:51.914Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T07:00:53.042Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T07:00:53.069Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T07:07:44.265Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T07:07:44.298Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T07:07:57.746Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/cockpit.html","ip":"::1"}}
+{"timestamp":"2025-12-01T07:07:57.767Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/css/style.css","ip":"::1"}}
+{"timestamp":"2025-12-01T07:07:57.769Z","level":"info","message":"REQ","meta":{"method":"GET","route":"/js/cockpit.js","ip":"::1"}}
+{"timestamp":"2025-12-01T07:07:57.814Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T07:07:57.814Z","level":"warning","message":"API KEY inválida","meta":{"ip":"::1"}}
+{"timestamp":"2025-12-01T07:07:57.825Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T07:07:57.826Z","level":"warning","message":"API KEY inválida","meta":{"ip":"::1"}}
+{"timestamp":"2025-12-01T07:08:02.260Z","level":"info","message":"REQ","meta":{"method":"POST","route":"/api/ia/process","ip":"::1"}}
+{"timestamp":"2025-12-01T07:08:02.261Z","level":"warning","message":"API KEY inválida","meta":{"ip":"::1"}}
+{"timestamp":"2025-12-01T07:12:17.788Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T07:12:17.813Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T07:21:38.347Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T07:21:38.369Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-01T07:22:05.624Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-01T07:22:05.645Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-02T16:56:41.945Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-02T16:56:41.981Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}
+{"timestamp":"2025-12-02T16:58:36.469Z","level":"info","message":"YUNO-STATE: Estado global inicializado.","meta":null}
+{"timestamp":"2025-12-02T16:58:36.489Z","level":"info","message":"Servidor iniciado na porta 4455","meta":null}

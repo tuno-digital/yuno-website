@@ -1,0 +1,69 @@
+{
+    "schemaVersion": "1.0",
+    "currentVersion": "13.0",
+
+    "metadata": {
+        "generatedAt": "2025-01-01T00:00:00Z",
+        "stable": true,
+        "source": "yuno.foundation"
+    },
+
+    "roadmap": [
+        {
+            "id": "v13-1",
+            "version": "13.1",
+            "goal": "Refinar preview-engine, melhorar relatórios e logs.",
+            "releaseDate": null,
+            "status": "planned",
+            "owner": "core-system",
+            "breakingChanges": false,
+            "notes": []
+        },
+        {
+            "id": "v14-0",
+            "version": "14.0",
+            "goal": "Introduzir auto-upgrade supervisionado e histórico visual.",
+            "releaseDate": null,
+            "status": "planned",
+            "owner": "evolution-system",
+            "breakingChanges": true,
+            "notes": []
+        },
+        {
+            "id": "v15-0",
+            "version": "15.0",
+            "goal": "Implementar planeamento completo multi-tarefas.",
+            "releaseDate": null,
+            "status": "planned",
+            "owner": "task-engine",
+            "breakingChanges": true,
+            "notes": []
+        },
+        {
+            "id": "v16-0",
+            "version": "16.0",
+            "goal": "Introduzir IA auditiva e sintetizador de decisões (modo Jarvis real).",
+            "releaseDate": null,
+            "status": "planned",
+            "owner": "jarvis-lab",
+            "breakingChanges": true,
+            "notes": []
+        },
+        {
+            "id": "v20-0",
+            "version": "20.0",
+            "goal": "YUNO autogeradora completa com autoconsciência operacional (não emocional).",
+            "releaseDate": null,
+            "status": "planned",
+            "owner": "autogen-lab",
+            "breakingChanges": true,
+            "notes": []
+        }
+    ],
+
+    "references": {
+        "philosophy": "server/foundation/philosophy.json",
+        "missions": "server/foundation/missions.json",
+        "roadmapFile": "server/foundation/evolution-roadmap.json"
+    }
+}

@@ -1,0 +1,199 @@
+/* ============================================================
+   YUNO 13.0 — STYLE BASE (derivado da Arena 10.3)
+   Painéis, cockpit, mancha-ui, kanban, preview e relatório
+   Estável · Neon · Seguro · Optimizado
+============================================================ */
+
+/* -------------------------
+   RESET + BASE
+--------------------------*/
+body {
+    background: #0a0a0a;
+    color: #eee;
+    font-family: Inter, Arial, sans-serif;
+    padding: 10px;
+    /* zoom removido conforme auditoria */
+}
+
+h1 {
+    text-align: center;
+    color: #00eaff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+/* -------------------------
+   GRID PRINCIPAL
+--------------------------*/
+#cockpit-wrap {
+    margin-top: -5px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+#leftPanel { width: 32%; }
+#rightPanel { width: 68%; }
+
+/* -------------------------
+   MANCHA-BOX (blocos)
+--------------------------*/
+.mancha-box {
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid #222;
+    backdrop-filter: blur(6px);
+    margin-bottom: 12px;
+    overflow-y: auto;
+}
+
+.mancha-header {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 5px 0;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid #333;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 6px;
+}
+
+/* -------------------------
+   CHAT / INPUT
+--------------------------*/
+#chat-box {
+    /* height fixa removida conforme auditoria */
+    max-height: 330px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #000;
+    border: 1px solid #044;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+#msg {
+    width: 75%;
+    padding: 8px;
+    background: #111;
+    border: 1px solid #044;
+    color: #0ff;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-top: 5px;
+    /* Responsivo */
+    max-width: 100%;
+}
+
+button {
+    padding: 10px 14px;
+    background: #00eaff;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 13px;
+}
+
+/* -------------------------
+   LOGS / TELEMETRIA
+--------------------------*/
+#logs-box {
+    background: #050505;
+    border: 1px dashed #00bcd4;
+    padding: 8px;
+    height: 90px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: #aaa;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+pre.json-block {
+    background: #111;
+    padding: 6px;
+    border-radius: 6px;
+    color: #ff00d4;
+    border: 1px solid #333;
+    white-space: pre-wrap;
+    font-size: 11px;
+}
+
+/* -------------------------
+   TIPOS DE MENSAGEM
+--------------------------*/
+.yuno-info      { color: #00eaff; }
+.yuno-alert     { color: #ffcc00; }
+.yuno-system    { color: #8be4ff; }
+.yuno-critical  { color: #ff0055; font-weight: bold; }
+
+/* -------------------------
+   PREVIEW (iframe)
+--------------------------*/
+#livePreviewBox {
+    width: 100%;
+    /* height fixa removida conforme auditoria */
+    max-height: 300px;
+    border: 1px solid #033;
+    background: #000;
+    border-radius: 6px;
+}
+
+/* -------------------------
+   RELATÓRIO
+--------------------------*/
+#reportContent {
+    /* height fixa removida conforme auditoria */
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 12px;
+    padding: 5px;
+}
+
+/* -------------------------
+   KANBAN
+--------------------------*/
+#kanbanContainer {
+    display: flex;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.kanban-col {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid #222;
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 200px;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.kanban-title {
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #00eaff;
+}
+
+.task {
+    padding: 8px;
+    margin-bottom: 8px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: grab;
+}
+
+.task.normal     { border-left: 6px solid #0099ff; }
+.task.prioridade { border-left: 6px solid #ffcc00; }
+.task.urgente    { border-left: 6px solid #ff0033; }

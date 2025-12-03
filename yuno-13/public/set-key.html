@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Debug YUNO_API_KEY — Dev</title>
+  <style>
+    body{font-family:Arial;background:#07121a;color:#cfe;padding:18px}
+    input,button{padding:8px;border-radius:6px;border:1px solid #334;background:#001;color:#cfe}
+    button{cursor:pointer;background:#00caff;color:#002631;font-weight:700;margin-left:8px}
+    pre{background:#000;color:#9fe;padding:10px;border-radius:6px}
+    .ok{color:#9fb}
+    .err{color:#ff9}
+  </style>
+</head>
+<body>
+  <h2>Debug: Gravar YUNO_API_KEY</h2>
+  <p>Cole a chave abaixo e clique <b>Salvar (DEBUG)</b>. A página mostrará o que aconteceu.</p>
+
+  <div>
+    <label for="key">YUNO_API_KEY</label><br>
+    <input id="key" type="text" placeholder="cole aqui a chave..." style="width:70%" />
+    <button id="save">Salvar (DEBUG)</button>
+    <button id="clear" style="background:#ff6677;color:#fff">Limpar</button>
+  </div>
+
+  <h3>Resultado</h3>
+  <div id="out" class="ok">Aguardando ação...</div>
+
+  <h3>Verificações detalhadas</h3>
+  <pre id="log">— logs aparecerão aqui —</pre>
+
+  <h3>Teste de envio (opcional)</h3>
+  <button id="ping">Testar /api/ia/process (usa key guardada)</button>
+  <pre id="pingOut"></pre>
+
+<script>
+(function(){
+  const out = document.getElementById('out');
+  const log = document.getElementById('log');
+  const pingOut = document.getElementById('pingOut');
+  const keyIn = document.getElementById('key');
+
+  function append(msg){
+    log.textContent += '\\n' + msg;
+  }
+  function setOut(msg, ok){
+    out.textContent = msg;
+    out.className = ok ? 'ok' : 'err';
+  }
+
+  // mostrar chave atual mascarada
+  try {
+    const existing = localStorage.getItem('YUNO_API_KEY') || '';
+    append('LocalStorage accessible: OK');
+    append('Existing key (mascarada): ' + (existing ? (existing.slice(0,4)+'...'+existing.slice(-4)) : '(nenhuma)'));
+    if (existing) setOut('Encontrada chave guardada (mascarada): ' + (existing.slice(0,4)+'...'+existing.slice(-4)), true);
+  } catch(e){
+    append('LocalStorage acessível: NÃO — ' + e);
+    setOut('LocalStorage inacessível: ' + e, false);
+  }
+
+  document.getElementById('save').addEventListener('click', () => {
+    const k = keyIn.value.trim();
+    if (!k) { setOut('Insira a chave antes de salvar.', false); return; }
+
+    append('TENTANDO gravar em localStorage...');
+    try {
+      localStorage.setItem('YUNO_API_KEY', k);
+      const read = localStorage.getItem('YUNO_API_KEY') || '';
+      if (read === k) {
+        append('OK — escrita verificada. Leitura confirma mesma chave (mascarada): ' + (k.slice(0,4)+'...'+k.slice(-4)));
+        setOut('Chave gravada com sucesso em localStorage (verificada).', true);
+      } else {
+        append('AVISO — escrita feita mas leitura difere ou vazia. Leitura: ' + (read ? (read.slice(0,4)+'...'+read.slice(-4)) : '(vazia)'));
+        setOut('Gravada, mas leitura inconsistente.', false);
+      }
+    } catch(e) {
+      append('ERRO ao gravar localStorage: ' + e);
+      setOut('Falha ao gravar localStorage: ' + e, false);
+
+      // Tentativa fallback: gravar cookie
+      try {
+        document.cookie = 'YUNO_API_KEY=' + encodeURIComponent(k) + ';path=/';
+        append('Fallback: gravado cookie YUNO_API_KEY (tentativa).');
+        setOut('Gravado em cookie como fallback. Recarregue cockpit e teste.', true);
+      } catch(cookieErr){
+        append('Falha também ao gravar cookie: ' + cookieErr);
+        setOut('Falha total ao gravar (localStorage e cookie).', false);
+      }
+    }
+  });
+
+  document.getElementById('clear').addEventListener('click', () => {
+    try {
+      localStorage.removeItem('YUNO_API_KEY');
+      document.cookie = 'YUNO_API_KEY=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+      append('Removido localStorage + cookie.');
+      setOut('Chave removida.', true);
+    } catch(e){
+      append('Erro ao remover: ' + e);
+      setOut('Erro ao remover: ' + e, false);
+    }
+  });
+
+  document.getElementById('ping').addEventListener('click', async () => {
+    pingOut.textContent = 'A preparar pedido...';
+    let k = '';
+    try { k = localStorage.getItem('YUNO_API_KEY') || (document.cookie.match(/YUNO_API_KEY=([^;]+)/)||[])[1] || ''; } catch(e){ k = ''; }
+    pingOut.textContent = 'Usando key (mascarada): ' + (k ? (k.slice(0,4)+'...'+k.slice(-4)) : '(nenhuma)') + '\\n';
+    try {
+      const res = await fetch('/api/ia/process', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json', 'x-api-key': k },
+        body: JSON.stringify({ prompt: 'ping from debug page' }),
+      });
+      const txt = await res.text();
+      pingOut.textContent += 'HTTP ' + res.status + '\\n' + txt;
+    } catch(e){
+      pingOut.textContent += 'FETCH ERR: ' + e;
+    }
+  });
+
+})();
+</script>
+</body>
+</html>

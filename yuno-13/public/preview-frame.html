@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="utf-8" />
+    <title>YUNO Preview Sandbox 13.0</title>
+
+    <style>
+        body {
+            background:#000;
+            color:#fff;
+            margin:0;
+            padding:0;
+            font-family: Inter, Arial, sans-serif;
+            overflow-x:hidden;
+        }
+
+        #preview-root {
+            width:100%;
+            min-height:100vh;
+            background:#111;
+            color:#eee;
+            padding:15px;
+            box-sizing:border-box;
+            border-left:3px solid #00eaff;
+        }
+
+        .yuno-error {
+            color:#ff0055;
+            padding:10px;
+            background:#330010;
+            border:1px solid #660020;
+            margin:10px;
+            border-radius:6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preview-root">A carregar preview...</div>
+
+    <script>
+    /* ============================================================
+       YUNO — PREVIEW SANDBOX 13.0 (SEGURO)
+       Corrigido: XSS, validação de ID, erros silenciosos
+    ============================================================ */
+
+    // Sanitizador seguro (mínimo necessário sem quebrar HTML)
+    function sanitize(html) {
+        if (!html) return "";
+
+        // Remove scripts e handlers perigosos
+        return html
+            .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "")
+            .replace(/on\w+="[^"]*"/gi, "")     // remove eventos tipo onclick=
+            .replace(/javascript:/gi, "")       // remove URLs JS
+            .replace(/<iframe/gi, "&lt;iframe") // bloqueia iframes
+            .replace(/<object/gi, "&lt;object")
+            .replace(/<embed/gi, "&lt;embed")
+            .replace(/<meta/gi, "&lt;meta");
+    }
+
+    // Validação simples de ID (evita path traversal)
+    function validarId(id) {
+        return /^[a-zA-Z0-9_\-]{4,64}$/.test(id);
+    }
+
+    async function carregarPreview() {
+        const root = document.getElementById("preview-root");
+
+        try {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+
+            if (!id || !validarId(id)) {
+                root.innerHTML = '<div class="yuno-error">❌ ID inválido ou ausente.</div>';
+                return;
+            }
+
+            const resp = await fetch(`/previews/${id}.json`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
+            });
+
+            if (!resp.ok) {
+                root.innerHTML = '<div class="yuno-error">❌ Preview não encontrado.</div>';
+                return;
+            }
+
+            const data = await resp.json();
+
+            const rawHTML = data?.html || "";
+            const safeHTML = sanitize(rawHTML);
+
+            root.innerHTML = safeHTML;
+
+        } catch (err) {
+            // Não revelar detalhes internos
+            root.innerHTML =
+                '<div class="yuno-error">❌ Erro ao carregar o preview.</div>';
+        }
+    }
+
+    carregarPreview();
+    </script>
+
+</body>
+</html>

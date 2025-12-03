@@ -1,0 +1,20 @@
+{
+    "version": "13.0",
+    "sistema": {
+        "modo": "híbrido",
+        "versao": "13.0",
+        "ultimaAtualizacao": 0,
+        "ultimaAcao": null
+    },
+    "historico": [],
+    "tarefas": [],
+    "preferencias": {
+        "tone": "advanced-tech",
+        "style": "XXIII-century",
+        "securityMode": "hybrid-safe"
+    },
+    "blueprints": [],
+    "curtoPrazo": [],
+    "longoPrazo": {},
+    "updatedAt": 0
+}

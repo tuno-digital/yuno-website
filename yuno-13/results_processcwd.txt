@@ -1,0 +1,30 @@
+﻿C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\config\loader.js:21: const basePath = path.join(process.cwd(), "yuno-13/config");
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\depd\index.js:23: var basePath = process.cwd()
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\dotenv\lib\main.d.ts:23: * Default: `path.resolve(process.cwd(), '.env')`
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\dotenv\lib\main.js:177: possibleVaultPath = path.resolve(process.cwd(), '.env.vault')
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\dotenv\lib\main.js:212: const dotenvPath = path.resolve(process.cwd(), '.env')
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\dotenv\lib\main.js:267: const relative = path.relative(process.cwd(), filePath)
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\fs-extra\lib\copy\copy-sync.js:133: resolvedSrc = path.resolve(process.cwd(), resolvedSrc)
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\fs-extra\lib\copy\copy-sync.js:150: resolvedDest = path.resolve(process.cwd(), resolvedDest)
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\fs-extra\lib\copy\copy.js:140: resolvedSrc = path.resolve(process.cwd(), resolvedSrc)
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\fs-extra\lib\copy\copy.js:157: resolvedDest = path.resolve(process.cwd(), resolvedDest)
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\graceful-fs\polyfills.js:14: process.cwd()
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\config\exec.js:21: var pkg = require(path.join(process.cwd(), 'package.json'));
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\config\exec.js:153: pwd: process.cwd(),
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\config\index.js:28: cwd: process.cwd(),
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\config\index.js:74: var cwd = process.cwd();
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\config\load.js:21: existsSync(path.join(process.cwd(), 'package.json')) &&
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\config\load.js:22: require(path.join(process.cwd(), 'package.json'));
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\config\load.js:46: loadFile(options, config, process.cwd(), function (options) {
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\config\load.js:194: const dir = process.cwd();
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\monitor\match.js:42: var cwd = process.cwd();
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\monitor\match.js:139: const cwd = process.cwd();
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\monitor\run.js:64: const binPath = process.cwd() + '/node_modules/.bin';
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\monitor\watch.js:143: var cwd = process.cwd();
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\monitor\watch.js:161: return path.relative(process.cwd(), path.relative(cwd, file));
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\monitor\watch.js:226: utils.log.detail(path.relative(process.cwd(), file));
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\nodemon.js:75: if (process.cwd() !== path.resolve(config.system.cwd, options.cwd)) {
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\nodemon.js:96: const cwd = process.cwd();
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\node_modules\nodemon\lib\nodemon.js:194: rule = path.relative(process.cwd(), rule);
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\server\security\audit-log.js:13: const ROOT = process.cwd();
+C:\Users\valdi\OneDrive\Ambiente de Trabalho\yuno-website\yuno-13\server\tasks\task-engine.js:17: const STORE_PATH = path.join(process.cwd(), "yuno-13/server/tasks/task-store.json");

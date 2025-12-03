@@ -1,0 +1,12 @@
+=== YUNO 13.0 AUDIT LOG ===
+Sistema iniciado. Aguardando eventos de auditoria...
+{"timestamp":"2025-12-03T02:21:45.500Z","event":"API_KEY_INVALIDA","meta":{"ip":"::1","key":null}} | checksum:7bae6c41d19f743071402f625f64bb2bd349bd6dcf4f17fb8daf9b071066eb6b
+{"timestamp":"2025-12-03T03:01:13.062Z","event":"API_KEY_INVALIDA","meta":{"ip":"::1","key":"TUA_***"}} | checksum:d5a0f90a4d0919ab6df01519647a7ba8ca30f96ecce262acfe047a1ae42982b0
+{"timestamp":"2025-12-03T03:01:56.722Z","event":"ROUTE_HIT","meta":{"route":"/api/ia/process","method":"POST","ip":"::1","reqId":null}} | checksum:c585933abd26d11ee04023e17ce6c6ce46ba6cb6f4a51bb715558624602499d3
+{"timestamp":"2025-12-03T03:05:38.347Z","event":"ROUTE_HIT","meta":{"route":"/api/ia/process","method":"POST","ip":"::1","reqId":null}} | checksum:0eb7c2544a17020c2f4e704e9da9a605303e9a4323427c0bff577efcddc7e296
+{"timestamp":"2025-12-03T03:09:09.203Z","event":"SERVER_SHUTDOWN","meta":{"signal":"SIGINT"}} | checksum:e4dc45b8f6cd5a76676e5e3f449ba86e091eb4de5b6b3451803b1df7d917db82
+{"timestamp":"2025-12-03T03:13:04.942Z","event":"ROUTE_HIT","meta":{"route":"/api/ia/process","method":"POST","ip":"::1","reqId":null}} | checksum:9bce43898348f468fa97f4d5482ffc8423d9cf49047b002907a67e3cd66bac16
+{"timestamp":"2025-12-03T03:22:07.276Z","event":"ROUTE_HIT","meta":{"route":"/api/ia/process","method":"POST","ip":"::1","reqId":null}} | checksum:9aabf0cbcda9e0d18adcbc767d8bc204e1673e90fe693ae7df46e6a76f4b75f5
+{"timestamp":"2025-12-03T03:27:58.454Z","event":"ROUTE_HIT","meta":{"route":"/api/ia/process","method":"POST","ip":"::1","reqId":null}} | checksum:82d2a195fd7d288a6318b6711600a7c41e3d795eb6532c38fa0c340d3ddcc4e3
+{"timestamp":"2025-12-03T03:52:23.842Z","event":"ROUTE_HIT","meta":{"route":"/api/ia/process","method":"POST","ip":"::1","reqId":null}} | checksum:48533bbd165f48a7ff1627563cfcaa9379a99e4f290a60bcd27aecafbde9113a
+{"timestamp":"2025-12-03T04:10:56.551Z","event":"API_KEY_INVALIDA","meta":{"ip":"::1","key":null}} | checksum:96983b062a173f8109882ecd88bda7c5716b45fe47f8ccb02d673a8353c2d8df

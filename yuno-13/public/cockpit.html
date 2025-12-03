@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="utf-8" />
+    <title>YUNO IA — Cockpit 13.0 OMEGA</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* =======================================================
+           OMEGA D3 — GHOST IN THE SHELL aesthetic
+        ======================================================= */
+
+        body {
+            background: #05080D;
+            color: #c9f6ff;
+            font-family: Inter, Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .omega-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr 350px;
+            grid-template-rows: auto;
+            gap: 18px;
+            padding: 20px;
+        }
+
+        .omega-panel {
+            background: rgba(0, 20, 30, 0.4);
+            border: 1px solid rgba(0, 170, 255, 0.3);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: 0 0 18px rgba(0, 200, 255, 0.05);
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .omega-title {
+            font-size: 0.95rem;
+            letter-spacing: 1.2px;
+            margin-bottom: 10px;
+            color: #4fe8ff;
+            text-shadow: 0 0 6px #00eaff;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0,140,200,0.3);
+            padding-bottom: 4px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CHAT */
+        #chat-box {
+            height: 360px;
+            overflow-y: auto;
+            padding: 10px;
+            font-size: 14px;
+            background: rgba(0, 8, 12, 0.35);
+            border-radius: 6px;
+            border: 1px solid rgba(0,150,200,0.25);
+        }
+
+        #msg {
+            width: 78%;
+            padding: 9px;
+            background: #0a1a21;
+            border: 1px solid #0099cc;
+            border-radius: 7px;
+            color: #5feaff;
+        }
+
+        button {
+            padding: 10px 16px;
+            background: #00caff;
+            border: none;
+            border-radius: 7px;
+            color: #002631;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        pre.json-block {
+            background: rgba(0, 10, 16, 0.6);
+            border: 1px solid #033;
+            padding: 8px;
+            border-radius: 6px;
+            color: #76f7ff;
+            font-size: 11px;
+            white-space: pre-wrap;
+        }
+
+        /* Preview */
+        #livePreviewBox {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            background: black;
+            border: 1px solid #044;
+        }
+
+        /* Kanban D3 */
+        .kanban-col {
+            background: rgba(0, 20, 30, 0.35);
+            border: 1px solid rgba(0, 100, 150, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            height: 250px;
+            overflow-y: auto;
+        }
+
+        .kanban-title {
+            color: #00eaff;
+            text-align: center;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .task {
+            background: #07131a;
+            padding: 8px;
+            border: 1px solid #0af;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            cursor: grab;
+            font-size: 12px;
+        }
+
+        .task.prioridade { border-left: 4px solid #ffcc00; }
+        .task.urgente    { border-left: 4px solid #ff3344; }
+
+        /* Logs container (novo e padronizado) */
+        #logs-box {
+            height: 120px;
+            background: rgba(0, 10, 16, 0.4);
+            border: 1px solid rgba(0,140,200,0.25);
+            border-radius: 6px;
+            padding: 8px;
+            margin-top: 12px;
+            font-size: 12px;
+            overflow-y: auto;
+            color: #cfe;
+        }
+
+        /* Toast container */
+        #toasts {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999999;
+        }
+
+        /* small debug UI buttons */
+        .__yuno_key_ui_btn {
+            position: fixed;
+            right: 12px;
+            top: 12px;
+            z-index: 999999;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid #044;
+            color: #cfe;
+            padding: 6px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="omega-grid">
+
+        <!-- Painel ESQUERDO -->
+        <div class="omega-panel">
+            <div class="omega-title">📡 STATUS DO SISTEMA</div>
+            <div id="statusPanel"><i>A iniciar...</i></div>
+
+            <br>
+            <div class="omega-title">🛰️ TELEMETRIA</div>
+            <div id="telemetryPanel"><i>A aguardar comandos...</i></div>
+        </div>
+
+        <!-- CENTRO — CHAT + PREVIEW + RELATÓRIO -->
+        <div>
+
+            <div class="omega-panel">
+                <div class="omega-title">💬 Conversação / Histórico</div>
+                <div id="chat-box" aria-live="polite"></div>
+
+                <!-- NOVO: LOGS BOX -->
+                <div class="omega-title" style="margin-top:15px;">📜 Logs</div>
+                <div id="logs-box" aria-live="polite"></div>
+
+                <div style="display:flex; margin-top:8px; gap:8px;">
+                    <input id="msg" type="text" placeholder="Escreve um comando..." aria-label="Comando">
+                    <button id="sendBtn" type="button">Enviar</button>
+                </div>
+            </div>
+
+            <div class="omega-panel">
+                <div class="omega-title">🧩 Pré-visualização</div>
+
+                <!-- SANDBOX CORRIGIDO -->
+                <iframe 
+                    id="livePreviewBox" 
+                    sandbox="allow-scripts"
+                    title="Preview">
+                </iframe>
+            </div>
+
+            <div class="omega-panel">
+                <div class="omega-title">🧾 Relatório</div>
+                <div id="reportContent"><i>Nenhum relatório...</i></div>
+            </div>
+
+        </div>
+
+        <!-- Painel DIREITO -->
+        <div class="omega-panel">
+            <div class="omega-title">📋 Kanban Interno</div>
+
+            <div style="display:flex; gap:10px;">
+                <div class="kanban-col">
+                    <div class="kanban-title">Pendentes</div>
+                    <div id="list-pendente" class="kanban-list"></div>
+                </div>
+
+                <div class="kanban-col">
+                    <div class="kanban-title">Progresso</div>
+                    <div id="list-progresso" class="kanban-list"></div>
+                </div>
+
+                <div class="kanban-col">
+                    <div class="kanban-title">Concluídas</div>
+                    <div id="list-concluida" class="kanban-list"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Container de toasts -->
+    <div id="toasts"></div>
+
+    <!-- Script principal da Yuno (apontando para cockpit.js padronizado) -->
+    <script src="/js/cockpit.js"></script>
+
+    <!-- Ligação oficial do botão ao cockpit.js (mantive o seu bind original) -->
+    <script>
+    (function() {
+        const btn = document.getElementById('sendBtn');
+        const input = document.getElementById('msg');
+
+        function bind() {
+            if (window.YUNO && typeof window.YUNO.sendMessage === "function") {
+
+                btn.onclick = window.YUNO.sendMessage;
+
+                input.addEventListener("keydown", e => {
+                    if (e.key === "Enter") window.YUNO.sendMessage();
+                });
+
+            } else {
+                setTimeout(bind, 100);
+            }
+        }
+
+        bind();
+    })();
+    </script>
+
+    <!-- ======= ADIÇÃO: Fallback robusto para garantir que o botão funcione ======= -->
+    <script>
+    (function(){
+
+      // escreve no logs-box de forma segura
+      function uiLog(msg, type){
+        try {
+          const box = document.getElementById('logs-box');
+          if (!box) return;
+          const time = new Date().toLocaleTimeString();
+          const d = document.createElement('div');
+          d.textContent = `[${time}] ${msg}`;
+          if (type === 'err') d.style.color = '#ff8080';
+          box.appendChild(d);
+          box.scrollTop = box.scrollHeight;
+        } catch(e){}
+      }
+
+      // expõe sendMessage globalmente se existir
+      function exposeSendMessageIfExists(){
+        try {
+          if (typeof window.sendMessage === 'function') {
+            window.YUNO = window.YUNO || {};
+            window.YUNO.sendMessage = window.sendMessage;
+            uiLog('sendMessage exposto via window.YUNO.sendMessage');
+            return true;
+          }
+          return false;
+        } catch(e){ return false; }
+      }
+
+      // fallback: liga botão e Enter localmente — usa window.YUNO.sendMessage OR sendMessage
+      function attachButtonFallback(){
+        const btn = document.getElementById('sendBtn');
+        const input = document.getElementById('msg');
+        if (!btn || !input) {
+          uiLog('Fallback: botão ou input não encontrados, aguardar...', 'err');
+          return false;
+        }
+
+        if (btn.__yuno_fallback__) return true; // já ligado
+
+        btn.addEventListener('click', () => {
+          uiLog('Botão clicado — tentando chamar sendMessage...');
+          if (window.YUNO && typeof window.YUNO.sendMessage === 'function') {
+            try { window.YUNO.sendMessage(); uiLog('Chamado window.YUNO.sendMessage()'); } catch(e){ uiLog('Erro ao executar window.YUNO.sendMessage(): ' + e, 'err'); }
+            return;
+          }
+          if (typeof sendMessage === 'function') {
+            try { sendMessage(); uiLog('Chamado sendMessage() local'); } catch(e){ uiLog('Erro ao executar sendMessage(): ' + e, 'err'); }
+            return;
+          }
+          uiLog('sendMessage não definida no momento.', 'err');
+        });
+
+        input.addEventListener('keydown', e => {
+          if (e.key === 'Enter') {
+            // repetir a mesma lógica
+            if (window.YUNO && typeof window.YUNO.sendMessage === 'function') {
+              try { window.YUNO.sendMessage(); } catch(e){ uiLog('Erro: ' + e, 'err'); }
+            } else if (typeof sendMessage === 'function') {
+              try { sendMessage(); } catch(e){ uiLog('Erro: ' + e, 'err'); }
+            } else {
+              uiLog('Enter pressionado mas sendMessage indefinida.', 'err');
+            }
+          }
+        });
+
+        btn.__yuno_fallback__ = true;
+        uiLog('Fallback do botão ligado.');
+        return true;
+      }
+
+      // UI pequena para set/show API key (apenas dev)
+      function addKeyUI(){
+        try {
+          if (document.getElementById('__yuno_key_ui')) return;
+          const wrap = document.createElement('div');
+          wrap.id = '__yuno_key_ui';
+          wrap.style.position = 'fixed';
+          wrap.style.right = '12px';
+          wrap.style.bottom = '12px';
+          wrap.style.zIndex = 999999;
+          wrap.innerHTML = `
+            <button id="__yuno_set_key" class="__yuno_key_ui_btn">Set API Key</button>
+            <button id="__yuno_show_key" class="__yuno_key_ui_btn">Show Key</button>
+          `;
+          document.body.appendChild(wrap);
+
+          document.getElementById('__yuno_set_key').addEventListener('click', () => {
+            const k = prompt('Insira YUNO_API_KEY (apenas dev local):');
+            if (k) {
+              try { localStorage.setItem('YUNO_API_KEY', k); uiLog('YUNO_API_KEY guardada em localStorage (dev)'); }
+              catch(e){ uiLog('Erro ao gravar localStorage: ' + e, 'err'); }
+            }
+          });
+
+          document.getElementById('__yuno_show_key').addEventListener('click', () => {
+            try {
+              const k = localStorage.getItem('YUNO_API_KEY') || window.__YUNO_API_KEY__ || '';
+              if (!k) { uiLog('Nenhuma chave encontrada', 'err'); return; }
+              const masked = k.length>8? (k.slice(0,4)+'...'+k.slice(-4)) : k;
+              uiLog('API key (mascarada): ' + masked);
+            } catch(e){ uiLog('Erro ao ler API key: ' + e, 'err'); }
+          });
+
+          uiLog('UI de Key (dev) adicionada.');
+        } catch(e){ uiLog('Falha ao adicionar key UI: ' + e, 'err'); }
+      }
+
+      // polling para tentar expor e ligar quando cockpit.js carregar
+      (function initPolling(){
+        let tries = 0;
+        const tid = setInterval(() => {
+          tries++;
+          if (exposeSendMessageIfExists()) {
+            attachButtonFallback();
+            clearInterval(tid);
+            return;
+          }
+          attachButtonFallback(); // tenta ligar mesmo que sendMessage não exista (para quando ficar disponível)
+          if (tries === 1) addKeyUI();
+          if (tries > 30) { // ~6s
+            uiLog('Polling expirou — algumas funcionalidades podem ainda ficar disponíveis se script carregar depois.', 'err');
+            clearInterval(tid);
+          }
+        }, 200);
+      })();
+
+      // expose a small helper on window for debugging
+      try { window.__YUNO_UI_HELPERS__ = { uiLog }; } catch(e){}
+    })();
+    </script>
+
+</body>
+</html>

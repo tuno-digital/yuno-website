@@ -1,0 +1,41 @@
+{
+    "version": "13.0",
+
+    "server": {
+        "port": 4455,
+        "maxRequestSize": "2mb"
+    },
+
+    "security": {
+        "requireApiKey": true,
+        "rateLimitWindowMs": 900000,
+        "rateLimitMaxRequests": 5000,
+        "allowedOrigins": ["http://localhost:3000"],
+        "safeMode": true
+    },
+
+    "paths": {
+        "project": ".",
+        "logs": "logs",
+        "tasks": "server/tasks",
+        "previews": "server/previews",
+        "memory": "server/memory",
+        "core": "server/core",
+        "config": "config"
+    },
+
+    "mode": {
+        "safe": true,
+        "autoExecute": false
+    },
+
+    "features": {
+        "enableAutoBuilder": false,
+        "enableRiskAnalyzer": true,
+        "enablePathAdvisor": true,
+        "enableAuditLogging": true,
+        "previewSandbox": true
+    },
+
+    "loggingLevel": "info"
+}

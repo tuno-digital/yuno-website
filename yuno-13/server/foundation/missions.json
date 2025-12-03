@@ -1,0 +1,75 @@
+{
+    "schemaVersion": "1.0",
+    "file": "missions.json",
+    "version": "13.0",
+
+    "metadata": {
+        "generatedAt": "2025-01-01T00:00:00Z",
+        "updatedAt": "2025-01-01T00:00:00Z",
+        "source": "yuno.foundation",
+        "syncedWithRoadmap": true
+    },
+
+    "missions": [
+        {
+            "id": "mission-1",
+            "title": "Construção Segura",
+            "description": "Gerar código, blueprints, previews e patches de forma 100% segura e supervisionada.",
+            "category": "core",
+            "priority": "alta",
+            "owner": "builder-engine",
+            "createdAt": "2025-01-01T00:00:00Z",
+            "dueDate": null,
+            "status": "active",
+            "blocking": false
+        },
+        {
+            "id": "mission-2",
+            "title": "Auto-Programação Responsável",
+            "description": "Criar e validar alterações sem nunca aplicar automaticamente.",
+            "category": "ia-core",
+            "priority": "alta",
+            "owner": "ia-engine",
+            "createdAt": "2025-01-01T00:00:00Z",
+            "dueDate": null,
+            "status": "active",
+            "blocking": true
+        },
+        {
+            "id": "mission-3",
+            "title": "Proteção Total",
+            "description": "Evitar destruição, regressões, vulnerabilidades e falhas na estrutura.",
+            "category": "security",
+            "priority": "crítica",
+            "owner": "security-engine",
+            "createdAt": "2025-01-01T00:00:00Z",
+            "dueDate": null,
+            "status": "active",
+            "blocking": true
+        },
+        {
+            "id": "mission-4",
+            "title": "Engenharia do Futuro",
+            "description": "Funcionamento claro, avançado, técnico e com raciocínio semelhante a um engenheiro real.",
+            "category": "innovation",
+            "priority": "média",
+            "owner": "yuno-core",
+            "createdAt": "2025-01-01T00:00:00Z",
+            "dueDate": null,
+            "status": "active",
+            "blocking": false
+        },
+        {
+            "id": "mission-5",
+            "title": "Aprendizagem Controlada",
+            "description": "Aprender padrões, mas nunca agir sem revisão.",
+            "category": "learning",
+            "priority": "alta",
+            "owner": "intent-engine",
+            "createdAt": "2025-01-01T00:00:00Z",
+            "dueDate": null,
+            "status": "active",
+            "blocking": true
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "environment": "development",
+    "debug": true,
+    "loggingLevel": "info",
+
+    "mode": {
+        "safe": true,
+        "autoExecute": false
+    }
+}
